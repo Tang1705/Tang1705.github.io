@@ -274,8 +274,8 @@
 
 <p>在图中，假设图像中心的像素坐标是$(u_0,v_0)$，相机中感光器件每个像素的物理尺寸是$dx * dy$，那么，图像坐标系的坐标$(x,y)$与像素坐标系的坐标$(u,v)$之间的关系可以表示为：</p>
 <p>$$<br>\begin{cases}<br>x=udx-u_0dx \[2ex]<br>y=vdy-v_0dy<br>\end{cases}<br>$$</p>
-<p>写成矩阵的形式就为：<br>$$ \begin{bmatrix} x \ y \ \end{bmatrix}=\begin{bmatrix}dx &amp; 0\0 &amp; dy\end{bmatrix}\begin{bmatrix} u\ v \ \end{bmatrix} +\begin{bmatrix} -u_0dx \ -v0d_y \ \end{bmatrix}$$</p>
-<p>改写为齐次坐标的形式：<br>$$ \begin{bmatrix} x \ y \1\ \end{bmatrix}=\begin{bmatrix}dx &amp; 0&amp;0\0 &amp; dy&amp;0\end{bmatrix}\begin{bmatrix} u\ v \0\ \end{bmatrix} +\begin{bmatrix} -u_0dx \ -v0d_y \ \end{bmatrix}=\begin{bmatrix}dx &amp; 0&amp;-u_0dx\0 &amp; dy&amp;-v_0dy\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix} u\ v \ 1\end{bmatrix}$$</p>
+<p>写成矩阵的形式就为：<br>$$ \begin{bmatrix} x \ y \ \end{bmatrix}=\begin{bmatrix}dx &amp; 0\\0 &amp; dy\end{bmatrix}\begin{bmatrix} u\ v \ \end{bmatrix} +\begin{bmatrix} -u_0dx \ -v0d_y \ \end{bmatrix}$$</p>
+<p>改写为齐次坐标的形式：<br>$$ \begin{bmatrix} x \ y \\1\ \end{bmatrix}=\begin{bmatrix}dx &amp; 0&amp;0\\0 &amp; dy&amp;0\end{bmatrix}\begin{bmatrix} u\ v \\0\ \end{bmatrix} +\begin{bmatrix} -u_0dx \ -v0d_y \ \end{bmatrix}=\begin{bmatrix}dx &amp; 0&amp;-u_0dx\\0 &amp; dy&amp;-v_0dy\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix} u\ v \ 1\end{bmatrix}$$</p>
 <hr>
 <h4 id="1-4-3、相机坐标系"><a href="#1-4-3、相机坐标系" class="headerlink" title="1.4.3、相机坐标系"></a>1.4.3、相机坐标系</h4><p>相机坐标系是以相机的光轴作为Z轴，光线在相机光学系统的中心位置就是原点$O_c$（实际上就是透镜的中心）,相机坐标系的水平轴$X_c$与垂直轴$Y_c$分别与图像坐标系的$X$轴和$Y$轴平行。在图中，相机坐标系的原点与图像坐标系的原点之间的距离$O_cO_i$之间的距离为$f$(也就是焦距)。<br>$ $</p>
 <div style="background-color:none;height:480px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/l2qsbx3b2e38upwbjrjkw3nu/03.png"></div>
@@ -285,7 +285,7 @@
 <div style="background-color:none;height:510px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/tbx9y1n8rivb23hb3hth9ok8/04.png"></div>
 
 
-<p>可以知道相机坐标系与图像坐标系的关系为：<br>$$\frac{O_cO_i}{O_cD}=\frac{O_i}{DA}=\frac{PC}{BA}=\frac{O_cC}{O_cA}\implies\frac{f}{Z_c}=\frac{x}{X_c}=\frac{y}{Y_c}\implies X_c=\frac{xZ_c}{f}\implies Y_c=\frac{yZ_c}{f}$$<br>$$\implies \begin{bmatrix}X_c\Y_c\Z_c\1\end{bmatrix}=\begin{bmatrix}\frac{z_c}{f}&amp;0&amp;0\0&amp;\frac{z_c}{f}&amp;0\0&amp;0&amp;Z_c\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}x\y\1\end{bmatrix}$$</p>
+<p>可以知道相机坐标系与图像坐标系的关系为：<br>$$\frac{O_cO_i}{O_cD}=\frac{O_i}{DA}=\frac{PC}{BA}=\frac{O_cC}{O_cA}\implies\frac{f}{Z_c}=\frac{x}{X_c}=\frac{y}{Y_c}\implies X_c=\frac{xZ_c}{f}\implies Y_c=\frac{yZ_c}{f}$$<br>$$\implies \begin{bmatrix}X_c\\Y_c\\Z_c\\1\end{bmatrix}=\begin{bmatrix}\frac{z_c}{f}&amp;0&amp;0\\0&amp;\frac{z_c}{f}&amp;0\\0&amp;0&amp;Z_c\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}x\\y\\1\end{bmatrix}$$</p>
 <p>好了，那么为什么$O_cO_i$这个距离是焦距呢？下面做一些推导。大部分的文章在介绍这一点的时候，也有欠缺，为什么像素坐标系会在相机坐标系的前面呢，按道理说，相机坐标系是以相机的透镜中心为原点，那像素坐标系和图像坐标系为什么不在后面呢？这里做一个说明。</p>
 <p>（1）本文的第一个图就是小孔成像的原理图。像平面就是成像的位置，这个是用户自己设定的，就是CCD传感器的位置，而焦平面就是镜头的焦距所在平面。当像平面刚好和焦平面重合时，此时所成的像是最清晰的。所以，这也就是为什么上面的公式中相机坐标系的原点到图像坐标系的原点的距离就是焦距。（实际上，由于物理条件的限制，像平面和焦平面是不可能完全重合的。）</p>
 <p>（2）同样是本文的第一个图，我们可以看到像平面在光学系统的右面，而在推导相机标定的坐标系关系时，却认为光线先通过成像平面，再在相机坐标系上汇聚到一个点，实际上，如果用下图来说明，可能就更清楚一点。就是推导的时候，把像平面用虚拟像平面代替了。</p>
@@ -298,19 +298,19 @@
 
 <p>当对相机坐标系安装一定的参数，分别绕着$X，Y，Z$轴做平移和旋转后，就得到在世界坐标系中的坐标。<br>平移表示：<br>$$<br>\begin{cases}<br>X_w=X_c+t_x<br>\[2ex]Y_w=Yc+t_y\[2ex]Z_w=Z_c+t_z<br>\end{cases}<br>$$</p>
 <p>而对于旋转，可以采用如下的方法，给定一个基本旋转矩阵和基本矩阵<br>$$R=\begin{bmatrix}cos\theta&amp;sin\theta\-sin\theta&amp;cos\theta \end{bmatrix}$$</p>
-<p>$$\begin{bmatrix}1&amp;0&amp;0&amp;0\0&amp;1&amp;0&amp;0\0&amp;0&amp;1&amp;0\0&amp;0&amp;0&amp;1\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}1&amp;0&amp;0&amp;0\\0&amp;1&amp;0&amp;0\\0&amp;0&amp;1&amp;0\\0&amp;0&amp;0&amp;1\end{bmatrix}$$</p>
 <p>对于三坐标轴旋转，当绕着X轴旋转时，保持基本矩阵的第1列不变，有如下的旋转矩阵：</p>
-<p>$$\begin{bmatrix}X_w&amp;Y_w&amp;Z_w&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}\begin{bmatrix}1&amp;0&amp;0&amp;0\0&amp;cos\alpha&amp;sin\alpha&amp;0\0&amp;-sin\alpha&amp;cos\alpha&amp;0\0&amp;0&amp;0&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}R_x$$</p>
+<p>$$\begin{bmatrix}X_w&amp;Y_w&amp;Z_w&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}\begin{bmatrix}1&amp;0&amp;0&amp;0\\0&amp;cos\alpha&amp;sin\alpha&amp;0\\0&amp;-sin\alpha&amp;cos\alpha&amp;0\\0&amp;0&amp;0&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}R_x$$</p>
 <p>当绕着Y轴旋转时，保持基本矩阵的第2列不变，有如下的旋转矩阵：</p>
-<p>$$\begin{bmatrix}Z_w&amp;Y_w&amp;X_w&amp;1\end{bmatrix}=\begin{bmatrix}Z_c&amp;Y_c&amp;X_c&amp;1\end{bmatrix}\begin{bmatrix}cos\beta&amp;0&amp;sin\beta&amp;0\0&amp;1&amp;0&amp;0\-sin\beta&amp;0&amp;cos\beta&amp;0\0&amp;0&amp;0&amp;1\end{bmatrix}$$$$\implies\begin{bmatrix}X_w&amp;Y_w&amp;Z_w&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}\begin{bmatrix}cos\beta&amp;0&amp;-sin\beta&amp;0\0&amp;1&amp;0&amp;0\sin\beta&amp;0&amp;cos\beta&amp;0\0&amp;0&amp;0&amp;1\end{bmatrix} $$$$=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}R_y$$</p>
+<p>$$\begin{bmatrix}Z_w&amp;Y_w&amp;X_w&amp;1\end{bmatrix}=\begin{bmatrix}Z_c&amp;Y_c&amp;X_c&amp;1\end{bmatrix}\begin{bmatrix}cos\beta&amp;0&amp;sin\beta&amp;0\\0&amp;1&amp;0&amp;0\-sin\beta&amp;0&amp;cos\beta&amp;0\\0&amp;0&amp;0&amp;1\end{bmatrix}$$$$\implies\begin{bmatrix}X_w&amp;Y_w&amp;Z_w&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}\begin{bmatrix}cos\beta&amp;0&amp;-sin\beta&amp;0\\0&amp;1&amp;0&amp;0\\sin\beta&amp;0&amp;cos\beta&amp;0\\0&amp;0&amp;0&amp;1\end{bmatrix} $$$$=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}R_y$$</p>
 <p>当绕着Z轴旋转时，保持基本矩阵的第3列不变，有如下的旋转矩阵</p>
-<p>$$\begin{bmatrix}X_w&amp;Y_w&amp;Z_w&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}\begin{bmatrix}cos\gamma&amp;sin\gamma&amp;0&amp;0\-sin\gamma&amp;cos\gamma&amp;0&amp;0\0&amp;0&amp;1&amp;0\0&amp;0&amp;0&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}R_z$$</p>
+<p>$$\begin{bmatrix}X_w&amp;Y_w&amp;Z_w&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}\begin{bmatrix}cos\gamma&amp;sin\gamma&amp;0&amp;0\-sin\gamma&amp;cos\gamma&amp;0&amp;0\\0&amp;0&amp;1&amp;0\\0&amp;0&amp;0&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}R_z$$</p>
 <p>那么，整个相机坐标系到世界坐标系的变换公式为</p>
-<p>$$\begin{bmatrix}X_w&amp;Y_w&amp;Z_w&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}\begin{bmatrix}R&amp;0\T&amp;1\end{bmatrix}$$<br>$$R=R_xR_yR_z$$<br>$$T=\begin{bmatrix}t_x&amp;t_y&amp;t_z\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}X_w&amp;Y_w&amp;Z_w&amp;1\end{bmatrix}=\begin{bmatrix}X_c&amp;Y_c&amp;Z_c&amp;1\end{bmatrix}\begin{bmatrix}R&amp;0\\T&amp;1\end{bmatrix}$$<br>$$R=R_xR_yR_z$$<br>$$T=\begin{bmatrix}t_x&amp;t_y&amp;t_z\end{bmatrix}$$</p>
 <hr>
 <h3 id="1-5、相机的内参和外参"><a href="#1-5、相机的内参和外参" class="headerlink" title="1.5、相机的内参和外参"></a>1.5、相机的内参和外参</h3><hr>
 <p>通过前面的几个步骤，我们已经得到了各个坐标系之间的相互转换关系，进一步的就可以得到从像素坐标系到世界坐标系的变换关系：</p>
-<p>$$\begin{bmatrix}X_w\Y_w\Z_w\1\end{bmatrix}=\color{red}{\begin{bmatrix}R&amp;T<br>\0&amp;1\end{bmatrix}}\color{blue}{\begin{bmatrix}\frac{Z_cdx}{f}&amp;0&amp;\frac{-Z_cu_0dx}{f}\0&amp;\frac{Z_cdy}{f}&amp;\frac{-Z_cv_0dx}{f}\0&amp;0&amp;Z_c\0&amp;0&amp;1\end{bmatrix}}\begin{bmatrix}u\v\1\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix}=\color{red}{\begin{bmatrix}R&amp;T<br>\\0&amp;1\end{bmatrix}}\color{blue}{\begin{bmatrix}\frac{Z_cdx}{f}&amp;0&amp;\frac{-Z_cu_0dx}{f}\\0&amp;\frac{Z_cdy}{f}&amp;\frac{-Z_cv_0dx}{f}\\0&amp;0&amp;Z_c\\0&amp;0&amp;1\end{bmatrix}}\begin{bmatrix}u\\v\\1\end{bmatrix}$$</p>
 <p>公式中，红色的框就表示相机的外参，可以看到，外参就是相机相对于世界坐标系的旋转和平移变换关系。内参是相机固有的属性，实际上就是焦距，像元尺寸。同时还可以看到，公式中有一个$Z_c$，它表示物体离光学中心的距离。这也就说明，在标定的时候，如果物体在距离相机的不同位置，那么我们就必须在不同的位置对相机做标定。简单点来理解就是，当物体离相机远的时候，在图像上就很小，那么一个像素代表的实际尺寸就大，当物体离相机近的时候，那么成像效果就大，一个像素代表的实际物体尺寸就小。因此，对于每一个位置都需要去标定。</p>
 <hr>
 <h3 id="1-6、齐次坐标系"><a href="#1-6、齐次坐标系" class="headerlink" title="1.6、齐次坐标系"></a>1.6、齐次坐标系</h3><hr>
@@ -323,22 +323,22 @@
 <p>点坐标：$$P=(x,y,z)$$向量：$$\overrightarrow{A}=x\overrightarrow{i}+y\overrightarrow{j}+z\overrightarrow{k}$$</p>
 <p>由于向量只有方向和大小，如何只给出（x,y,z）,无法知晓这到底是向量还是点。好了，如何来做呢。</p>
 <p>$P$可以看做是一个点相对于原点的位移，那么<br>$$P-\overrightarrow{O}=x\overrightarrow{i}+y\overrightarrow{j}+z\overrightarrow{k}\implies P=\overrightarrow{O}+x\overrightarrow{i}+y\overrightarrow{j}+z\overrightarrow{k}$$</p>
-<p>通过矩阵的变换<br>$$p=\begin{bmatrix}\overrightarrow{i}&amp;\overrightarrow{j}&amp;\overrightarrow{k}&amp;\overrightarrow{o}\end{bmatrix}\begin{bmatrix}x\y\z\1\end{bmatrix}$$<br>$$A=\begin{bmatrix}\overrightarrow{i}&amp;\overrightarrow{j}&amp;\overrightarrow{k}&amp;\overrightarrow{o}\end{bmatrix}\begin{bmatrix}x\y\z\0\end{bmatrix}$$</p>
+<p>通过矩阵的变换<br>$$p=\begin{bmatrix}\overrightarrow{i}&amp;\overrightarrow{j}&amp;\overrightarrow{k}&amp;\overrightarrow{o}\end{bmatrix}\begin{bmatrix}x\\y\\z\\1\end{bmatrix}$$<br>$$A=\begin{bmatrix}\overrightarrow{i}&amp;\overrightarrow{j}&amp;\overrightarrow{k}&amp;\overrightarrow{o}\end{bmatrix}\begin{bmatrix}x\\y\\z\\0\end{bmatrix}$$</p>
 <p>可以看到，点和向量区分的方式是最后一个数值是否为1。</p>
 <p>即：<br>(1) 从普通坐标系变换到齐次坐标系如果是点$(x,y,z)$则变换为$(x,y,z,1)$，如果是向量$(x,y,z)$则变换为$(x,y,z,0)$；<br>(2) 从齐次坐标系变换到普通坐标系如果是点$(x,y,z,1)$则变换为$(x,y,z)$，如果是向量$(x,y,z,0)$则变换为$(x,y,z)$。</p>
 <hr>
 <h3 id="1-7、相机模型小结"><a href="#1-7、相机模型小结" class="headerlink" title="1.7、相机模型小结"></a>1.7、相机模型小结</h3><hr>
 <p>(1). 图像坐标系到素转化<br>由于相机的像素具有物理尺寸，设每个为由于相机的像素具有物理尺寸，设每个为$dx$和$dy$，则任意像 ，则任意像素在像素坐标系和图像坐标系的关系如下所示：<br>$$u=\frac{x}{dx}+u_0$$<br>$$v=\frac{y}{dy}+v0$$</p>
-<p>写成矩阵形式为：<br>$$\begin{bmatrix}u\v\1\end{bmatrix}=\begin{bmatrix}\frac{1}{dx}&amp;0&amp;u_0\0&amp;\frac{1}{dy}&amp;v_0\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}x\y\1\end{bmatrix}$$</p>
+<p>写成矩阵形式为：<br>$$\begin{bmatrix}u\\v\\1\end{bmatrix}=\begin{bmatrix}\frac{1}{dx}&amp;0&amp;u_0\\0&amp;\frac{1}{dy}&amp;v_0\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}x\\y\\1\end{bmatrix}$$</p>
 <p>其中$(x,y)$和$(u,v)$分别为物体的图像坐标和像素坐标，$(u_0,v_0)$为图像坐标系原点在像素坐标系下的摄像机光轴与平面相交处。理论位于图像中心。</p>
 <p>(2). 相机坐标系到图像转化<br>设相机坐标系下物体为$(x_c,y_c,z_c)$，图像坐标为$x,y$.根据相似三角形原理可知：<br>$$x=\frac{f}{z_c}x_c$$<br>$$y=\frac{f}{z_c}y_c$$</p>
-<p>写成矩阵形式为：<br>$$\begin{bmatrix}x\y\1\end{bmatrix}=\frac{1}{z_c}\begin{bmatrix}f&amp;0&amp;0&amp;0\0&amp;f&amp;0&amp;0\0&amp;0&amp;1&amp;0\end{bmatrix}\begin{bmatrix}x_c\y_c\z_c\1\end{bmatrix}$$</p>
-<p>(3). 世界坐标系到相机转化<br>设世界坐标系下物体坐标为$(x_w,y_w,z_w)$，相机坐标系下坐标为$(x_c,y_c,z_c)$，二者具有线性转化关系。在齐次坐标系下二者可用下面等式转化：<br>$$\begin{bmatrix}x_c\y_c\z_c\1\end{bmatrix}=\begin{bmatrix}R&amp;t\0&amp;1\end{bmatrix}\begin{bmatrix}x_w\y_w\z_c\1\end{bmatrix}$$</p>
+<p>写成矩阵形式为：<br>$$\begin{bmatrix}x\\y\\1\end{bmatrix}=\frac{1}{z_c}\begin{bmatrix}f&amp;0&amp;0&amp;0\\0&amp;f&amp;0&amp;0\\0&amp;0&amp;1&amp;0\end{bmatrix}\begin{bmatrix}x_c\\y_c\\z_c\\1\end{bmatrix}$$</p>
+<p>(3). 世界坐标系到相机转化<br>设世界坐标系下物体坐标为$(x_w,y_w,z_w)$，相机坐标系下坐标为$(x_c,y_c,z_c)$，二者具有线性转化关系。在齐次坐标系下二者可用下面等式转化：<br>$$\begin{bmatrix}x_c\\y_c\\z_c\\1\end{bmatrix}=\begin{bmatrix}R&amp;t\\0&amp;1\end{bmatrix}\begin{bmatrix}x_w\\y_w\\z_c\\1\end{bmatrix}$$</p>
 <p>其中，$R$为3*3正交旋转矩阵，$t$为平移向量。</p>
 <p>综上，坐标转化可写为</p>
-<p>$$z_c\begin{bmatrix}u\v\1\end{bmatrix}=\begin{bmatrix}\frac{1}{dx}&amp;0&amp;u_0\0&amp;\frac{1}{dy}&amp;v_0\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}f&amp;0&amp;0&amp;0\0&amp;f&amp;0&amp;0\0&amp;0&amp;1&amp;0\end{bmatrix}\begin{bmatrix}x_w\y_w\z_w\1\end{bmatrix}$$<br>$$=\begin{bmatrix}a_x&amp;0&amp;u_0&amp;0\0&amp;a_y&amp;v_0&amp;0\0&amp;0&amp;1&amp;0\end{bmatrix}\begin{bmatrix}R&amp;t\0&amp;1\end{bmatrix}\begin{bmatrix}x_w\y_w\z_w\1\end{bmatrix}$$<br>$$=KM\begin{bmatrix}x_w\y_w\z_w\1\end{bmatrix}$$</p>
-<p>$$\begin{bmatrix}u\v\1\end{bmatrix}=\lambda KM\begin{bmatrix}x_w\y_w\z_w\1\end{bmatrix}=\lambda K\begin{bmatrix}r_1&amp;r_2&amp;r_3&amp;t\end{bmatrix}\begin{bmatrix}x_w\y_e\z_w\1\end{bmatrix}$$</p>
-<p>当物体在世界坐标系下的$z_w$坐标为0时，上面的式子可简化为：<br>$$\begin{bmatrix}u\v\1\end{bmatrix}=\lambda K\begin{bmatrix}r_1&amp;r_2&amp;r_3&amp;t\end{bmatrix}\begin{bmatrix}x_w\y_w\0\1\end{bmatrix}=\lambda K\begin{bmatrix}r_1&amp;r_2&amp;t\end{bmatrix}\begin{bmatrix}x_w\y_w\1\end{bmatrix}=H\begin{bmatrix}x_w\y_w\1\end{bmatrix}$$</p>
+<p>$$z_c\begin{bmatrix}u\\v\\1\end{bmatrix}=\begin{bmatrix}\frac{1}{dx}&amp;0&amp;u_0\\0&amp;\frac{1}{dy}&amp;v_0\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}f&amp;0&amp;0&amp;0\\0&amp;f&amp;0&amp;0\\0&amp;0&amp;1&amp;0\end{bmatrix}\begin{bmatrix}x_w\\y_w\\z_w\\1\end{bmatrix}$$<br>$$=\begin{bmatrix}a_x&amp;0&amp;u_0&amp;0\\0&amp;a_y&amp;v_0&amp;0\\0&amp;0&amp;1&amp;0\end{bmatrix}\begin{bmatrix}R&amp;t\\0&amp;1\end{bmatrix}\begin{bmatrix}x_w\\y_w\\z_w\\1\end{bmatrix}$$<br>$$=KM\begin{bmatrix}x_w\\y_w\\z_w\\1\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}u\\v\\1\end{bmatrix}=\lambda KM\begin{bmatrix}x_w\\y_w\\z_w\\1\end{bmatrix}=\lambda K\begin{bmatrix}r_1&amp;r_2&amp;r_3&amp;t\end{bmatrix}\begin{bmatrix}x_w\\y_e\\z_w\\1\end{bmatrix}$$</p>
+<p>当物体在世界坐标系下的$z_w$坐标为0时，上面的式子可简化为：<br>$$\begin{bmatrix}u\\v\\1\end{bmatrix}=\lambda K\begin{bmatrix}r_1&amp;r_2&amp;r_3&amp;t\end{bmatrix}\begin{bmatrix}x_w\\y_w\\0\\1\end{bmatrix}=\lambda K\begin{bmatrix}r_1&amp;r_2&amp;t\end{bmatrix}\begin{bmatrix}x_w\\y_w\\1\end{bmatrix}=H\begin{bmatrix}x_w\\y_w\\1\end{bmatrix}$$</p>
 <p>由于矩阵$K$只由相机本身决定，所以称为相机内参矩阵，$M$为外参矩阵，H为单应性矩阵。由于计算的坐标系为齐次坐标系，所以$H$的自由度为8。</p>
 <hr>
 <h3 id="1-8、张正友标定法"><a href="#1-8、张正友标定法" class="headerlink" title="1.8、张正友标定法"></a>1.8、张正友标定法</h3><p>张氏标定方法是张正友在 1998 年提出的基于一个平面的棋盘格标定的方法。</p>
@@ -356,12 +356,12 @@
 <div style="background-color:none;height:250px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/xiijqivca2lbfk13vohp6il2/10.png"></div>
 公式如下：
 
-<p>$$\frac{1}{Z_c}\begin{bmatrix}u\v\1\end{bmatrix}=\begin{bmatrix}\frac{f}{S_x}&amp;r&amp;u_0\0&amp;\frac{f}{S_y}&amp;v_0\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}R_{3\times 3}&amp;T_{3\times 1}\O&amp;1\end{bmatrix}\begin{bmatrix}X_w\Y_w\Z_w\1\end{bmatrix}=K_{3\times 3}\begin{bmatrix}R_{3\times 3}&amp;T_{3\times 1}\O&amp;1\end{bmatrix}\begin{bmatrix}X_w\Y_w\Z_w\1\end{bmatrix}$$</p>
-<p>$$s\begin{bmatrix}u\v\1\end{bmatrix}=P_{3\times 4}\begin{bmatrix}X_w\Y_w\Z_w\1\end{bmatrix}$$</p>
+<p>$$\frac{1}{Z_c}\begin{bmatrix}u\\v\\1\end{bmatrix}=\begin{bmatrix}\frac{f}{S_x}&amp;r&amp;u_0\\0&amp;\frac{f}{S_y}&amp;v_0\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}R_{3\times 3}&amp;T_{3\times 1}\\O&amp;1\end{bmatrix}\begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix}=K_{3\times 3}\begin{bmatrix}R_{3\times 3}&amp;T_{3\times 1}\\O&amp;1\end{bmatrix}\begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix}$$</p>
+<p>$$s\begin{bmatrix}u\\v\\1\end{bmatrix}=P_{3\times 4}\begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix}$$</p>
 <p>$K_{3\times 3}$：摄像机内参矩阵（含5个内参）<br>$P_{3\times 4}$：透视投影矩阵<br>$s=\frac{1}{Z_c}$：未知的尺度因子</p>
 <p>为了和张正友教授的论文<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=888718" target="_blank" rel="noopener">(A flexible new technique for camera calibration Z. Zhang) </a>相统一，现在把公式符号统一一下。</p>
-<p>$$s\begin{bmatrix}u\v\1\end{bmatrix}=P_{3\times 4}\begin{bmatrix}X_w\Y_w\Z_w\1\end{bmatrix}\implies s\begin{bmatrix}u\v\1\end{bmatrix}=A\begin{bmatrix}R_{3\times 3}&amp;t_{3\times 1}\end{bmatrix}\begin{bmatrix}X_w\Y_w\Z_w\1\end{bmatrix}$$</p>
-<p>令$\tilde{m}=[u,v,1]^T,\tilde{M}=[X,Y,Z,1]^T,s\tilde{m}=A\begin{bmatrix}R &amp;t\end{bmatrix}\tilde{M}$,<br>且$K_{3\times 3}\implies A=\begin{bmatrix}\alpha&amp;\gamma&amp;u_0\0&amp;\beta&amp;v_0\0&amp;0&amp;1\end{bmatrix},R_{3\times 3}=\begin{bmatrix}r_1&amp;r_2&amp;r_3\end{bmatrix}$</p>
+<p>$$s\begin{bmatrix}u\\v\\1\end{bmatrix}=P_{3\times 4}\begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix}\implies s\begin{bmatrix}u\\v\\1\end{bmatrix}=A\begin{bmatrix}R_{3\times 3}&amp;t_{3\times 1}\end{bmatrix}\begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix}$$</p>
+<p>令$\tilde{m}=[u,v,1]^T,\tilde{M}=[X,Y,Z,1]^T,s\tilde{m}=A\begin{bmatrix}R &amp;t\end{bmatrix}\tilde{M}$,<br>且$K_{3\times 3}\implies A=\begin{bmatrix}\alpha&amp;\gamma&amp;u_0\\0&amp;\beta&amp;v_0\\0&amp;0&amp;1\end{bmatrix},R_{3\times 3}=\begin{bmatrix}r_1&amp;r_2&amp;r_3\end{bmatrix}$</p>
 <p>在推导中，需有以下数学基础：</p>
 <ul>
 <li>第一点：旋转向量$R$为正交矩阵，所以有以下的性质：<ul>
@@ -377,9 +377,9 @@
 <p>因为张氏标定是一种基于平面棋盘格的标定，所以想要搞懂张氏标定，首先应该从两个平面的单应性(Homography)映射开始着手。<br>单应性(Homography) ： 在计算机视觉中被定义为一个平面到另一个平面的投影映射。首先看一下，图像平面与标定物棋盘格平面的单应性.</p>
 </blockquote>
 <p>因为标定物是平面，所以我们可以把世界坐标系构造在 Z = 0 的平面上。然后进行单应性计算。令 Z = 0 可以将上式转换为如下形式：</p>
-<p>$$s\begin{bmatrix}u\v\1\end{bmatrix}=A\begin{bmatrix}r_1&amp;r_2&amp;r_3&amp;t\end{bmatrix}\begin{bmatrix}X\Y\0\1\end{bmatrix}=A\begin{bmatrix}r_1&amp;r_2&amp;t\end{bmatrix}\begin{bmatrix}X\Y\1\end{bmatrix}$$</p>
+<p>$$s\begin{bmatrix}u\\v\\1\end{bmatrix}=A\begin{bmatrix}r_1&amp;r_2&amp;r_3&amp;t\end{bmatrix}\begin{bmatrix}X\\Y\\0\\1\end{bmatrix}=A\begin{bmatrix}r_1&amp;r_2&amp;t\end{bmatrix}\begin{bmatrix}X\\Y\\1\end{bmatrix}$$</p>
 <p>$$s\tilde{m}=H\tilde{M},H=A\begin{bmatrix}r_1&amp;r_2&amp;t\end{bmatrix}$$</p>
-<p>H就是单应性矩阵，即<br>$$s\begin{bmatrix}u\v\1\end{bmatrix}=H\begin{bmatrix}X\Y\1\end{bmatrix},令H=\begin{bmatrix}h_1&amp;h_2&amp;h_3\end{bmatrix}$$</p>
+<p>H就是单应性矩阵，即<br>$$s\begin{bmatrix}u\\v\\1\end{bmatrix}=H\begin{bmatrix}X\\Y\\1\end{bmatrix},令H=\begin{bmatrix}h_1&amp;h_2&amp;h_3\end{bmatrix}$$</p>
 <p>H 是一个$3\times 3$的矩阵，并且有一个元素作为齐次坐标。因此，H有8个未知量待解（可以分析一下，A 有5个未知量，后面的$[r_1,r_2,t]$有三个未知量，一共8个）。</p>
 <p>$(X,Y)$作为标定物的坐标，可以由设计者人为控制，是已知量 。$(u,v)$ 是像素坐标，我们可以直接通过摄像机获得。一组对应的 $(X,Y) - (u,v)$ 我们可以获得两组方程。</p>
 <p>现在有8个未知量待求，所以至少要8个方程。所以至少需要4组对应的点。所以有4组$(X,Y) - (u,v)$就可以算出，图像平面到世界平面的 单应性矩阵H，这也是张正友标定采用四个角点的棋盘作为标定物的一个原因（笔者推测）。</p>
@@ -389,7 +389,7 @@
 <p>上式中的$h_1,h_2$是通过求解单应性矩阵$H$ 求出来的，所以未知量只剩下内参矩阵$A$。$A$中含有5个参数，如果需要完全解出来这5个未知量，则需要3个不同的单应性矩阵H（因为3个不同的单应性矩阵$H$在2个约束条件下可以产生6个方程），那么如何得到3个不同的单应性矩阵$H$呢？那就是3张不同的标定平面的照片，我们大多是通过改变摄像机与标定板间的相对位置来获得不同的标定照片（如果用2张照片进行标定，就要舍去一个内参 r=0）。 </p>
 <p>当然这只是张正友标定法不断变换标定板方位的 第一个原因 。第二个原因 是张正友提到的 最大似然估计 。</p>
 <p>令</p>
-<p>$$B=A^{-T}A^{-1}\equiv\begin{bmatrix}B_{11}&amp;B_{12}&amp;B_{13}\B_{21}&amp;B_{22}&amp;B_{23}\B_{31}&amp;B_{32}&amp;B_{33}\end{bmatrix}$$<br>$$=\begin{bmatrix}\frac{1}{\alpha^2}&amp;-\frac{\gamma}{\alpha^2\beta}&amp;\frac{v_0\gamma-u_0\beta}{\alpha^2\beta}\-\frac{\gamma}{\alpha^2\beta}&amp;\frac{\gamma^2}{\alpha^2\beta^2}+\frac{1}{\beta^2}&amp;-\frac{\gamma(v_0\gamma-u_0\beta)}{\alpha^2\beta^2}-\frac{v_0}{\beta^2}\\frac{v_0\gamma-u_0\beta}{\alpha^2\beta}&amp;-\frac{\gamma(v_0\gamma-u_0\beta)}{\alpha^2\beta^2}-\frac{v_0}{\beta^2}&amp;\frac{(v_0\gamma-u_0\beta)^2}{\alpha^2\beta^2}+\frac{v_0^2}{\beta^2}+1\end{bmatrix}$$</p>
+<p>$$B=A^{-T}A^{-1}\equiv\begin{bmatrix}B_{11}&amp;B_{12}&amp;B_{13}\\B_{21}&amp;B_{22}&amp;B_{23}\\B_{31}&amp;B_{32}&amp;B_{33}\end{bmatrix}$$<br>$$=\begin{bmatrix}\frac{1}{\alpha^2}&amp;-\frac{\gamma}{\alpha^2\beta}&amp;\frac{v_0\gamma-u_0\beta}{\alpha^2\beta}\-\frac{\gamma}{\alpha^2\beta}&amp;\frac{\gamma^2}{\alpha^2\beta^2}+\frac{1}{\beta^2}&amp;-\frac{\gamma(v_0\gamma-u_0\beta)}{\alpha^2\beta^2}-\frac{v_0}{\beta^2}\\\frac{v_0\gamma-u_0\beta}{\alpha^2\beta}&amp;-\frac{\gamma(v_0\gamma-u_0\beta)}{\alpha^2\beta^2}-\frac{v_0}{\beta^2}&amp;\frac{(v_0\gamma-u_0\beta)^2}{\alpha^2\beta^2}+\frac{v_0^2}{\beta^2}+1\end{bmatrix}$$</p>
 <p>可以看出 矩阵$B$是一个对称矩阵，有效的元素只有6个，所以定义一个6维的向量<br>$$b=[B_{11},B_{12},B_{13},B_{22},B_{23},B_{33}]^T$$</p>
 <p>假设$H$的第$i$列向量为$h_i=[h_{i1},h_{i2},h_{i3}]^T$，然后我们可以得到<br>$$h_1^T=Bh_j=v_{ij}^Tb$$<br>式中$v_{ij}=[h_{i1}h_{j1},h_{i1}h_{j2}+h_{i2}h{j1},h_{i2}h_{j2},h_{i3}h_{j1}+h_{i1}h_{j3},h_{i3}h_{j2}+h_{i2}h_{j3},h_{i3}h_{j3}]^T$,于是，两个基本约束式可以写为齐次式<br>$$\begin{bmatrix}v_{12}^T\(v_{11}-v_{22})^T\end{bmatrix}$$</p>
 <p>如果观测了n张图片，迭代可以得到<br>$$Vb=0$$</p>
@@ -401,16 +401,16 @@
 <hr>
 <h3 id="1-9、张正友标定法小结"><a href="#1-9、张正友标定法小结" class="headerlink" title="1.9、张正友标定法小结"></a>1.9、张正友标定法小结</h3><hr>
 <p>相机标定 分为两步，第一步通过同幅图片中的对应点计算单性矩阵，第一步通过同幅图片中的对应点计算单性矩阵，二步利用不同图片提供的约束求解内参和外数。这里我们令$Z_w=0$。</p>
-<p>(1)单应性矩阵计算<br>$$H=\lambda K\begin{bmatrix}r_1&amp;r_2&amp;t\end{bmatrix}=\begin{bmatrix}h_1&amp;h_2&amp;h_3\end{bmatrix}=\begin{bmatrix}h_{11}&amp;h_{12}&amp;h_{13}\h_{21}&amp;h_{22}&amp;h_{23}\h_{31}&amp;h_{32}&amp;h_{33}\end{bmatrix}$$</p>
-<p>由于$H$的自由度为8，所以我们可以令$h_{33}=1$，根据世界坐标系与像素坐标系的关系：<br>$$\begin{bmatrix}u\v\1\end{bmatrix}=\begin{bmatrix}h_{11}&amp;h_{12}&amp;h_{13}\h_{21}&amp;h_{22}&amp;h_{23}\h_{31}&amp;h_{32}&amp;1\end{bmatrix}\begin{bmatrix}x_w\y_w\1\end{bmatrix}$$</p>
+<p>(1)单应性矩阵计算<br>$$H=\lambda K\begin{bmatrix}r_1&amp;r_2&amp;t\end{bmatrix}=\begin{bmatrix}h_1&amp;h_2&amp;h_3\end{bmatrix}=\begin{bmatrix}h_{11}&amp;h_{12}&amp;h_{13}\\h_{21}&amp;h_{22}&amp;h_{23}\\h_{31}&amp;h_{32}&amp;h_{33}\end{bmatrix}$$</p>
+<p>由于$H$的自由度为8，所以我们可以令$h_{33}=1$，根据世界坐标系与像素坐标系的关系：<br>$$\begin{bmatrix}u\\v\\1\end{bmatrix}=\begin{bmatrix}h_{11}&amp;h_{12}&amp;h_{13}\\h_{21}&amp;h_{22}&amp;h_{23}\\h_{31}&amp;h_{32}&amp;1\end{bmatrix}\begin{bmatrix}x_w\\y_w\\1\end{bmatrix}$$</p>
 <p>我们可以得到两个方程：<br>$$\begin{cases}h_{31}x_wu+h_{32}y_wu+u=h_{11}y_w+h_{12}y_w+h_{13}\[2ex]h_{31}x_wv+h_{32}y_wv+v=h_{21}x_w+h_{22}y_w+h_{23}\end{cases}$$</p>
-<p>将其写为矩阵形式：<br>$$\begin{bmatrix}x_w&amp;y_w&amp;1&amp;0&amp;0&amp;0&amp;-ux_w&amp;-uy_w&amp;-u\0&amp;0&amp;0&amp;x_w&amp;y_w&amp;1&amp;-vx_w&amp;-vy_w&amp;-v\end{bmatrix}\begin{bmatrix}h_{11}\h_{12}\h_{13}\h_{21}\h_{22}\h_{23}\h_{31}\h_{32}\1\end{bmatrix}=Sh=0$$</p>
+<p>将其写为矩阵形式：<br>$$\begin{bmatrix}x_w&amp;y_w&amp;1&amp;0&amp;0&amp;0&amp;-ux_w&amp;-uy_w&amp;-u\\0&amp;0&amp;0&amp;x_w&amp;y_w&amp;1&amp;-vx_w&amp;-vy_w&amp;-v\end{bmatrix}\begin{bmatrix}h_{11}\\h_{12}\\h_{13}\\h_{21}\\h_{22}\\h_{23}\\h_{31}\\h_{32}\\1\end{bmatrix}=Sh=0$$</p>
 <p>该方程的未知参数有8个，因此确定4个点的世界坐标与像素对应关系即可求解该方程。我们通常取同一张图片的多个点求该方程的最小二乘解，解得的$h$为$S^TS$的最小特征值对应的特征向量 。</p>
 <p>(2)内外参数计算<br>上面的方法计算的单应性矩阵与真实单应性矩阵可能相差一个比例因子。即：<br>$$\begin{bmatrix}h_1&amp;h_2&amp;h_3\end{bmatrix}=\lambda K\begin{bmatrix}r_1&amp;r_2&amp;r_3\end{bmatrix}$$</p>
 <p>由于$r_1$和$r_2$为正交的单位向量，因此得到两个约束$r_1^Tr_2=0$,$||r_1||=||r_2||=1$。</p>
 <p>又因为$r_1=\frac{1}{\lambda}K^{-1}h_1,r_2=\frac{1}{\lambda}K^{-1}h_2$，故：<br>$$h_1^TK^{-T}K^{-1}h_2=0$$<br>$$h_1^TK^{-T}K^{-1}h_1=h_2^TK^{-T}K^{-1}h_2$$</p>
-<p>令$B=K^{-T}K^{-1}$，$B$为对称矩阵。其中：<br>$$K=\begin{bmatrix}\alpha_x&amp;\gamma&amp;u_0\0&amp;a_y&amp;v_0\0&amp;0&amp;1\end{bmatrix},K^{-1}=\begin{bmatrix}\frac{1}{a_x}&amp;-\frac{\gamma}{a_xa_y}&amp;\frac{\gamma v_0-a_yu_0}{a_xa_y}\0&amp;\frac{1}{a_y}&amp;-\frac{v_0}{a_y}\0&amp;0&amp;1\end{bmatrix}$$</p>
-<p>$$K^{-T}K^{-1}=\begin{bmatrix}\frac{1}{a_x}&amp;0&amp;0\-\frac{\gamma}{a_xa_y}&amp;\frac{1}{a_y}&amp;0\\frac{\gamma v_0-a_yu_0}{a_xa_y}&amp;-\frac{v_0}{a_y}&amp;1\end{bmatrix}\begin{bmatrix}\frac{1}{a_x}&amp;-\frac{\gamma}{a_xa_y}&amp;\frac{\gamma v_0-a_yu_0}{a_xa_y}\0&amp;\frac{1}{a_y}&amp;-\frac{v_0}{a_y}\0&amp;0&amp;1\end{bmatrix}$$<br>$$=\begin{bmatrix}\frac{1}{a_x^2}&amp;-\frac{\gamma}{a_x^2a_y}&amp;\frac{\gamma v_0-a_yu_0}{a_x^2a_y}\-\frac{\gamma}{a_x^2a_y}&amp;\frac{\gamma^2}{a_x^2a_y^2}+\frac{1}{a_y^2}&amp;-\frac{\gamma(\gamma v_0-a_yu_0)}{a_x^2a_y^2}-\frac{v_0}{a_y^2}\\frac{\gamma v_0-a_yu_0}{a_x^2a_y}&amp;-\frac{\gamma(\gamma v_0-a_yu_0)}{a_x^2a_y^2}-\frac{v_0}{a_y^2}&amp;\frac{(\gamma v_0-a_yu_0)^2}{a_x^2a_y^2}+\frac{v_0^2}{a_y^2}+1\end{bmatrix}$$</p>
+<p>令$B=K^{-T}K^{-1}$，$B$为对称矩阵。其中：<br>$$K=\begin{bmatrix}\alpha_x&amp;\gamma&amp;u_0\\0&amp;a_y&amp;v_0\\0&amp;0&amp;1\end{bmatrix},K^{-1}=\begin{bmatrix}\frac{1}{a_x}&amp;-\frac{\gamma}{a_xa_y}&amp;\frac{\gamma v_0-a_yu_0}{a_xa_y}\\0&amp;\frac{1}{a_y}&amp;-\frac{v_0}{a_y}\\0&amp;0&amp;1\end{bmatrix}$$</p>
+<p>$$K^{-T}K^{-1}=\begin{bmatrix}\frac{1}{a_x}&amp;0&amp;0\-\frac{\gamma}{a_xa_y}&amp;\frac{1}{a_y}&amp;0\\\frac{\gamma v_0-a_yu_0}{a_xa_y}&amp;-\frac{v_0}{a_y}&amp;1\end{bmatrix}\begin{bmatrix}\frac{1}{a_x}&amp;-\frac{\gamma}{a_xa_y}&amp;\frac{\gamma v_0-a_yu_0}{a_xa_y}\\0&amp;\frac{1}{a_y}&amp;-\frac{v_0}{a_y}\\0&amp;0&amp;1\end{bmatrix}$$<br>$$=\begin{bmatrix}\frac{1}{a_x^2}&amp;-\frac{\gamma}{a_x^2a_y}&amp;\frac{\gamma v_0-a_yu_0}{a_x^2a_y}\-\frac{\gamma}{a_x^2a_y}&amp;\frac{\gamma^2}{a_x^2a_y^2}+\frac{1}{a_y^2}&amp;-\frac{\gamma(\gamma v_0-a_yu_0)}{a_x^2a_y^2}-\frac{v_0}{a_y^2}\\\frac{\gamma v_0-a_yu_0}{a_x^2a_y}&amp;-\frac{\gamma(\gamma v_0-a_yu_0)}{a_x^2a_y^2}-\frac{v_0}{a_y^2}&amp;\frac{(\gamma v_0-a_yu_0)^2}{a_x^2a_y^2}+\frac{v_0^2}{a_y^2}+1\end{bmatrix}$$</p>
 <p>上面的$K^{-T}K^{-1}$由于是对称矩阵，因此共有6个未知矩阵元素，这6个未知量由内参的5个子参数构成。</p>
 <p>令：<br>$$b=\begin{bmatrix}B_{11}&amp;B_{12}&amp;B_{22}&amp;B_{13}&amp;B_{23}&amp;B_{33}\end{bmatrix}^T$$<br>$$v_{ij}=\begin{bmatrix}h_{i1}h_{j1}&amp;h_{i1}h_{j2}+h_{i2}h_{j1}&amp;h_{i1}h_{j3}+h{i3}h_{j1}&amp;h_{i2}h_{j3}+h_{i3}h_{j2}&amp;h_{i3}h_{j3}\end{bmatrix}^T$$</p>
 <p>则有：<br>$$\begin{cases}h_1^TK^{-T}K_{-1}h_2=0\[2ex]h_1^TK^{-T}K^{-1}h_1=h_2^TK^{-T}K^{-1}h_2\end{cases}\iff\begin{bmatrix}v_{12}^T\(v_{11}-v_{22})^T\end{bmatrix}b=0$$</p>
@@ -458,10 +458,10 @@
 <div style="background-color:none;height:280px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/bqkxn2y0l8bffkxbffonm5sb/image_1d954apvu1aci2e01np713rgvs46e.png">
 <img src="http://static.zybuluo.com/TangWill/x5m4nrwahlblj12hdhq4sr9q/image_1d954b3bu2ut1evf7fl47q1bt96r.png"></div>
 
-<p>令校正平面的旋转矩阵$R=\begin{bmatrix}r_{11}&amp;r_{12}&amp;r_{13}\r_{21}&amp;r_{22}&amp;r_{23}\r_{31}&amp;r_{32}&amp;r_{33}\end{bmatrix}$，，平移矩阵$T=\begin{bmatrix}t_1\t_2\t_3\end{bmatrix}$，由$R$计算所得到的图像的平面法向量$n=\begin{bmatrix}r_{13}&amp;r_{23}&amp;r_{33}\end{bmatrix}^T$，设摄像机的平面原点的坐标为$o=\begin{bmatrix}t_{1}&amp;t_{2}&amp;t_{3}\end{bmatrix}^T$,从而计算得到平面点所在平面的方程为：<br>$$ax+by+cz+d=0$$</p>
+<p>令校正平面的旋转矩阵$R=\begin{bmatrix}r_{11}&amp;r_{12}&amp;r_{13}\\r_{21}&amp;r_{22}&amp;r_{23}\\r_{31}&amp;r_{32}&amp;r_{33}\end{bmatrix}$，，平移矩阵$T=\begin{bmatrix}t_1\\t_2\\t_3\end{bmatrix}$，由$R$计算所得到的图像的平面法向量$n=\begin{bmatrix}r_{13}&amp;r_{23}&amp;r_{33}\end{bmatrix}^T$，设摄像机的平面原点的坐标为$o=\begin{bmatrix}t_{1}&amp;t_{2}&amp;t_{3}\end{bmatrix}^T$,从而计算得到平面点所在平面的方程为：<br>$$ax+by+cz+d=0$$</p>
 <p>因此，我们可以通过得到的透过摄像机光心的各投影点的射线$L=\begin{bmatrix}l_{x}&amp;l_{y}&amp;l_{z}\end{bmatrix}^T$，结合坐标系变换关系有</p>
-<p>$$s\begin{bmatrix}u\v\1\end{bmatrix}=H\begin{bmatrix}l_{x}\l_{y}\l_{z}\1\end{bmatrix}$$</p>
-<p>$$\begin{bmatrix}l_{x}\l_{y}\l_{z}\1\end{bmatrix}=H^{-1}\begin{bmatrix}su\sv\s1\end{bmatrix}$$</p>
+<p>$$s\begin{bmatrix}u\\v\\1\end{bmatrix}=H\begin{bmatrix}l_{x}\\l_{y}\\l_{z}\\1\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}l_{x}\\l_{y}\\l_{z}\\1\end{bmatrix}=H^{-1}\begin{bmatrix}su\\sv\\s1\end{bmatrix}$$</p>
 <p>其中，$H$为变换矩阵。结合上式与平面方程可以得到<br>$$al_x+bl_y+cl_z+d=0$$</p>
 <p>由上式可以看出，通过求解方程，求出$s$就能得到投影点的坐标，然后再结合其图像坐标和空间坐标的相应的关系就得到投影仪标定的结果。</p>
 <hr>
