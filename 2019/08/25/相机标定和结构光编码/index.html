@@ -488,11 +488,11 @@
 <p>$$\alpha =\alpha_0+arctan \begin{bmatrix}(2^{n-1}-k)\times \frac{tan\alpha_1}{2^{n-1}}\end{bmatrix}$$</p>
 <p>其中 n 为强度图像总数，将$\alpha$代入系统的数学模型公式即可得到点 P 的三维坐标。  </p>
 <p>目前，在结构光测量中时间编码主要采用二进制编码(Binary  Encoding)和格雷(Gray)编码两种。<br>如图所示，是投射的二进制编码，以投射三幅二进制编码图案为例，三幅图案的最小条纹周期依次减半，条纹图案投射到物体表面将其分成8个区域，每个区域代表一个周期。其中，黑色条纹二进制码值记为0；白色条纹二进制码值记为1，则可由一个三位二进制编码表示，获得1/8的分辨率。这样在每次投射中,图像的每个像素就可以获得一个唯一的二进制数“0”或“1”，待投射图案全部完成后，将像素所获得二进制数顺序组合起来,具有相同编码的像素构成了一个窄的带状区域,这样被测物空间就相应被分割成众多由二进制编码唯一确定的窄带状区域，最终三维图像的转换精度取决于条纹图案投射的密度。如图中P点，其在三幅投射图案中条纹分别是“黑”、“白”、“黑”，因此，其二进制编码为010。 </p>
-<div style="background-color:none;height:120px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/wfk8bihb579258f3emc3c7tb/02.png"></div>
+<div style="background-color:none;height:100px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/wfk8bihb579258f3emc3c7tb/02.png"></div>
 
 <p>通过对二进制编码图案进行观察，我们可以发现，如果某一点在第一幅编码图案的图像中处于黑白交界处，那么在接下来的编码图案投射图中也必然处于黑白交界的地方，例如，当十进制数由“3”变为“4”时，采用二进制码，则其编码将由“011”变为“100”，此时，三位二进制状态都发生变化，虽然我们看到的是同时转变，但从硬件的角度来看，设备的每一位状态并不是同时发生改变的，如第一位先转变成1，则数字暂时成为111，虽然很快第二位和第三位就会变成0，但是111这个暂时的状态很有可能会造成控制系统的不稳定。也就是说，尽管最终的结果是从3变到4，但出现了错误的中间转换过程。若不采用其他措施禁止这些中间错误结果输出，则将使设备产生较大的误差。因此其码值可能多位被误判，若误判存在于高位则解码误差较大。这样会大大增加计算机产生误判而导致解码错误的概率，为了解决这这一问题减少解码过程中的累计误差，格雷编码被引入时间编码方法中。 </p>
 <p>若采用格雷码，就不会产生这种较大的误差。因为当十进制数由“3”变为“4”时，其对应的格雷码将从“010”变为“110”，只有一位二进制数发生改变，也就无中间暂态出现，如表所示。因此，格雷编码相比二进制编码更为可靠。 </p>
-<div style="background-color:none;height:260px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/qi4nb9mc8fdkt5jxb9ypmykx/03.png"></div>
+<div style="background-color:none;height:200px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/qi4nb9mc8fdkt5jxb9ypmykx/03.png"></div>
 
 <p>下面给出三幅格雷编码图案，以便和二进制编码图案相比较，如图所示。格雷编码图案把测量空间分成8个区域，如果某一点在其中一幅的编码图案中处于黑白交界处，那么在其它几幅编码图案中该点必然不处于黑白交界处，也就是说，在投射的几幅格雷编码图案中任意一点作为黑白变化边界的机会最多只有一次。而在二进制编码图案中，如果某一点在当前图案中处于黑白交界处，那么在后面投射的图案中必然也处于黑白交界处。因此，相对于二进制编码，格雷码编码在解码的时候，能够大大减少出现解码错误的机会。图中和二进制编码图案相同位置的p点，其对应的格雷编码为011。 </p>
 <div style="background-color:none;height:120px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/vhp9i5ef2bflp2gfcyn6sula/04.png"></div>
@@ -509,7 +509,7 @@
 <blockquote>
 <p>一. 从一个魔术开始说起</p>
 </blockquote>
-<div style="background-color:none;height:470px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/dyravojlqptx75b93u37y9k1/image_1d9505hr5rn1b2e1gji2sqjdb1e.png"></div>
+<div style="background-color:none;height:350px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/dyravojlqptx75b93u37y9k1/image_1d9505hr5rn1b2e1gji2sqjdb1e.png"></div>
 
 <p>有这样一个扑克牌魔术。魔术师手上拿着一叠牌，给5个人(这里的人数只能少于等于32，原因稍后会解释)分别检查扑克牌，查看扑克牌的花色和点数是否都是不同的，即没有相同的牌。</p>
 <p>检查完扑克牌，没有重复的牌以后，就可以给这5个人洗牌了。让这5个人任意的抽一叠牌从上面放到下面，即切牌。5个人轮流切完牌，牌的顺序已经全部变化了。</p>
@@ -521,12 +521,12 @@
 <p>如果窗口大小为5，5张连续的扑克牌。二进制编码 25 = 32 ，所以需要32张牌。如果窗口大小为6，6张连续的扑克牌，二进制编码 26 = 64，需要64张扑克牌。总共牌只有52张，所以不可能到64张。所以32个人是上限了 。</p>
 <p>第二个关键的地方是，只有让拿黑色的牌的人或者拿红色的牌的人站出来，魔术师才能知道这5个人拿到的连续5张扑克牌究竟是什么。其实魔术师说“我已经知道你们所有人拿到的是什么牌”的时候，他并不知道每个人拿到的是什么牌。</p>
 <p>扑克牌除了点数以外，还有4种花色。现在需要32张牌，就是1-8号牌，每号牌都有4种花色。花色用2位二进制编码，1-8用3位二进制编码。于是5位二进制正好可以表示一张扑克牌所有信息。</p>
-<div style="background-color:none;height:470px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/ld2ji14ib0vzxglf3xu8zkc5/image_1d9509s01cogs499aoem6rqp1r.png"></div>
+<div style="background-color:none;height:350px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/ld2ji14ib0vzxglf3xu8zkc5/image_1d9509s01cogs499aoem6rqp1r.png"></div>
 
 <p>如上图，00110 表示的就是梅花6 。11000 表示的是红桃8（因为没有 0 号牌，所以000就表示8）。</p>
 <p>第一步将扑克牌编码完成以后，第二步就需要找到一个序列，它必须满足以下的条件：由 $2^{n-1}$个1和$2^{n-1}$个0构成的序列或者圆排列，是否能存在在任意 n 个位置上0，1序列两两都不同。满足这个条件的序列也称为 n 阶完备二进圆排列。</p>
 <p>这个魔术中我们需要找的是 5 阶完备二进圆排列。答案是存在这样一个满足条件的序列。这个序列也就是文章的主角，德布鲁因序列。</p>
-<div style="background-color:none;height:450px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/xbph0xo9ht7nk30qt0u2n7wk/image_1d950cibc1ffa1qgi1uj813s31g9d28.png"></div>
+<div style="background-color:none;height:350px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/xbph0xo9ht7nk30qt0u2n7wk/image_1d950cibc1ffa1qgi1uj813s31g9d28.png"></div>
 
 <p>上述序列就是一个窗口大小为5的德布鲁因序列。任意连续的5个二进制相互之间都是两两不同的。所以给观众任意洗牌，不管怎么洗牌，只要最终挑出来是连续的5张，这5张的组合都在最终的结果之中。</p>
 <p>将窗口大小为5的德布鲁因序列每5个二进制位都转换成扑克牌的编码，如下：</p>
@@ -534,12 +534,12 @@
 
 <p>所以32张牌的初始顺序如下：<br>梅花8，梅花A，梅花2，梅花4，黑桃A，方片2，梅花5，黑桃3，方片6，黑桃4，红桃A，方片3，梅花7，黑桃7，红桃7，红桃6，红桃4，红桃8，方片A，梅花3，梅花6，黑桃5，红桃3，方片7，黑桃6，红桃5，红桃2，方片5，黑桃2，方片4，黑桃8，方片8。</p>
 <p>上面这32张牌的初始顺序魔术师是要记在心里的。</p>
-<div style="background-color:none;height:610px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/aj2c8en4b89mpgphzuged96k/image_1d950hpsb1qal2m91m4fs6m10fl32.png"></div>
+<div style="background-color:none;height:660px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/aj2c8en4b89mpgphzuged96k/image_1d950hpsb1qal2m91m4fs6m10fl32.png"></div>
 
 <p>将所有的排列组合列举出来，如上图。当魔术师让黑色或者红色的牌的人出列的时候，就能确定到具体是哪一种组合了。于是也就可以直接说出每个人手上拿的是什么牌了。</p>
 <p>这个魔术中选取的德布鲁因序列也非常特殊，是可以通过一部分的递推得到。</p>
 <p>这个特殊的序列，任意取出其中一个窗口，即5个连续的二进制，5个二进制的第一位和第三位，或者倒数第三位和倒数第五位相加，加法遵循二进制规则，即可得到这个窗口紧接着的下一位。</p>
-<div style="background-color:none;height:470px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/y8sua5e2tenrwv8wvz39mm43/image_1d950kujs1e9r5ua19u19v7vb83f.png"></div>
+<div style="background-color:none;height:350px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/y8sua5e2tenrwv8wvz39mm43/image_1d950kujs1e9r5ua19u19v7vb83f.png"></div>
 
 <p>如上图的例子，假设当前窗口里面的五位是 00001，左数第一位加上第三位，或者右数第三位加上第五位，得到的是0，那么这个窗口紧接着的后一位就是0 ，即 000010 。再举一个例子，当前窗口里面是 11000 ，左数第一位加上第三位为1，所以紧接着的下一位是1，即 110001 。</p>
 <p>最后一个关键的地方就在切牌的手法上。由于德布鲁因序列是一个循环的序列，为了维护这个序列，切牌只能把上面的牌切到下面去，不能乱切。只有上面的牌切到下面，因为循环的原因，这样才不能影响德布鲁因序列。</p>
@@ -561,7 +561,7 @@
 <li>数量</li>
 </ul>
 <p>德布鲁因序列的数量 $B(k,n)$ 的数量为 $\frac{(k!) ^ {k^{n-1}}}{k^n}$ 。</p>
-<div style="background-color:none;height:470px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/ict1vxxju9oanxrnp8hl59dx/image_1d950tefk15kh1d9jfe4l0i75q3s.png"></div>
+<div style="background-color:none;height:350px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/ict1vxxju9oanxrnp8hl59dx/image_1d950tefk15kh1d9jfe4l0i75q3s.png"></div>
 
 <blockquote>
 <p>在德布鲁因图中的汉密尔顿回路 即为 德布鲁因序列。</p>
@@ -572,7 +572,7 @@
 <p>结构光编码过程中，由于要求相邻条纹颜色至少一个分量发生变化，则前一种颜色与二进制集合$\{001,010,\cdots ,111\}$的一项逐位进行异或（xor）可以保证产生的De Brujin序列中相邻条纹发生颜色改变。例如前一种颜色为010 表示绿色，与元素100 异或后为110 表示黄色。即<br>$$p_{i+1}=p_iXORd_i,d_i\neq [0,0,0]$$</p>
 <p>条纹宽度根据计算机的显示分辨率确定。此外，影响编码图像质量的一个重要因素是条纹的粗细，投影的条纹越多，条纹越细，获得的物体三维信息就越多，物体重建精度也就越高。而条纹过细，信息不断增加也会使计算复杂，抵抗环境光噪声的能力越差，耗时长等问题。若要增加分辨率，需要通过使用更多颜色增加条纹编码图案的密度，这样按指定的7 种颜色构成De brujin 序列。</p>
 <p>取n=7,窗口长度m=3，条纹总数为343，单位彩色条纹宽度为8个像素。如图所示为本实验条件下生成的基于7 元3 阶De Bruijn序列的彩色结构光编码图案，其中所有相邻条纹颜色不同，在得到的彩色条纹编码图案中，每相邻3 个条纹组成的子条纹序列在整个条纹序列中是唯一的。这样在在随后的解码过程中，根据一定窗口内连续条纹颜色组成的序列的唯一性来进行条纹匹配，实现解码。由于De Bruijn序列具有一定的随机性，因此生成的颜色序列并不唯一。</p>
-<div style="background-color:none;height:250px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/w4h22d5qyt7kxt5s4wwzuiir/image_1d951f9bjnj31fn6ipp783nfrp.png"></div>
+<div style="background-color:none;height:280px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/w4h22d5qyt7kxt5s4wwzuiir/image_1d951f9bjnj31fn6ipp783nfrp.png"></div>
 
 
 <hr>
