@@ -262,14 +262,14 @@
 <h3 id="1-4、坐标系介绍"><a href="#1-4、坐标系介绍" class="headerlink" title="1.4、坐标系介绍"></a>1.4、坐标系介绍</h3><p>为了说明白，建议先介绍图像的坐标系，再逐步推广到世界坐标系，最后说明各个坐标系是如何变化的，从而给出相机的内参和外参。</p>
 <hr>
 <h4 id="1-4-1、像素坐标系"><a href="#1-4-1、像素坐标系" class="headerlink" title="1.4.1、像素坐标系"></a>1.4.1、像素坐标系</h4><p>像素坐标就是像素在图像中的位置。一般像素坐标系的左上角的顶点就是远点，水平向右是u轴，垂直向下是v轴。</p>
-<div style="background-color:none;height:410px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/kf7p6fjt60j5btuz0iyyhghb/01.png"></div>
+<div style="background-color:none;height:410px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/dd834nlpp859vqkx7bhaboh4/01.png"></div>
 
 
 <p>例如，在上图中，任意一个像素点的坐标可以表示为$(u_i,v_i)$。</p>
 <hr>
 <h4 id="1-4-2、图像坐标系"><a href="#1-4-2、图像坐标系" class="headerlink" title="1.4.2、图像坐标系"></a>1.4.2、图像坐标系</h4><p>在像素坐标系中，每个像素的坐标是用像素来表示的，然而，像素的表示方法却不能反应图像中物体的物理尺寸，因此，有必要将像素坐标转换为图像坐标。</p>
 <p>将像素坐标系的原点平移到图像的中心，就定为图像坐标系的原点，图像坐标系的x轴与像素坐标系的u轴平行，方向相同，而图像坐标系的y轴与像素坐标系的v轴平行，方向相同。</p>
-<div style="background-color:none;height:480px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/2iqyvgkrur8908ocvgd7aaps/02.png"></div>
+<div style="background-color:none;height:480px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/mmu9138vsgbbzh8legynx0mw/02.png"></div>
 
 
 <p>在图中，假设图像中心的像素坐标是$(u_0,v_0)$，相机中感光器件每个像素的物理尺寸是$dx * dy$，那么，图像坐标系的坐标$(x,y)$与像素坐标系的坐标$(u,v)$之间的关系可以表示为：</p>
@@ -278,23 +278,23 @@
 <p>改写为齐次坐标的形式：<br>$$ \begin{bmatrix} x \\ y \\1\\ \end{bmatrix}=\begin{bmatrix}dx &amp; 0&amp;0\\0 &amp; dy&amp;0\end{bmatrix}\begin{bmatrix} u\\ v \\0\\ \end{bmatrix} +\begin{bmatrix} -u_0dx \\ -v0d_y \\ \end{bmatrix}=\begin{bmatrix}dx &amp; 0&amp;-u_0dx\\0 &amp; dy&amp;-v_0dy\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix} u\\ v \\ 1\end{bmatrix}$$</p>
 <hr>
 <h4 id="1-4-3、相机坐标系"><a href="#1-4-3、相机坐标系" class="headerlink" title="1.4.3、相机坐标系"></a>1.4.3、相机坐标系</h4><p>相机坐标系是以相机的光轴作为Z轴，光线在相机光学系统的中心位置就是原点$O_c$（实际上就是透镜的中心）,相机坐标系的水平轴$X_c$与垂直轴$Y_c$分别与图像坐标系的$X$轴和$Y$轴平行。在图中，相机坐标系的原点与图像坐标系的原点之间的距离$O_cO_i$之间的距离为$f$(也就是焦距)。<br>$ $</p>
-<div style="background-color:none;height:480px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/l2qsbx3b2e38upwbjrjkw3nu/03.png"></div>
+<div style="background-color:none;height:480px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/cg2nnpr52sfzrxb0giiy7sk6/03.png"></div>
 
 
 <p>上图中，如果有一个物体成像到图像坐标系，则可以用下图来表示（B点是相机坐标系中物体的点坐标，P是图像坐标系中成像的坐标）：</p>
-<div style="background-color:none;height:510px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/tbx9y1n8rivb23hb3hth9ok8/04.png"></div>
+<div style="background-color:none;height:510px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/rj0v9y0ex39fvipt5e51qyyq/04.png"></div>
 
 
 <p>可以知道相机坐标系与图像坐标系的关系为：<br>$$\frac{O_cO_i}{O_cD}=\frac{O_i}{DA}=\frac{PC}{BA}=\frac{O_cC}{O_cA}\implies\frac{f}{Z_c}=\frac{x}{X_c}=\frac{y}{Y_c}\implies X_c=\frac{xZ_c}{f}\implies Y_c=\frac{yZ_c}{f}$$<br>$$\implies \begin{bmatrix}X_c\\Y_c\\Z_c\\1\end{bmatrix}=\begin{bmatrix}\frac{z_c}{f}&amp;0&amp;0\\0&amp;\frac{z_c}{f}&amp;0\\0&amp;0&amp;Z_c\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}x\\y\\1\end{bmatrix}$$</p>
 <p>好了，那么为什么$O_cO_i$这个距离是焦距呢？下面做一些推导。大部分的文章在介绍这一点的时候，也有欠缺，为什么像素坐标系会在相机坐标系的前面呢，按道理说，相机坐标系是以相机的透镜中心为原点，那像素坐标系和图像坐标系为什么不在后面呢？这里做一个说明。</p>
 <p>（1）本文的第一个图就是小孔成像的原理图。像平面就是成像的位置，这个是用户自己设定的，就是CCD传感器的位置，而焦平面就是镜头的焦距所在平面。当像平面刚好和焦平面重合时，此时所成的像是最清晰的。所以，这也就是为什么上面的公式中相机坐标系的原点到图像坐标系的原点的距离就是焦距。（实际上，由于物理条件的限制，像平面和焦平面是不可能完全重合的。）</p>
 <p>（2）同样是本文的第一个图，我们可以看到像平面在光学系统的右面，而在推导相机标定的坐标系关系时，却认为光线先通过成像平面，再在相机坐标系上汇聚到一个点，实际上，如果用下图来说明，可能就更清楚一点。就是推导的时候，把像平面用虚拟像平面代替了。</p>
-<div style="background-color:none;height:336px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/musj72dpeau2ge32r05ey4zo/05.png"></div>
+<div style="background-color:none;height:336px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/3hrd8m998gbtilipxiqi2ump/05.png"></div>
 
 <p>$ $</p>
 <hr>
 <h4 id="1-4-4、世界坐标系"><a href="#1-4-4、世界坐标系" class="headerlink" title="1.4.4、世界坐标系"></a>1.4.4、世界坐标系</h4><p>世界坐标系是图像与真实物体之间的一个映射关系。如果是单目视觉的话，主要就是真实物体尺寸与图像尺寸的映射关系。如果是多目视觉的话，那么就需要知道多个相机之间的关系，这个关系就需要在同一个坐标系下进行换算。在下图中，世界坐标系的原点是$O_w$,而$X_w,Y_w,Z_w$轴并不是与其他坐标系平行的，而是有一定的角度，并且有一定的平移。</p>
-<div style="background-color:none;height:490px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/tlrvo342xpji7cpwhjogg7lj/06.png"></div>
+<div style="background-color:none;height:490px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/f736wb0rqimhrfm11n7dgx15/06.png"></div>
 
 <p>当对相机坐标系安装一定的参数，分别绕着$X，Y，Z$轴做平移和旋转后，就得到在世界坐标系中的坐标。<br>平移表示：<br>$$<br>\begin{cases}<br>X_w=X_c+t_x<br>\\[2ex]Y_w=Yc+t_y\\[2ex]Z_w=Z_c+t_z<br>\end{cases}<br>$$</p>
 <p>而对于旋转，可以采用如下的方法，给定一个基本旋转矩阵和基本矩阵<br>$$R=\begin{bmatrix}cos\theta&amp;sin\theta\\-sin\theta&amp;cos\theta \end{bmatrix}$$</p>
