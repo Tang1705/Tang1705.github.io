@@ -143,21 +143,8 @@
         
         <section class="post-content">
             <div style="background-color:none;height:520px;text-align:center;"><img src="http://static.zybuluo.com/TangWill/r34sugqvahm7lass07mci19n/aboutcontent.png"></div>
-···flow
-st=>start: 早安
-bop=>operation: 每个醒来的清晨都值得期待
-op=>operation: 最好的就快要发生
-cond=>condition: 今天开心了吗
-op1=>operation: 最要紧的是开心
-op2=>operation: 一起康康
-cond2=>condition: 今天快乐了吗
-op3=>operation: 太快乐了吧
-op4=>operation: 无与伦比的快乐
-cond3=>condition: 明天要继续开心啊！
-op5=>operation: 明天会更好
-e=>end: 晚安
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 早安</span><br><span class="line">bop=&gt;operation: 每个醒来的清晨都值得期待</span><br><span class="line">op=&gt;operation: 最好的就快要发生</span><br><span class="line">cond=&gt;condition: 今天开心了吗</span><br><span class="line">op1=&gt;operation: 最要紧的是开心</span><br><span class="line">op2=&gt;operation: 一起康康</span><br><span class="line">cond2=&gt;condition: 今天快乐了吗</span><br><span class="line">op3=&gt;operation: 太快乐了吧</span><br><span class="line">op4=&gt;operation: 无与伦比的快乐</span><br><span class="line">cond3=&gt;condition: 明天要继续开心啊！</span><br><span class="line">op5=&gt;operation: 明天会更好</span><br><span class="line">e=&gt;end: 晚安</span><br><span class="line"></span><br><span class="line">st-&gt;bop-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;op2-&gt;cond2</span><br><span class="line">cond2(yes)-&gt;op3-&gt;cond3</span><br><span class="line">cond3(yes)-&gt;e</span><br><span class="line">cond3(no)-&gt;op5-&gt;e</span><br><span class="line">cond2(no)-&gt;op4-&gt;op2</span><br><span class="line">cond(no)-&gt;op1-&gt;op</span><br></pre></td></tr></table></figure>
 
-<p>st-&gt;bop-&gt;op-&gt;cond<br>cond(yes)-&gt;op2-&gt;cond2<br>cond2(yes)-&gt;op3-&gt;cond3<br>cond3(yes)-&gt;e<br>cond3(no)-&gt;op5-&gt;e<br>cond2(no)-&gt;op4-&gt;op2<br>cond(no)-&gt;op1-&gt;op<br>···</p>
 
         </section>
     </article>
