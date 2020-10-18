@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://Tang1705.github.io/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Oct 2020 08:10:33 +0800</lastBuildDate><atom:link href="http://Tang1705.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Myfirst</title>
+      <link>http://Tang1705.github.io/post/myfirst/</link>
+      <pubDate>Sun, 18 Oct 2020 08:10:33 +0800</pubDate>
+      
+      <guid>http://Tang1705.github.io/post/myfirst/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,44 @@
+baseURL = "http://Tang1705.github.io"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "hugo-awesome-identity"
+themesDir = "./themes"
+
+## Profile Configurations
+[params.profile]
+  portrait = "/images/avatar.jpeg"
+  firstname = "Q."
+  lastname = "Tang"
+  title = "BJTU · Software Engineering"
+  bio = """Senior student at Schoole of Software Engineering, Beijing Jiaotong University, Principal investigator of a national undergraduate training program for innovation. I have been admitted to the School of Computer and Information Technology, Beijing Jiaotong University, as a master degree candidate majoring in information and communication engineering in 2021. My research interest is digital media information processing and intelligent analysis.
+  """
+## Contacts Configurations
+[params.contacts]
+  email = "17301138@bjtu.edu.cn"
+  github = "Tang1705"
+  # gitlab = "john.smith"
+  # twitter = "john.smith"
+  # facebook = "john.smith"
+  linkedin = "tang5618"
+  # instagram = "john.smith"
+  # stackoverflow = "7919458"
+  # keybase = "john.smith"
+  # medium = "john.smith"
+  # xing = "john.smith"
+
+## Actions Configurations
+[[params.actions]]
+  name = "Review My CV"
+  url = "https://tang5618.com/data/pdf/about/CV.pdf"
+[[params.actions]]
+  name = "Ask Me Anything"
+  url = "https://github.com/Tang1705/ama"
+[[params.actions]]
+  name = "Buy Me a Coffee"
+  url = "https://www.buymeacoffee.com/Tang5618"
+
+
+## Footer Configurations
+[params.footer]
+  copyright = "© 2019-2020 Qi Tang. [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)."
+  poweredBy = true
