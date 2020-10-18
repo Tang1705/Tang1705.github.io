@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "809671",
+      "name": "mail",
+      "font_class": "mail",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "7239484",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e6f6",
+      "unicode_decimal": 59126
+    },
+    {
+      "icon_id": "7239507",
+      "name": "linkedin",
+      "font_class": "linkedin",
+      "unicode": "e6fc",
+      "unicode_decimal": 59132
+    },
+    {
+      "icon_id": "12579639",
+      "name": "blog",
+      "font_class": "blog",
+      "unicode": "e7c6",
+      "unicode_decimal": 59334
+    }
+  ]
+}
