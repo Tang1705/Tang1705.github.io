@@ -123,3 +123,7 @@
   content: "\e88d";
 }
 
+.icon-mail:before {
+  content: "\e674";
+}
+
