@@ -17,7 +17,7 @@ a, p, li {
 
 a:hover {
     text-decoration: none !important;
-    color: #333 !important;
+    color: white !important;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -ms-transition: all 0.2s ease-in-out;
