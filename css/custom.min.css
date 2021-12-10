@@ -124,7 +124,7 @@ a:hover {
 
 .section .container:after {
     position: absolute;
-    content: url(../img/separator.png);
+    content: url(./img/separator.png);
     left: 20px
 }
 
