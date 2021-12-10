@@ -203,7 +203,11 @@ a:hover {
 }
 
 .quote {
+<<<<<<< HEAD
     background: url(../image/bg.jpg);
+=======
+    background: url(../images/bg.jpg);
+>>>>>>> b31b2bb00fb9dde5772c7809a7b9861d50c1a7f1
     background-size: 100% 100%;
     padding: 20px 0px;
     margin-top: 120px
