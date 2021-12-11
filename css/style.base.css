@@ -120,7 +120,7 @@ a:visited, a:hover, a:active {
     background-size: cover;
     border-radius: 50%;
     -webkit-border-radius: 50%;
-    margin-left: 2.5em;
+    /*margin-left: 2.5em;*/
     -moz-border-radius: 50%
 }
 
@@ -160,9 +160,9 @@ a:visited, a:hover, a:active {
     }
 
     .profile .portrait .spinner {
-        width: 11rem;
-        height: 11rem;
-        margin-left:2.5em;
+        /*width: 11rem;*/
+        /*height: 11rem;*/
+        /*margin-left:2.5em;*/
     }
 
     .profile .name {
@@ -180,9 +180,9 @@ a:visited, a:hover, a:active {
     }
 
     .profile .portrait .spinner {
-        width: 6rem;
-        height: 6rem;
-        margin-left:2.5em;
+         /*width: 6rem;*/
+        /*height: 6rem;*/
+        /*margin-left:2.5em;*/
     }
 
     .profile .name {
