@@ -34,7 +34,7 @@ var configs = (function () {
         rmdir_help: "Remove directory, this command will only work if the folders are empty.",
         touch_help: "Change file timestamps. If the file doesn't exist, it's created an empty one.",
         sudo_help: "Execute a command as the superuser.",
-        welcome: "Welcome to Tang's terminal :)\nMy name is Qi Tang, a MPhil student with the School of Computer and Information Technology, Beijing Jiaotong University.\n\n\
+        welcome: "Welcome to Tang's terminal :)\nMy name is Q. Tang, a MPhil student with the School of Computer and Information Technology, Beijing Jiaotong University.\n\n\
         Feel free to execute the 'help' command('cat' is always adorable for human being)\n", 
         internet_explorer_warning: "NOTE: I see you're using internet explorer, this website won't work properly.",
         welcome_file_name: "welcome_message.txt",
