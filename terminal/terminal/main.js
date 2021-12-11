@@ -75,7 +75,7 @@ var files = (function () {
     Singleton.defaultOptions = {};
     Singleton.defaultOptions["github.txt"] = "https://github.com/Tang1705";
     Singleton.defaultOptions["linkedin.txt"] = "https://linkedin.com/in/tang5618"
-    Singleton.defaultOptions["resume.pdf"] = "https://www.tang5618.com/CV/CV_CN.pdf"
+    Singleton.defaultOptions["resume.pdf"] = "https://www.tang5618.com/CV/CV_EN.pdf"
     Singleton.defaultOptions["interests.txt"] = "Computer Vision, Deep Learning, Depth Map Processing(MDE & DSR, etc.), Photography, Music\n";
     // Singleton.defaultOptions["courses.txt"] = "\
     // Fudan University, Shanghai, China\t\t\t2015.9-Present\n\
