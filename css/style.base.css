@@ -21,9 +21,9 @@ body {
     margin-top: 5em
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1062px) {
     .wrap {
-        width: 1024px
+        width: 1062px
     }
 }
 
