@@ -35,7 +35,7 @@ var configs = (function () {
         touch_help: "Change file timestamps. If the file doesn't exist, it's created an empty one.",
         sudo_help: "Execute a command as the superuser.",
         welcome: "Welcome to Tang's terminal :)\nMy name is Q. Tang, a MPhil student with the School of Computer and Information Technology, Beijing Jiaotong University.\n\n\
-        Feel free to execute the 'help' command('cat' is always adorable for human being)\n", 
+        Feel free to execute the 'help' command('cat' is always adorable for human being)\n",
         internet_explorer_warning: "NOTE: I see you're using internet explorer, this website won't work properly.",
         welcome_file_name: "welcome_message.txt",
         invalid_command_message: "<value>: " + "command not found.",
@@ -73,9 +73,9 @@ var files = (function () {
         }
     };
     Singleton.defaultOptions = {};
+    Singleton.defaultOptions["cv.pdf"] = "https://www.tang5618.com/CV/CV_EN.pdf"
     Singleton.defaultOptions["github.txt"] = "https://github.com/Tang1705";
     Singleton.defaultOptions["linkedin.txt"] = "https://linkedin.com/in/tang5618"
-    Singleton.defaultOptions["resume.pdf"] = "https://www.tang5618.com/CV/CV_EN.pdf"
     Singleton.defaultOptions["interests.txt"] = "Computer Vision, Deep Learning, Depth Map Processing(MDE & DSR, etc.), Photography, Music\n";
     // Singleton.defaultOptions["courses.txt"] = "\
     // Fudan University, Shanghai, China\t\t\t2015.9-Present\n\
@@ -126,7 +126,7 @@ var main = (function () {
     /**
      * AUX FUNCTIONS
      */
-    
+
     var isUsingIE = window.navigator.userAgent.indexOf("MSIE ") > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./);
 
     var ignoreEvent = function (event) {
@@ -157,19 +157,19 @@ var main = (function () {
     InvalidArgumentException.prototype.constructor = InvalidArgumentException;
 
     var cmds = {
-        LS: { value: "ls", help: configs.getInstance().ls_help },
-        CAT: { value: "cat", help: configs.getInstance().cat_help },
-        WHOAMI: { value: "whoami", help: configs.getInstance().whoami_help },
-        DATE: { value: "date", help: configs.getInstance().date_help },
-        HELP: { value: "help", help: configs.getInstance().help_help },
-        CLEAR: { value: "clear", help: configs.getInstance().clear_help },
-        REBOOT: { value: "reboot", help: configs.getInstance().reboot_help },
-        CD: { value: "cd", help: configs.getInstance().cd_help },
-        MV: { value: "mv", help: configs.getInstance().mv_help },
-        RM: { value: "rm", help: configs.getInstance().rm_help },
-        RMDIR: { value: "rmdir", help: configs.getInstance().rmdir_help },
-        TOUCH: { value: "touch", help: configs.getInstance().touch_help },
-        SUDO: { value: "sudo", help: configs.getInstance().sudo_help }
+        LS: {value: "ls", help: configs.getInstance().ls_help},
+        CAT: {value: "cat", help: configs.getInstance().cat_help},
+        WHOAMI: {value: "whoami", help: configs.getInstance().whoami_help},
+        DATE: {value: "date", help: configs.getInstance().date_help},
+        HELP: {value: "help", help: configs.getInstance().help_help},
+        CLEAR: {value: "clear", help: configs.getInstance().clear_help},
+        REBOOT: {value: "reboot", help: configs.getInstance().reboot_help},
+        CD: {value: "cd", help: configs.getInstance().cd_help},
+        MV: {value: "mv", help: configs.getInstance().mv_help},
+        RM: {value: "rm", help: configs.getInstance().rm_help},
+        RMDIR: {value: "rmdir", help: configs.getInstance().rmdir_help},
+        TOUCH: {value: "touch", help: configs.getInstance().touch_help},
+        SUDO: {value: "sudo", help: configs.getInstance().sudo_help}
     };
 
 
@@ -383,15 +383,22 @@ var main = (function () {
             default:
                 this.invalidCommand(cmdComponents);
                 break;
-        };
+        }
+        ;
     };
 
     Terminal.prototype.cat = function (cmdComponents) {
         var result;
         if (cmdComponents.length <= 1) {
             result = configs.getInstance().usage + ": " + cmds.CAT.value + " <" + configs.getInstance().file + ">";
-        } else if (!cmdComponents[1] || (!cmdComponents[1] === configs.getInstance().welcome_file_name || !files.getInstance().hasOwnProperty(cmdComponents[1]))) {
+        } else if (!cmdComponents[1]) {
             result = configs.getInstance().file_not_found.replace(configs.getInstance().value_token, cmdComponents[1]);
+        } else if (!files.getInstance().hasOwnProperty(cmdComponents[1])) {
+            if (cmdComponents[1] !== configs.getInstance().welcome_file_name){
+                result = configs.getInstance().file_not_found.replace(configs.getInstance().value_token, cmdComponents[1]);
+            }else{
+                result = cmdComponents[1] === configs.getInstance().welcome_file_name ? configs.getInstance().welcome : files.getInstance()[cmdComponents[1]];
+            }
         } else {
             result = cmdComponents[1] === configs.getInstance().welcome_file_name ? configs.getInstance().welcome : files.getInstance()[cmdComponents[1]];
         }
@@ -530,3 +537,19 @@ var main = (function () {
 })();
 
 window.onload = main.listener;
+
+function showToast(msg, duration) {
+    duration = isNaN(duration) ? 3000 : duration;
+    var m = document.createElement('div');
+    m.innerHTML = msg;
+    m.style.cssText = "width:60%; min-width:180px; background:#000; opacity:0.6; height:auto;min-height: 30px; color:#fff; line-height:30px; text-align:center; border-radius:4px; position:fixed; top:60%; left:20%; z-index:999999;";
+    document.body.appendChild(m);
+    setTimeout(function () {
+        var d = 0.5;
+        m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+        m.style.opacity = '0';
+        setTimeout(function () {
+            document.body.removeChild(m)
+        }, d * 1000);
+    }, duration);
+}
