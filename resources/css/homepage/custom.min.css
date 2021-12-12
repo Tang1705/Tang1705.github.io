@@ -123,7 +123,7 @@ a:hover {
 
 .section .container:after {
     position: absolute;
-    content: url(../images/separator.png);
+    content: url(../../images/separator.png);
     left: 20px
 }
 
@@ -202,7 +202,7 @@ a:hover {
 }
 
 .quote {
-    background: url(../images/bg.jpg);
+    background: url(../../images/hompage/bg.jpg);
     background-size: 100% 100%;
     padding: 20px 0px;
     margin-top: 90px
