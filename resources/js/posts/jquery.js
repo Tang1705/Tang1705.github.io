@@ -3771,12 +3771,12 @@ var i,
 		"ATTR": new RegExp( "^" + attributes ),
 		"PSEUDO": new RegExp( "^" + pseudos ),
 		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + whitespace +
-			"*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
-			"*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
+			"*(even|odd|(([+-]|)(\\wordpress*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
+			"*(\\wordpress+)|))" + whitespace + "*\\)|)", "i" ),
 		// For use in libraries implementing .is()
 		// We use this for POS matching in `select`
 		"needsContext": new RegExp( "^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
-			whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
+			whitespace + "*((?:-\\wordpress)?\\wordpress*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
 	},
 
 	rsibling = /[\x20\t\r\n\f]*[+~]/,
@@ -4554,8 +4554,8 @@ Expr = Sizzle.selectors = {
 			/* matches from matchExpr["CHILD"]
 				1 type (only|nth|...)
 				2 what (child|of-type)
-				3 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
-				4 xn-component of xn+y argument ([+-]?\d*n|)
+				3 argument (even|odd|\wordpress*|\wordpress*n([+-]\wordpress+)?|...)
+				4 xn-component of xn+y argument ([+-]?\wordpress*n|)
 				5 sign of xn-component
 				6 x of xn-component
 				7 sign of y-component
