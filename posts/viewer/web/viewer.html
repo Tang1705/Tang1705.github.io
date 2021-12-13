@@ -32,7 +32,6 @@ See https://github.com/adobe-type-tools/cmap-resources
     <link rel="icon" href="../../../bit_favicon.ico">
 
 
-
     <!-- This snippet is used in production (included from viewer.html) -->
     <link rel="resource" type="application/l10n" href="locale/locale.properties">
     <script src="../build/pdf.js"></script>
@@ -242,6 +241,11 @@ See https://github.com/adobe-type-tools/cmap-resources
                             <span data-l10n-id="toggle_sidebar_label">Toggle Sidebar</span>
                         </button>
                         <div class="toolbarButtonSpacer"></div>
+                        <button id="return" class="toolbarButton" title="return to posts list" tabindex="12"
+                                data-l10n-id="return" aria-expanded="false" aria-controls="return"
+                                onclick="window.location.href = '../../index.html'">
+                            <span data-l10n-id="return_label">Return</span>
+                        </button>
                         <button id="viewFind" class="toolbarButton" title="Find in Document" tabindex="12"
                                 data-l10n-id="findbar" aria-expanded="false" aria-controls="findbar">
                             <span data-l10n-id="findbar_label">Find</span>

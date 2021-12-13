@@ -830,6 +830,7 @@
   --toolbarButton-viewAttachments-icon: url(images/toolbarButton-viewAttachments.svg);
   --toolbarButton-viewLayers-icon: url(images/toolbarButton-viewLayers.svg);
   --toolbarButton-currentOutlineItem-icon: url(images/toolbarButton-currentOutlineItem.svg);
+  --toolbarButton-return-icon: url(images/toolbarButton-return.svg);
   --toolbarButton-search-icon: url(images/toolbarButton-search.svg);
   --findbarButton-previous-icon: url(images/findbarButton-previous.svg);
   --findbarButton-next-icon: url(images/findbarButton-next.svg);
@@ -1896,6 +1897,11 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
 }
 html[dir="rtl"] #currentOutlineItem.toolbarButton::before {
   transform: scaleX(-1);
+}
+
+#return.toolbarButton::before {
+  -webkit-mask-image: var(--toolbarButton-return-icon);
+  mask-image: var(--toolbarButton-return-icon);
 }
 
 #viewFind.toolbarButton::before {
