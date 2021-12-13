@@ -8,5 +8,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery.imagesloaded" level="application" />
+    <orderEntry type="library" name="fancybox" level="application" />
+    <orderEntry type="library" name="jquery.isotope" level="application" />
+    <orderEntry type="library" name="highlight.js" level="application" />
+    <orderEntry type="library" name="fuse.js" level="application" />
+    <orderEntry type="library" name="mark.js" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="autotrack" level="application" />
   </component>
 </module>

@@ -16,49 +16,53 @@
     <link rel="stylesheet" href="/resources/css/posts/style.css">
     <link rel="stylesheet" href="/resources/css/posts/blog_basic.css">
     <link rel="stylesheet" href="/resources/css/posts/font-awesome.min.css">
-    <style>a{TEXT-DECORATION:none}</style>
+    <link rel="stylesheet" href="/resources/css/posts/academic.min.css">
+
+    <style>a {
+        TEXT-DECORATION: none
+    }</style>
 </head>
-<body>
+<body data-spy="scroll">
 <div class="sidebar animated fadeInDown">
-    <div class="logo-title">
+    <div class="logo-title" style="margin-top: -3rem">
         <div class="title"><a href="../index.html"><img id="avatar" src="../resources/images/avatar.jpeg"
                                                         style="width:140px;" alt="avatar"></a>
             <h3 title=""><a href="/">Q. Tang</a></h3>
             <p>
 
                 <a href="https://ieeexplore.ieee.org/Xplore/home.jsp"><img src="../resources/images/posts/ieee.png"
-                                                                           alt="ieee" width="45rem"
+                                                                           alt="ieee" width="35rem"
                                                                            style="vertical-align:middle;padding-top: 0.3rem;margin-right: -0.3rem"></a>
 
-                <a href="https://dblp.org"><img src="../resources/images/posts/dblp.png" alt="dblp" width="40rem"
+                <a href="https://dblp.org"><img src="../resources/images/posts/dblp.png" alt="dblp" width="30rem"
                                                 style="vertical-align:middle"></a>
 
                 <a href="https://www.researchgate.net"><img src="../resources/images/posts/researchgate.png"
-                                                            alt="researchgate" width="40rem"
+                                                            alt="researchgate" width="30rem"
                                                             style="vertical-align:middle"></a>
 
-                <a href="https://arxiv.org"><img src="../resources/images/posts/arxiv.png" alt="arxiv" width="40rem"
+                <a href="https://arxiv.org"><img src="../resources/images/posts/arxiv.png" alt="arxiv" width="30rem"
                                                  style="vertical-align:middle"></a>
 
                 <a href="https://www.sciencedirect.com"><img src="../resources/images/posts/sciencedirect.png"
-                                                             alt="sciencedirect" width="40rem"
+                                                             alt="sciencedirect" width="30rem"
                                                              style="vertical-align:middle"></a>
 
                 <a href="https://paperswithcode.com/task/monocular-depth-estimation"><img
-                        src="../resources/images/posts/paperswithcode.png" alt="paperswithcode" width="40rem"
+                        src="../resources/images/posts/paperswithcode.png" alt="paperswithcode" width="30rem"
                         style="vertical-align:middle"></a>
 
-                <a href="https://dl.acm.org"><img src="../resources/images/posts/acm.png" alt="acm" width="40rem"
+                <a href="https://dl.acm.org"><img src="../resources/images/posts/acm.png" alt="acm" width="30rem"
                                                   style="vertical-align:middle"></a>
 
-                <a href="https://sci-hub.se"><img src="../resources/images/posts/scihub.png" alt="acm" width="40rem"
-                                                  style="vertical-align:middle;padding-top: 0.3rem;margin-left: -0.6rem"></a>
+                <a href="https://sci-hub.se"><img src="../resources/images/posts/scihub.png" alt="acm" width="30rem"
+                                                  style="vertical-align:middle;margin-left: -0.3rem"></a>
 
             </p>
         </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" style="padding-left: 3rem;margin-top: 8rem">
         <img src="../resources/images/posts/cat.gif" alt="cat">
     </div>
 </div>
@@ -72,7 +76,15 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="post-title"><h2 style="padding-left: 1rem"><a href="./DSR/CTKT/">基于跨任务场景结构知识迁移的单张深度图像超分辨率网络</a>
-                        </h2></div>
+                        </h2>
+                            <div class="btn-links">
+                                <button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+                                        data-filename="./icip-15/icip-15.bib">
+                                    Cite
+                                </button>
+                            </div>
+                        </div>
+
                         <div class="post-content"><p></p></div>
                         <div class="post-footer">
                             <div class="meta">
@@ -113,8 +125,43 @@
         </div>
     </div>
 </div>
+
 <script src="/resources/js/posts/jquery.js"></script>
 <script src="/resources/js/posts/jquery-migrate-1.2.1.min.js"></script>
 <script src="/resources/js/posts/jquery.appear.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"
+        integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
+        integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+<script src="../resources/js/posts/academic.min.js"></script>
+
+<div id="modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cite</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <pre><code class="tex hljs"></code></pre>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+<!--                    <i class="fas fa-copy"></i> -->Copy
+                </a>
+                <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+<!--                    <i class="fas fa-download"></i> -->Download
+                </a>
+                <div id="modal-error"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
