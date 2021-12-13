@@ -147,7 +147,7 @@ a:hover, a:active {
 		float: left;
 		font-size:12px;
 
-	 	li{
+		li{
 			position: relative;
 			display: initial;
 			padding-right:20px;
@@ -173,10 +173,10 @@ a:hover, a:active {
 		.avatar{
 			float: right;
 
-		img{
-			width: 32px;
-			height: 32px;
-			border-radius: 300px;
+			img{
+				width: 32px;
+				height: 32px;
+				border-radius: 300px;
 			}
 		}
 		.back_btn{
@@ -184,9 +184,9 @@ a:hover, a:active {
 			padding-top: 5px;
 			margin-right:-10px;
 
-		 li{
-			display: initial;
-			padding-right:40px;
+			li{
+				display: initial;
+				padding-right:40px;
 			}
 		}
 	}
@@ -414,7 +414,7 @@ a:hover, a:active {
 			display: inline;
 			line-height: 1;
 
-			 a {
+			a {
 				text-decoration: none;
 			}
 		}
@@ -494,9 +494,9 @@ a:hover, a:active {
 	margin: 30px;
 	padding: 0;
 	li {
-        list-style-type: none;
-        padding: 0;
-    }
+		list-style-type: none;
+		padding: 0;
+	}
 
 	.listing-title {
 		font-size: 24px;
@@ -505,7 +505,7 @@ a:hover, a:active {
 		line-height: 2.2em;
 	}
 	.listing{
-        padding: 0;
+		padding: 0;
 		.listing-post {
 			padding-bottom: 5px;
 
@@ -514,12 +514,12 @@ a:hover, a:active {
 				color: #C5C5C5;
 			}
 
-			 a {
+			a {
 				color: #8F8F8F;
 
-				 &:hover{
-					 color: #4786D6;
-				 }
+				&:hover{
+					color: #4786D6;
+				}
 			}
 
 		}
@@ -536,15 +536,15 @@ a:hover, a:active {
 	border-radius: 300px;
 	background-color: #3E3E3E;
 	margin-right:5px;
-		a{
-			color: #fff;
-			padding: 11px;
-			font-size: 12px;
-		}
- 		a:hover{
-			color: #ED6243;
-			padding: 11px;
-		}
+	a{
+		color: #fff;
+		padding: 11px;
+		font-size: 12px;
+	}
+	a:hover{
+		color: #ED6243;
+		padding: 11px;
+	}
 }
 .weibo{
 	width: 32px;
@@ -553,12 +553,12 @@ a:hover, a:active {
 	background-color: #ED6243;
 	margin-right:5px;
 
- 	a{
-	color: #fff;
-	padding: 9px;
+	a{
+		color: #fff;
+		padding: 9px;
 	}
 	a:hover{
-	color: #BD4226;
+		color: #BD4226;
 	}
 }
 .twitter{
@@ -568,13 +568,13 @@ a:hover, a:active {
 	background-color: #59C0FD;
 	margin-right:5px;
 
-		a{
-			color: #fff;
-			padding: 9px;
-		}
-		a:hover{
-			color:#4B9ECE;
-		}
+	a{
+		color: #fff;
+		padding: 9px;
+	}
+	a:hover{
+		color:#4B9ECE;
+	}
 }
 /* about */
 .about{
@@ -689,7 +689,7 @@ a.btn {
 			list-style: none;
 			width: 100px;
 
-			 a {
+			a {
 				display: inline-block;
 				position: relative;
 				padding: 0.5em 1.25em;
@@ -707,8 +707,8 @@ a.btn {
 				border-radius: 999em;
 				margin-top: 5px;
 
-				 &:hover{
-					 position: relative;
+				&:hover{
+					position: relative;
 					padding: 0.5em 1.25em;
 					outline: 0;
 					color: #fff;
@@ -723,7 +723,7 @@ a.btn {
 					font-style: normal;
 					border-radius: 999em;
 					margin-top: 5px;
-				 }
+				}
 			}
 
 		}
@@ -749,20 +749,20 @@ a.btn {
 		position:absolute;
 		border-right:none;
 		z-index: 1;
-			.logo-title{
-				padding-top: 120px;
+		.logo-title{
+			padding-top: 120px;
 
-				.title{
+			.title{
 
-					img{
-						width: 100px;
-					}
-					h3{
-						font-size: 20px;
-					}
+				img{
+					width: 100px;
+				}
+				h3{
+					font-size: 20px;
 				}
 			}
 		}
+	}
 	.page-top{
 		width: 100%
 	}
