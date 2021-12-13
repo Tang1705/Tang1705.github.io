@@ -40,6 +40,23 @@ See https://github.com/adobe-type-tools/cmap-resources
 
     <script src="viewer.js"></script>
 
+    <script>
+        //jsonp实现跨域get请求
+        let script = document.createElement("script");
+        let callbackName = "jsonp_callback";
+        if (url.indexOf("?") !== -1) {
+            url += "&callback=" + callbackName;
+        } else {
+            url += "?callback=" + callbackName;
+        }
+        script.src = url;
+        window[callbackName] = function(data) {
+            // ...做一些你的事情
+            document.body.removeChild(script);
+        };
+        document.body.appendChild(script);
+    </script>
+
 </head>
 
 <body tabindex="1">
