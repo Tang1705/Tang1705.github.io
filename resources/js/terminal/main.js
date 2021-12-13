@@ -28,6 +28,7 @@ var configs = (function () {
         help_help: "Print this menu.",
         clear_help: "Clear the terminal screen.",
         reboot_help: "Reboot the system.",
+        shutdown_help: "Shutdown the system.",
         cd_help: "Change the current working directory.",
         mv_help: "Move (rename) files.",
         rm_help: "Remove files or directories.",
@@ -40,6 +41,7 @@ var configs = (function () {
         welcome_file_name: "welcome_message.txt",
         invalid_command_message: "<value>: " + "command not found.",
         reboot_message: "Preparing to reboot...\n\n3...\n\n2...\n\n1...\n\nRebooting...\n\n",
+        shutdown_message: "Preparing to shutdown...\n\n3...\n\n2...\n\n1...\n\nRebooting...\n\n",
         permission_denied_message: "Unable to '<value>', permission denied.",
         sudo_message: "Unable to sudo using a web client.",
         usage: "Usage",
@@ -77,41 +79,8 @@ var files = (function () {
     Singleton.defaultOptions["github.txt"] = "https://github.com/Tang1705";
     Singleton.defaultOptions["linkedin.txt"] = "https://linkedin.com/in/tang5618"
     Singleton.defaultOptions["interests.txt"] = "Computer Vision, Deep Learning, Depth Map Processing(MDE & DSR, etc.), Photography, Music\n";
-    // Singleton.defaultOptions["courses.txt"] = "\
-    // Fudan University, Shanghai, China\t\t\t2015.9-Present\n\
-    // Bachelor of Computer Science (expected in 07.2020, one year delay because of a surgery) \n\
-    // GPA (overall): 3.55/4.0; Ranking: 21/117 \n\
-    // Body :Computer Architecture(A)| Computer Network(A-)|Computer System(A)|Database Implementation(A-)|Operating System(B+)\n\
-    // Brain: Data Structure(B+)|Distributed System(A)|Linear Algebra(A)\n\
-    // Mouth:  C Programming(A)|C++ Programming(A-)|Web Development(A) \n\
-    // Metaphysics: Neural Network and Deep Learning(A-)";
-    // Singleton.defaultOptions["miscellany.txt"] = "\
-    // PL: Python, Java, Golang, C, C++, JavaScript, MATLAB(wanderer), Rust(dabbler)\n\
-    // Framework & Library: Tornado(Python), D3.js(JS), Node.js(V8), System Call(C), Tensorflow, PyTorch\n\
-    // Soft Skills: Storytelling, Networking, Information Retrieval, Puns & Jokes, Open Source Engagement\n";
-    // Singleton.defaultOptions["avatar.txt"] = "\
-    // ::::::;;:::;;;;;;;;;;;;;;;;;;;;;;;::::::\n\
-    // ;;;;;;;;,,'''''''''''''''''''',,;;;:::::\n\
-    // ;;;;;,,''''''''''''''''''''''''',,;;;:::\n\
-    // ;;;;,,'''''''''''''',,'',,,,,,,,,,,,;;::\n\
-    // ;;;,,'.'',,,;:cc:ccccccc:::;;;,,,,,,;;::\n\
-    // ;;,,'.',;:clloddddxxxxxxddoollc;,,,,;;::\n\
-    // ;;;,'',:lloddxxxxxkkkkkkxxxxxxdl;,,,,;::\n\
-    // ;;;,'';clooddxxxxkkkkkkkkkxxxxxoc;,,;;;:\n\
-    // ;;;,'';cloooooddxxxxxxxxxdxxxxxdl:;,;;::\n\
-    // ;;,,',:llllooooooddddddodddddxxxdl;,;:::\n\
-    // ;,;,,;clllllllllooddddolllooddxxxo::clc:\n\
-    // ,,;;;;:clllcccllloooooolccloddxxxoclddl:\n\
-    // ,,,;;;:coooooooooodddddddddxxxkkxdoodoc:\n\
-    // ,,,;;::cloddddddddxxdddxxxxkkkkkkxxddlc:\n\
-    // ,,,,;:cllodxxxxdooddooodxkkkkkkkkkxdl:::\n\
-    // ,,,,,;:clodddxddolooooddxkkkxxkkxolc::::\n\
-    // ,,,,,,,;clooodddddddddxxxxxxxxxdl::;::::\n\
-    // ,,,,,,,,;cloooolllooooooddxxxdolc:::::;:\n\
-    // ,,,,,,,,,;:cooooooodddddddxddol:::::::;:\n\
-    // ,,,,,,,,,,;:cloooddxxxxxxddoolc;:lc::;;:\n\
-    // ,,,,,,,,;:cc::cclooodddoooolllc::looc:::\n\
-    // ,,,,,,,;codo:;:ccccllllllloollc::ldxdo";
+    Singleton.defaultOptions["posts.txt"] = "https://www.tang5618.com/posts"
+    Singleton.defaultOptions["xincheck.txt"] = "https://xincheck.com"
 
     return {
         getInstance: function (options) {
@@ -164,6 +133,7 @@ var main = (function () {
         HELP: {value: "help", help: configs.getInstance().help_help},
         CLEAR: {value: "clear", help: configs.getInstance().clear_help},
         REBOOT: {value: "reboot", help: configs.getInstance().reboot_help},
+        SHUTDOWN: {value: "shutdown", help: configs.getInstance().shutdown_help},
         CD: {value: "cd", help: configs.getInstance().cd_help},
         MV: {value: "mv", help: configs.getInstance().mv_help},
         RM: {value: "rm", help: configs.getInstance().rm_help},
@@ -173,7 +143,7 @@ var main = (function () {
     };
 
 
-    var Terminal = function (prompt, cmdLine, output, profilePic, user, host, root, outputTimer) {
+    var Terminal = function (prompt, cmdLine, memory, output, profilePic, user, host, root, outputTimer) {
         if (!(prompt instanceof Node) || prompt.nodeName.toUpperCase() !== "DIV") {
             throw new InvalidArgumentException("Invalid value " + prompt + " for argument 'prompt'.");
         }
@@ -193,6 +163,7 @@ var main = (function () {
         this.profilePic = profilePic;
         this.prompt = prompt;
         this.cmdLine = cmdLine;
+        this.memory = memory;
         this.output = output;
         // this.sidenav = sidenav;
         // this.sidenavOpen = false;
@@ -232,6 +203,9 @@ var main = (function () {
                 ignoreEvent(event);
             } else if (event.which === 9 || event.keyCode === 9) {
                 this.handleFill();
+                ignoreEvent(event);
+            } else if (event.which === 38 || event.keyCode === 38) {
+                this.handleMemory();
                 ignoreEvent(event);
             }
         }.bind(this));
@@ -306,6 +280,14 @@ var main = (function () {
         this.focus();
     };
 
+    Terminal.prototype.handleMemory = function () {
+        // this.lock()
+        this.cmdLine.value = this.memory;
+        // this.unlock()
+        // scrollToBottom();
+        // this.focus();
+    }
+
     Terminal.prototype.handleFill = function () {
         var cmdComponents = this.cmdLine.value.trim().split(" ");
         if ((cmdComponents.length <= 1) || (cmdComponents.length === 2 && cmdComponents[0] === cmds.CAT.value)) {
@@ -347,7 +329,12 @@ var main = (function () {
 
     Terminal.prototype.handleCmd = function () {
         var cmdComponents = this.cmdLine.value.trim().split(" ");
+        if (this.cmdLine.value!==""){
+            this.memory = this.cmdLine.value;
+        }
+        
         this.lock();
+
         switch (cmdComponents[0]) {
             case cmds.CAT.value:
                 this.cat(cmdComponents);
@@ -369,6 +356,9 @@ var main = (function () {
                 break;
             case cmds.REBOOT.value:
                 this.reboot();
+                break;
+            case cmds.SHUTDOWN.value:
+                this.shutdown();
                 break;
             case cmds.CD.value:
             case cmds.MV.value:
@@ -394,9 +384,9 @@ var main = (function () {
         } else if (!cmdComponents[1]) {
             result = configs.getInstance().file_not_found.replace(configs.getInstance().value_token, cmdComponents[1]);
         } else if (!files.getInstance().hasOwnProperty(cmdComponents[1])) {
-            if (cmdComponents[1] !== configs.getInstance().welcome_file_name){
+            if (cmdComponents[1] !== configs.getInstance().welcome_file_name) {
                 result = configs.getInstance().file_not_found.replace(configs.getInstance().value_token, cmdComponents[1]);
-            }else{
+            } else {
                 result = cmdComponents[1] === configs.getInstance().welcome_file_name ? configs.getInstance().welcome : files.getInstance()[cmdComponents[1]];
             }
         } else {
@@ -445,6 +435,11 @@ var main = (function () {
         this.type(configs.getInstance().reboot_message, this.reset.bind(this));
     };
 
+    Terminal.prototype.shutdown = function () {
+        // this.type(configs.getInstance().shutdown_message, this.reset.bind(this));
+        window.location.replace("https://www.tang5618.com/");
+    };
+
     Terminal.prototype.reset = function () {
         this.output.textContent = "";
         this.prompt.textContent = "";
@@ -460,7 +455,13 @@ var main = (function () {
     };
 
     Terminal.prototype.invalidCommand = function (cmdComponents) {
-        this.type(configs.getInstance().invalid_command_message.replace(configs.getInstance().value_token, cmdComponents[0]), this.unlock.bind(this));
+        if (cmdComponents.length <= 1 && cmdComponents[0] === "") {
+            this.cmdLine.value = "";
+            this.unlock();
+        } else {
+            this.type(configs.getInstance().invalid_command_message.replace(configs.getInstance().value_token, cmdComponents[0]), this.unlock.bind(this));
+        }
+
     };
 
     Terminal.prototype.focus = function () {
@@ -524,6 +525,7 @@ var main = (function () {
             new Terminal(
                 document.getElementById("prompt"),
                 document.getElementById("cmdline"),
+                "", // memory
                 document.getElementById("output"),
                 // document.getElementById("sidenav"),
                 document.getElementById("profilePic"),
