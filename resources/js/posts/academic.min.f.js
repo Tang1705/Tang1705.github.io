@@ -1771,6 +1771,20 @@
         if ($('.pub-filters-select')) {
             filter_publications();
         }
+        $('.js-read-modal').click(function (e) {
+            e.preventDefault();
+            let filename = $(this).attr('data-filename');
+            let modal = $('#modal');
+            modal.find('.modal-body code').load(filename, function (response, status, xhr) {
+                if (status == 'error') {
+                    let msg = "Error: ";
+                    $('#modal-error').html(msg + xhr.status + " " + xhr.statusText);
+                } else {
+                    $('.js-download-cite').attr('href', filename);
+                }
+            });
+            modal.modal('show');
+        });
         $('.js-cite-modal').click(function (e) {
             e.preventDefault();
             let filename = $(this).attr('data-filename');
