@@ -1,5 +1,5 @@
 ::selection {
-    background: #57C3B6;
+    background: #A6D2FF;
 }
 
 html, body {
@@ -63,7 +63,7 @@ body {
 }
 
 .green {
-    color: #009b64;
+    color: #067D17;
 }
 
 .input-line {
@@ -111,7 +111,7 @@ body {
     z-index: 9;
     top: 0;
     left: 0;
-    background-color: #009b64;
+    background-color: #067D17;
     opacity: 0.8;
     overflow-x: hidden;
     transition: 0.3s;
@@ -170,6 +170,6 @@ body {
 
 @media screen and (min-width: 721px) {
     #sidenav button:hover {
-        color: #004f32;
+        color: #067D17;
     }
 }
