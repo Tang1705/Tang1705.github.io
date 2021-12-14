@@ -81,7 +81,7 @@ var files = (function () {
     Singleton.defaultOptions["posts.txt"] = "https://www.tang5618.com/posts"
     Singleton.defaultOptions["xincheck.txt"] = "https://xincheck.com"
     Singleton.defaultOptions["interests.txt"] = "Computer Vision, Deep Learning, Depth Map Processing(MDE & DSR, etc.), Photography, Music\n";
-    Singleton.defaultOptions["log.txt"] = "Base on https://sgzhazelnut.github.io/terminal/ (1.0.0)\nAdded response for events of Enter key(without CMD) and ArrowUp key, which is more friendly for interaction";
+    Singleton.defaultOptions["log.txt"] = "Based on https://sgzhazelnut.github.io/terminal/ (1.0.0)\nAdded response for events of Enter key(without CMD), ArrowUp key and ArrowDown key, which is more friendly for interaction";
 
     return {
         getInstance: function (options) {
@@ -142,7 +142,6 @@ var main = (function () {
         TOUCH: {value: "touch", help: configs.getInstance().touch_help},
         SUDO: {value: "sudo", help: configs.getInstance().sudo_help}
     };
-
 
     var Terminal = function (prompt, cmdLine, memory, output, profilePic, user, host, root, outputTimer) {
         if (!(prompt instanceof Node) || prompt.nodeName.toUpperCase() !== "DIV") {
@@ -207,6 +206,9 @@ var main = (function () {
                 ignoreEvent(event);
             } else if (event.which === 38 || event.keyCode === 38) {
                 this.handleMemory();
+                ignoreEvent(event);
+            } else if (event.which === 40 || event.keyCode === 40) {
+                this.clearCmd();
                 ignoreEvent(event);
             }
         }.bind(this));
@@ -328,9 +330,18 @@ var main = (function () {
         }
     };
 
+    Terminal.prototype.clearCmd = function () {
+        var command = "";
+        this.cmdLine.value = "";
+        this.prompt.textContent = "";
+        // this.output.innerHTML += "<span class=\"green\"> </span> " + command + "<br/>";
+
+        this.cmdLine.disabled = true;
+        this.unlock()
+    }
     Terminal.prototype.handleCmd = function () {
         var cmdComponents = this.cmdLine.value.trim().split(" ");
-        if (this.cmdLine.value!==""){
+        if (this.cmdLine.value !== "") {
             this.memory = this.cmdLine.value;
         }
 
@@ -375,7 +386,6 @@ var main = (function () {
                 this.invalidCommand(cmdComponents);
                 break;
         }
-        ;
     };
 
     Terminal.prototype.cat = function (cmdComponents) {
