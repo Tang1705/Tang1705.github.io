@@ -16,5 +16,11 @@
     <orderEntry type="library" name="mark.js" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="autotrack" level="application" />
+    <orderEntry type="library" name="style" level="application" />
+    <orderEntry type="library" name="mathjax" level="application" />
+    <orderEntry type="library" name="prism" level="application" />
+    <orderEntry type="library" name="prismjs" level="application" />
+    <orderEntry type="library" name="es" level="application" />
+    <orderEntry type="library" name="plausible" level="application" />
   </component>
 </module>

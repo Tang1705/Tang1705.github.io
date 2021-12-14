@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{autotrack, fancybox, fuse.js, highlight.js, jquery, jquery.imagesloaded, jquery.isotope, mark.js}" />
+    <file url="PROJECT" libraries="{autotrack, es, fancybox, fuse.js, highlight.js, jquery, jquery.imagesloaded, jquery.isotope, mark.js, mathjax, plausible, prism, prismjs, style}" />
   </component>
 </project>
