@@ -33,6 +33,10 @@ body {
 	line-height: 1;
 }
 
+@-ms-viewport {
+	width: device-width
+}
+
 ol, ul {
 	list-style: none;
 }

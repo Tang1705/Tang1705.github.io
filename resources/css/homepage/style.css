@@ -4,6 +4,10 @@ body {
     color: #071013;
 }
 
+@-ms-viewport {
+    width: device-width
+}
+
 a {
     color: #8C1515;
 }

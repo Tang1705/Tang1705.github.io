@@ -13,6 +13,10 @@ body {
     background-color: #fff;
 }
 
+@-ms-viewport {
+    width: device-width
+}
+
 p {
     line-height: 1.9em;
     font-weight: 400;
