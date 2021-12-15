@@ -62,7 +62,9 @@ a:visited, a:hover, a:active {
     padding-top: 18px;
     padding-bottom: 18px;
     border: 0;
-    border-top: 1px solid #eee
+    border-top: 1px solid #eee;
+    min-width: 1060px
+
 }
 
 @media only screen and (min-width: 1024px) {
