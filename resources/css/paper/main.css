@@ -1778,7 +1778,7 @@
     height: 20px
 }
 
-.resumeViewForm__2pJjz {
+.paper_form {
     position: relative;
     width: 1280px;
     margin: 0 auto 115px;
@@ -1789,32 +1789,32 @@
     z-index: 1
 }
 
-.resumeViewForm__2pJjz .resumeViewForm-listItem {
+.paper_form .resumeViewForm-listItem {
     padding-bottom: 8px
 }
 
-.resumeViewForm__2pJjz .resumeViewForm-listItem:nth-child(n+3) {
+.paper_form .resumeViewForm-listItem:nth-child(n+3) {
     border-top: 1px dashed #eff1f1;
     padding-top: 24px
 }
 
-.resumeViewForm__2pJjz .atsx-row .atsx-col {
+.paper_form .atsx-row .atsx-col {
     display: inline-block
 }
 
-.resumeViewForm__2pJjz .atsx-row .atsx-col-auto:nth-child(odd) {
+.paper_form .atsx-row .atsx-col-auto:nth-child(odd) {
     width: 520px
 }
 
-.resumeViewForm__2pJjz .atsx-row .atsx-col-auto:nth-child(2n) {
+.paper_form .atsx-row .atsx-col-auto:nth-child(2n) {
     width: 396px
 }
 
-.resumeViewForm__2pJjz .atsx-row .atsx-col-desc {
+.paper_form .atsx-row .atsx-col-desc {
     width: 840px
 }
 
-.resumeViewForm__2pJjz .atsx-row .atsx-col-desc .resumeViewItem-content {
+.paper_form .atsx-row .atsx-col-desc .resumeViewItem-content {
     white-space: pre-line
 }
 
@@ -2698,12 +2698,12 @@
     color: #1f2329
 }
 
-.resumeView__15Wal {
+.doi-view {
     min-height: 100vh;
     position: relative
 }
 
-.resumeView__15Wal .resumeView-banner {
+.doi-view .banner {
     height: 292px;
     position: absolute;
     top: 0;
@@ -2714,7 +2714,7 @@
     background-position: 50% 50%
 }
 
-.resumeView__15Wal .resumeView-header-edit {
+.doi-view .resumeView-header-edit {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -2724,20 +2724,20 @@
     border-color: #fff
 }
 
-.resumeView__15Wal .resumeView-header-edit svg {
+.doi-view .resumeView-header-edit svg {
     margin-right: 8px
 }
 
-.resumeView__15Wal .resumeView-header-edit:hover {
+.doi-view .resumeView-header-edit:hover {
     background: #fff;
     color: #3370ff
 }
 
-.resumeView__15Wal .resumeView-countryCode {
+.doi-view .resumeView-countryCode {
     margin-right: 8px
 }
 
-.resumeView__15Wal .resumeView-header {
+.doi-view .paper-header {
     position: relative;
     width: 1016px;
     height: 146px;
@@ -2751,7 +2751,7 @@
     z-index: 1
 }
 
-.resumeView__15Wal .resumeView-header .resumeView-header-left {
+.doi-view .paper-header .paper-header-left {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -2759,7 +2759,7 @@
     color: #fff
 }
 
-.resumeView__15Wal .resumeView-header .resumeView-header-left .resumeView-myResume {
+.doi-view .paper-header .paper-header-left .paper-title {
     color: #fff;
     height: 59px;
     line-height: 59px;
@@ -2767,7 +2767,7 @@
     font-weight: 800
 }
 
-.resumeView__15Wal .resumeView-header .resumeView-header-left .resumeView-lastUpdate {
+.doi-view .paper-header .paper-header-left .doi-container {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -2778,7 +2778,7 @@
     line-height: 1.75
 }
 
-.resumeView__15Wal .resumeView-header .resumeView-header-left .resumeView-lastUpdate .resumeView-lastUpdate-text {
+.doi-view .paper-header .paper-header-left .doi-container .doi_text {
     margin-left: 8px;
     margin-right: 4px
 }
@@ -3287,10 +3287,10 @@ input[type=number] {
     backdrop-filter: none
 }
 
-#bd > section > section > main > div > div > div.resumeView-header > div > div.resumeView-lastUpdate > img{
+#article > section > section > main > div > div > div.paper-header > div > div.doi-container > img{
     margin: 0;
 }
 
-.resumeView-lastUpdate .img{
+.doi-container .img{
 
 }
