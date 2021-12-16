@@ -564,7 +564,21 @@
         </div>
     </section>
 </div>
-<script async defer data-domain="latex.now.sh"
-        src="https://plausible.io/js/plausible.js"></script>
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'],],
+        },
+    }
+    const toggle = document.getElementById('typeface-toggle')
+    const typeface = document.getElementById('typeface')
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('libertinus')
+        typeface.textContent = document.body.classList.contains('libertinus') ? 'Libertinus' : 'Latin Modern'
+    })
+</script>
+
+
+<script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
 </body>
 </html>
