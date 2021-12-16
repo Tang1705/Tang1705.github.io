@@ -13,6 +13,7 @@
     <script src="../../../resources/js/posts/prism.js"></script>
     <link rel="stylesheet" href="../../../resources/css/posts/all.css"/>
     <link rel="stylesheet" href="../../../resources/css/posts/letter.css">
+    <link rel="stylesheet" href="./css/table.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -66,7 +67,8 @@
                                         Super-Resolution</h1>
                                     <div class="post-letter">P</div>
                                     <p class="author">
-                                        Xinchen Ye , Baoli Sun, Zhihui Wang, Jingyu Yang, Rui Xu , Haojie Li, and Baopu Li <br/>
+                                        Xinchen Ye , Baoli Sun, Zhihui Wang, Jingyu Yang, Rui Xu , Haojie Li, and Baopu
+                                        Li <br/>
 
                                     </p>
                                 </header>
@@ -99,448 +101,556 @@
                                     </p>
                                 </div>
 
-                                <nav role="navigation" class="toc">
-                                    <h2>Contents</h2>
-                                    <ol>
-                                        <li><a href="#getting-started">Getting Started</a></li>
-                                        <li>
-                                            <a href="#class-based-elements">Class-based Elements</a>
-                                            <ol>
-                                                <li><a href="#author-abstract">Author and Abstract</a></li>
-                                                <li>
-                                                    <a href="#tdpl">Theorems, Definitions and Proofs</a>
-                                                    <ol>
-                                                        <li><a href="#proofs-theorems">Proofs & Theorems</a></li>
-                                                        <li><a href="#lemmas">Lemmas</a></li>
-                                                        <li><a href="#definitions">Definitions</a></li>
-                                                    </ol>
-                                                </li>
-                                            </ol>
-                                        </li>
-                                        <li><a href="#language-support">Language Support</a></li>
-                                        <li><a href="#sidenotes">Sidenotes</a></li>
-                                        <li><a href="#alternative-typeface">Alternative Typeface</a></li>
-                                        <li>
-                                            <a href="#html-elements">HTML Elements</a>
-                                            <ol>
-                                                <li><a href="#text-formatting">Text Formatting</a></li>
-                                                <li><a href="#blockquotes">Blockquotes</a></li>
-                                                <li><a href="#definition-lists">Definition Lists</a></li>
-                                                <li><a href="#tables">Tables</a></li>
-                                                <li><a href="#images">Images</a></li>
-                                            </ol>
-                                        </li>
-                                        <li>
-                                            <a href="#miscellaneous">Miscellaneous</a>
-                                            <ol>
-                                                <li><a href="#scroll-overflow">Scroll Overflow</a></li>
-                                                <li><a href="#syntax-highlighting">Syntax Highlighting</a></li>
-                                            </ol>
-                                        </li>
-                                    </ol>
-                                </nav>
-
                                 <main>
                                     <article>
-                                        <h2 id="getting-started">Getting Started</h2>
-                                        <ul>
-                                            <li>
-                                                Add
-                                                <code class="language-html">&lt;link rel="stylesheet"
-                                                    href="https://latex.now.sh/style.css"&gt;</code>
-                                                to the <code class="language-html">&lt;head&gt;</code> of your website
-                                                or
-                                                install the
-                                                package using <code>npm install latex.css</code>.
-                                            </li>
-                                            <li>
-                                                (optional) Add any classes to elements described in the
-                                                <a href="#class-based-elements">next section</a>.
-                                            </li>
-                                            <li>
-                                                (optional) If you need support for
-                                                <span class="latex">L<span>a</span>T<span>e</span>X</span> math, add
-                                                the following script to include
-                                                <a href="https://www.mathjax.org/">MathJax</a>:
-                                                <pre><code class="language-html">&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;</code></pre>
-                                            </li>
-                                            <li>
-                                                (optional) If you need syntax highlighting, add
-                                                the following script to include
-                                                <a href="https://prismjs.com/">Prism</a> and the Prism LaTeX stylesheet
-                                                (or
-                                                use any other):
-                                                <pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.now.sh/prism/prism.css"&gt;
 
-&lt;script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;</code></pre>
-                                            </li>
-                                            <li>Done.</li>
-                                        </ul>
+                                        <h2>1. Motivation</h2>
 
-                                        <h2 id="class-based-elements">Class-based Elements</h2>
-                                        <h3 id="author-abstract">Author and Abstract</h3>
-                                        <p>
-                                            Use the following code to add an author and abstract to your document.
-                                            It will look like <a href="#top">this</a>.
-                                        </p>
-                                        <pre><code class="language-html">&lt;p class="author"&gt;John Doe &lt;br&gt; December 7, 2020&lt;/p&gt;
+                                        <pre><code class="language-python">import torch</code></pre>
 
-&lt;div class="abstract"&gt;
-  &lt;h2&gt;Abstract&lt;/h2&gt;
-  &lt;p&gt;...&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+                                        <h2>2. Method</h2>
 
-                                        <h3 id="tdpl">Theorems, Definitions, Lemmas and Proofs</h3>
-                                        <p>
-                                            Theorems, definitions, lemmas and proofs are supported. Just wrap your
-                                            content in a div and add the corresponding class to the element like
-                                            in the following example.
-                                        </p>
+                                        Traditionally, color-guided depth SR is formulated as an optimization problem,
+                                        which includes a fidelity term and a prior term to make the ill-posed problem
+                                        well constrained. It can be roughly summarized into the following optimization
+                                        function:<sup><a href="#fn1"
+                                                         id="ref1">1</a></sup>
 
-                                        <pre><code class="language-html">&lt;div class="theorem"&gt;...&lt;/div&gt;
-&lt;div class="definition"&gt;...&lt;/div&gt;
-&lt;div class="lemma"&gt;...&lt;/div&gt;
-&lt;div class="proof"&gt;...&lt;/div&gt;</code></pre>
-                                        <p>Below are some examples.</p>
-                                        <h4 id="proofs-theorems">Proofs & Theorems</h4>
-                                        <div class="theorem">
-                                            The real numbers $\mathbb{R}$ are uncountable.
-                                        </div>
-                                        <div class="proof">
-                                            If $\mathbb{R}$ is countable, then [0, 1] is countable as well. Hence
-                                            there exists a map C from $\mathbb{N}$ onto [0, 1] with
-                                            $$C(n)=\sum_{i=1}^{\infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n)
-                                            \in\{0,1, \ldots, 9\},$ are the digits in decimal expansion. Now
-                                            consider a real number $$x=\sum_{i=1}^{\infty} \bar{c}_{i} 10^{-i}
-                                            \in[0,1]$$ with $\bar{c}_{i} \neq c_{i}(i)$. Obviously $C(n) \neq x$
-                                            for all $n \in \mathbb{N} .$ Hence $C$ is not onto. A contradiction.
-                                        </div>
-                                        <div class="theorem">
-                                            If $S$ is both countable and infinite, then there is a bijection
-                                            between $S$ and $\boldsymbol{N}$ itself.<sup><a href="#fn1"
-                                                                                            id="ref1">1</a></sup>
-                                        </div>
-                                        <div class="proof">
-                                            For any $s \in S,$ we let $f(s)$ denote the value of $k$ such that $s$
-                                            is the $k$ the smallest element of $S .$ This map is well defined for
-                                            any $s,$ because there are only finitely many natural numbers between
-                                            1 and $s .$ It is impossible for two different elements of $S$ to both
-                                            be the $k$ the smallest element of $S$. Hence $f$ is one-to-one. Also,
-                                            since $S$ is infinite, $f$ is onto.
-                                        </div>
-                                        <h4 id="lemmas">Lemmas</h4>
-                                        <div class="lemma">
-                                            An even number plus an even number results in an even number.
-                                        </div>
-                                        <h4 id="definitions">Definitions</h4>
-                                        <div class="definition">
-                                            A definition is a a statement of the meaning of a word or word group
-                                            or a sign or symbol.<sup><a href="#fn2" id="ref2">2</a></sup>
-                                        </div>
-
-                                        <h2 id="language-support">Language Support</h2>
-                                        <p>
-                                            The labels of theorems, definitions, lemmas and proofs can be changed
-                                            to other
-                                            <a href="https://github.com/vincentdoerig/latex-css/tree/master/lang">supported
-                                                language</a>
-                                            by including the following snippet, linking to the desired language in
-                                            addition to the main CSS file.
-                                        </p>
-                                        <pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.now.sh/lang/es.css" /&gt;
-  ...
-&lt;html lang="es"&gt;</code></pre>
-                                        <p>
-                                            Take a peek at the <a href="/languages">language support demo</a> to
-                                            see how the labels of the different languages change.
-                                        </p>
-
-                                        <h2 id="sidenotes">Sidenotes</h2>
-                                        <p>
-                                            Sidenotes can be used as an alternative to footnotes, where the user does
-                                            not
-                                            have to jump to the bottom of the page to read it. On mobile, click the
-                                            superscript to reveal the note<label for="sn-1"
-                                                                                 class="sidenote-toggle sidenote-number"></label><input
-                                                type="checkbox" id="sn-1" class="sidenote-toggle"/><span
-                                                class="sidenote">Yay, sidenotes!. If you are on
-          mobile, I will appear inline. If you are
-          using a larger screen, the sidenote will appear to the right of the
-          text.</span>.
-                                        </p>
+                                        $$
+                                        x^{*}=\underset{x}{\arg \min } \frac{1}{2}\|y-K x\|^{2}+\lambda \sum_{l}
+                                        \omega_{l} * \rho_{l}\left(f_{l} \otimes x\right)
+                                        $$
 
                                         <p>
-                                            Sidenotes do need a little bit of setup, they are made up of a label, an
-                                            invisible checkbox on top of the number and a span with the text inside. The
-                                            superscript is set automatically and incremented using CSS when the
-                                            checkbox has a class of <code>sidenote-number</code>.
-                                        </p>
-                                        <pre><code class="language-html">&lt;label for="sn-1" class="sidenote-toggle sidenote-number"&gt;&lt;/label&gt;
-&lt;input type="checkbox" id="sn-1" class="sidenote-toggle" /&gt;
-&lt;span class="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;</code></pre>
-                                        <p>If you do not need superscripted numbers, you can opt out of the <code>sidenote-number</code>
-                                            class and the sidenote will not have a number assigned. On a smaller screen,
-                                            you
-                                            will need to add a symbol inside the <code>label</code> for the user to
-                                            click
-                                            on. <label for="sn-plus" class="sidenote-toggle">⊕</label><input
-                                                    type="checkbox"
-                                                    id="sn-plus"
-                                                    class="sidenote-toggle"/><span
-                                                    class="sidenote">This is a sidenote without a number.</span></p>
-                                        <p>The snippet for a sidenote without a number is very similar:</p>
-                                        <pre><code class="language-html">&lt;label for="sn-anything" class="sidenote-toggle"&gt;⊕&lt;/label&gt;
-&lt;input type="checkbox" id="sn-anything" class="sidenote-toggle" /&gt;
-&lt;span class="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;</code></pre>
-                                        <!-- sidnotes as a link
-                                            <label for="sn-plus" class="sidenote-toggle"><a
-                                              href="#sn-plus-content">⊕</a></label><input type="checkbox" id="sn-plus" class="sidenote-toggle" /><span
-                                            class="sidenote" id="sn-plus-content">This is a sidenote without a number.</span> -->
-                                        <p>Add a class of <code>left</code> to the span with the <code>sidenote</code>
-                                            class
-                                            to make the note appear on the left side of the page on instead of right.
-                                        </p>
-                                        <p>The symbol you could use to indicate a sidenote is up to you. What about this
-                                            notebook. <label for="sn-symbol"
-                                                             class="sidenote-toggle">📝</label><input type="checkbox"
-                                                                                                      id="sn-symbol"
-                                                                                                      class="sidenote-toggle"/><span
-                                                    class="sidenote right">A notebook indicating a note. Aha. <br> (if on a large screen, resize to mobile to see the emoji)</span>
-                                        </p>
-                                        <!-- <blockquote>You could also have sidenotes inside blockquotes just like this one <label for="sn-quote"
-                                            class="sidenote-toggle">🔖</label><input type="checkbox" id="sn-quote" class="sidenote-toggle" /><span
-                                            class="sidenote">Hello there!</span>.</blockquote> -->
-
-                                        <h2 id="alternative-typeface">Alternative Typeface</h2>
-                                        <p><span class="latex">L<span>a</span>T<span>e</span>X</span>.css uses Latin
-                                            Modern
-                                            by default. If you don't like this typeface (hard to read, too thin, etc.),
-                                            you
-                                            can switch to the <a href="https://github.com/alerque/libertinus"><code>Libertinus</code></a>
-                                            font family by adding a class of <code>libertinus</code> to the <code
-                                                    class="language-html">&lt;body&gt;</code> tag. Click the button
-                                            below to
-                                            switch between Latin Modern and Libertinus.</p>
-
-                                        <button id="typeface-toggle">Current typeface: <span
-                                                id="typeface">Latin Modern</span></button>
-
-                                        <h2 id="html-elements">HTML Elements</h2>
-                                        <p>
-                                            For a preview of all HTML elements with LaTeX.css, check out the
-                                            <a href="/elements">HTML5 elements test page</a>.
+                                            where $K$ is a downsampling degradation matrix, $λ$ is a trade-off
+                                            parameter. $f_l$ and
+                                            $ρ_l(·)$ are a set of filtering kernels and penalty functions, respectively.
+                                            $\omega$ is
+                                            the weighting matrix computed from the corresponding color image. $⊗$ is the
+                                            convolution operator.
                                         </p>
 
-                                        <h3 id="text-formatting">Text Formatting</h3>
-                                        <p>
-                                            This sentence is <b>bold</b>. If you like semantics, you might go with
-                                            <strong>strong</strong> or <em>emphasized</em> text. If not,
-                                            <i>italic</i> is still around. <small>Small</small> text is for fine
-                                            print. Your copy can also be <sub>subscripted</sub> and
-                                            <sup>superscripted</sup>,
-                                            <ins>inserted</ins>
-                                            ,
-                                            <del>deleted</del>
-                                            , or
-                                            <mark>highlighted</mark>
-                                            . You would use a
-                                            <a href="#!">hyperlink</a> to go to a new page. Keyboard input
-                                            elements like <kbd>Cmd</kbd> + <kbd>Shift</kbd>
-                                            are used to display textual user input.
-                                        </p>
-
-                                        <h3 id="blockquotes">Blockquotes</h3>
-                                        <blockquote>
-                                            Give me six hours to chop down a tree and I will spend the first four
-                                            sharpening the axe.
-                                            <cite>— Abraham Lincoln</cite>
-                                        </blockquote>
-
-                                        <h3 id="definition-lists">Definition Lists</h3>
-                                        <dl>
-                                            <dt>Definition Title One</dt>
-                                            <dd>First definition description</dd>
-                                            <dt>Binomial theorem</dt>
-                                            <dd>
-                                                $$(x+y)^{n}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\
-                                                k\end{array}\right) x^{n-k}
-                                                y^{k}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\ k\end{array}\right)
-                                                x^{k} y^{n-k}$$
-                                            </dd>
-                                        </dl>
-
-                                        <h3 id="tables">Tables</h3>
-                                        <table>
-                                            <caption>A sample table with a descriptive caption.</caption>
-                                            <thead>
-                                            <tr>
-                                                <th>Header 1</th>
-                                                <th>Header 2</th>
-                                                <th>Header 3</th>
-                                            </tr>
-                                            </thead>
-                                            <tfoot>
-                                            <tr>
-                                                <th>Footer 1</th>
-                                                <th>Footer 2</th>
-                                                <th>Footer 3</th>
-                                            </tr>
-                                            </tfoot>
-                                            <tbody>
-                                            <tr>
-                                                <td>Description 1</td>
-                                                <td>Description 2</td>
-                                                <td>Description 3</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Description 1</td>
-                                                <td>Description 2</td>
-                                                <td>Description 3</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Description 1</td>
-                                                <td>Description 2</td>
-                                                <td>Description 3</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <table>
-                                            <caption>
-                                                Example table taken from <a
-                                                    href="https://texdoc.net/texmf-dist/doc/latex/booktabs/booktabs.pdf">this
-                                                paper</a> on how to produce quality tables with LaTeX.
-                                            </caption>
-                                            <thead>
-                                            <tr>
-                                                <th colspan="2" scope="col">Item</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Animal</th>
-                                                <th>Description</th>
-                                                <th>Price ($)</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>Gnat</td>
-                                                <td>per gram</td>
-                                                <td>13.65</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gnu</td>
-                                                <td>stuffed</td>
-                                                <td>92.50</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Emu</td>
-                                                <td>stuffed</td>
-                                                <td>33.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Armadillo</td>
-                                                <td>frozen</td>
-                                                <td>8.99</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <div class="scroll-wrapper">
-                                            <table>
-                                                <caption>Color names and values.</caption>
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">HEX</th>
-                                                    <th scope="col">HSL</th>
-                                                    <th scope="col">RGB</th>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" style="color: teal;">Teal</th>
-                                                    <td><code>#008080</code></td>
-                                                    <td><code>hsl(180, 100%, 25%)</code></td>
-                                                    <td><code>rgb(0, 128, 128)</code></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" style="color: goldenrod;">Goldenrod</th>
-                                                    <td><code>#daa520</code></td>
-                                                    <td><code>hsl(43, 74%, 49%)</code></td>
-                                                    <td><code>rgb(218, 165, 32)</code></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" style="color: cornflowerblue;">Cornflowerblue</th>
-                                                    <td><code>#6495ed</code></td>
-                                                    <td><code>hsl(219, 79%, 66%)</code></td>
-                                                    <td><code>rgb(100, 149, 237)</code></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" style="color: lightcoral;">Lightcoral</th>
-                                                    <td><code>#f08080</code></td>
-                                                    <td><code>hsl(0, 79%, 72%)</code></td>
-                                                    <td><code>rgb(240, 128, 128)</code></td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <h3 id="images">Images</h3>
                                         <figure>
-                                            <img src="https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=1000&q=80"
-                                                 loading="lazy" alt="Mountain landscape" width="600" height="400"/>
+                                            <img src="./img/model.png"
+                                                 loading="lazy" alt="Mountain landscape"/>
                                             <figcaption>
-                                                Mountain landscape by
-                                                <a href="https://unsplash.com/@heytowner">John Towner</a>.
+                                                Fig. 1. Network architecture of the proposed PMBANet. To better present
+                                                the
+                                                whole framework and implementation details, different colored rectangles
+                                                are used to represent different stages and different operations in each
+                                                stage.
                                             </figcaption>
                                         </figure>
 
-                                        <h2 id="miscellaneous">Miscellaneous</h2>
+                                        <h2>3. Experiments</h2>
+                                        <p>During training, we use 36 RGB-D images (6, 21, 9 images from 2001, 2006 and
+                                            2014 datasets, respec- tively) from Middlebury dataset. To
+                                            evaluate the perfor- mance of our PMBANet, we test on 6 standard depth maps
+                                            (Art, Books, Moebius, Dolls, Laundry, Reindeer) from Middlebury 2005, 4
+                                            standard depth maps (Tsukuba, Venus, Teddy, Cones) from Middlebury 2003.</p>
+                                        <p>We augment the training dataset by 180-rotation and randomly extracted 10000+
+                                            depth patches of a fixed size of 16 × 16 from LR depth maps. The
+                                            corresponding HR depth patches are the squared size of 32, 64, 128, and 256
+                                            according to 2, 4, 8, and 16 up-scaling factors respectively. Similar to
+                                            other works, the metric of Mean Absolute Difference (MAD), Root Mean Square
+                                            Error (RMSE), and percentage of error pixels (PE) is used to measure
+                                            the difference between the predicted depth map and the corresponding ground
+                                            truth.
+                                            <label for="sn-1"
+                                                   class="sidenote-toggle sidenote-number"></label><input
+                                                    type="checkbox" id="sn-1" class="sidenote-toggle"/><span
+                                                    class="sidenote">Lower MAD and PE values, bettern performance.</span>
+                                        </p>
 
-                                        <h3 id="scroll-overflow">Scroll Overflow</h3>
-                                        <p>It is best to break up long equations into smaller parts, but when this isn't
-                                            possible, consider wrapping the
-                                            overflowing element with a class of <code>scroll-overflow</code> to
-                                            allow scrolling on the x-axis. Large tables should also be wrapped with this
-                                            class.</p>
-                                        <p>Below is an example of a long equation with overflow scroll.</p>
+
                                         <div class="scroll-wrapper">
-                                            $$(1+x)^{n}=1+n x+\frac{n(n-1)}{2 !} x^{2}+\frac{n(n-1)(n-2)}{3 !}
-                                            x^{3}+\frac{n(n-1)(n-2)(n-3)}{4 !}
-                                            x^{4}+\frac{n(n-1)(n-2)(n-3)(n-4)}{5 !}
-                                            x^{5}+\ldots$$
+                                            <table border=0 cellpadding=0 cellspacing=0 width=1214
+                                                   style='border-collapse:collapse;width:10pt'>
+                                                <caption style="caption-side: top">QUANTITATIVE DEPTH UPSAMPLING RESULTS
+                                                    ON MIDDLEBURY 2005 DATASET.
+                                                </caption>
+                                                <tbody>
+                                                <col class=x21 width=86 style='mso-width-source:userset;width:64.5pt'>
+                                                <col class=x21 width=61 style='mso-width-source:userset;width:45.75pt'>
+                                                <col class=x21 width=63 style='mso-width-source:userset;width:47.25pt'>
+                                                <col class=x21 width=65 style='mso-width-source:userset;width:48.75pt'>
+                                                <col class=x21 width=60 span=2
+                                                     style='mso-width-source:userset;width:45pt'>
+                                                <col class=x21 width=65 style='mso-width-source:userset;width:48.75pt'>
+                                                <col class=x21 width=60 style='mso-width-source:userset;width:45pt'>
+                                                <col class=x21 width=63 style='mso-width-source:userset;width:47.25pt'>
+                                                <col class=x21 width=67 style='mso-width-source:userset;width:50.25pt'>
+                                                <col class=x21 width=60 style='mso-width-source:userset;width:45pt'>
+                                                <col class=x21 width=65 span=2
+                                                     style='mso-width-source:userset;width:48.75pt'>
+                                                <col class=x21 width=60 span=2
+                                                     style='mso-width-source:userset;width:45pt'>
+                                                <col class=x21 width=65 style='mso-width-source:userset;width:48.75pt'>
+                                                <col class=x21 width=61 style='mso-width-source:userset;width:45.75pt'>
+                                                <col class=x21 width=63 style='mso-width-source:userset;width:47.25pt'>
+                                                <col class=x21 width=65 style='mso-width-source:userset;width:48.75pt'>
+                                                <tr height=16 style='mso-height-source:userset;height:12.65pt' id='r0'>
+                                                    <td rowspan=2 height=33 class=x22 width=86
+                                                        style='border-right:2px solid #000000;border-bottom:2px solid #000000;height:25.05pt;width:64.5pt;'></td>
+                                                    <td colspan=3 class=x23 width=189
+                                                        style='border-right:1px solid #AAAAAA;border-bottom:2px solid #000000;'>
+                                                        <font class="font4">Art</font></td>
+                                                    <td colspan=3 class=x25 width=185
+                                                        style='border-right:1px solid #AAAAAA;border-bottom:2px solid #000000;'>
+                                                        <font class="font4">Books</font></td>
+                                                    <td colspan=3 class=x26 width=190
+                                                        style='border-right:1px solid #AAAAAA;border-bottom:2px solid #000000;'>
+                                                        <font class="font4">Dolls</font></td>
+                                                    <td colspan=3 class=x25 width=190
+                                                        style='border-right:1px solid #AAAAAA;border-bottom:2px solid #000000;'>
+                                                        <font class="font4">Laundry</font></td>
+                                                    <td colspan=3 class=x25 width=185
+                                                        style='border-right:1px solid #AAAAAA;border-bottom:2px solid #000000;'>
+                                                        <font class="font4">Moebius</font></td>
+                                                    <td colspan=3 class=x25 width=189
+                                                        style='border-right:1px solid #AAAAAA;border-bottom:2px solid #000000;'>
+                                                        <font class="font4">Reindeer</font></td>
+                                                </tr>
+                                                <tr height=19 style='mso-height-source:userset;height:14.65pt' id='r1'>
+                                                    <td class=x29><font class="font5">x4</font></td>
+                                                    <td class=x31><font class="font5">x8</font></td>
+                                                    <td class=x32><font class="font5">X 16</font></td>
+                                                    <td class=x29><font class="font5">x4</font></td>
+                                                    <td class=x31><font class="font5">x8</font></td>
+                                                    <td class=x32><font class="font5">X 16</font></td>
+                                                    <td class=x29><font class="font5">x4</font></td>
+                                                    <td class=x31><font class="font5">x8</font></td>
+                                                    <td class=x32><font class="font5">x 16</font></td>
+                                                    <td class=x29><font class="font5">x4</font></td>
+                                                    <td class=x31><font class="font5">x8</font></td>
+                                                    <td class=x32><font class="font5">x!6</font></td>
+                                                    <td class=x29><font class="font5">x4</font></td>
+                                                    <td class=x31><font class="font5">x8</font></td>
+                                                    <td class=x32><font class="font5">x 16</font></td>
+                                                    <td class=x29><font class="font5">x4</font></td>
+                                                    <td class=x31><font class="font5">x8</font></td>
+                                                    <td class=x31><font class="font5">x 16</font></td>
+                                                </tr>
+                                                <tr height=16 style='mso-height-source:userset;height:12.15pt' id='r2'>
+                                                    <td height=13 class=x33 style='height:9.9pt;'><font class="font5">CLMF</font>
+                                                    </td>
+                                                    <td class=x34><font class="font5">0.76/8.12</font></td>
+                                                    <td class=x35><font class="font5">1.44/17.28</font></td>
+                                                    <td class=x33><font class="font5">2.87/33.25</font></td>
+                                                    <td class=x34><font class="font5">0.28/3.27</font></td>
+                                                    <td class=x35><font class="font5">0.51/7.25</font></td>
+                                                    <td class=x33><font class="font5">1.02/16.09</font></td>
+                                                    <td class=x34><font class="font5">0.34/4.40</font></td>
+                                                    <td class=x35><font class="font5">0.60/8.76</font></td>
+                                                    <td class=x33><font class="font5">1.01/18.32</font></td>
+                                                    <td class=x34><font class="font5">0.50/5.50</font></td>
+                                                    <td class=x35><font class="font5">0.80/12.67</font></td>
+                                                    <td class=x33><font class="font5">1.67/25.40</font></td>
+                                                    <td class=x34><font class="font5">0.29/4.13</font></td>
+                                                    <td class=x35><font class="font5">0.51/8.42</font></td>
+                                                    <td class=x33><font class="font5">0.97/17.27</font></td>
+                                                    <td class=x34><font class="font5">0.51/4.65</font></td>
+                                                    <td class=x35><font class="font5">0.84/9.96</font></td>
+                                                    <td class=x35><font class="font5">1.55/18.34</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r3'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">JGF</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.47/3.25</font></td>
+                                                    <td class=x38><font class="font5">0.78/7.39</font></td>
+                                                    <td class=x36><font class="font5">1.54/14.31</font></td>
+                                                    <td class=x37><font class="font5">0.24/2.14</font></td>
+                                                    <td class=x38><font class="font5">0.43/5.41</font></td>
+                                                    <td class=x36><font class="font5">0.81/12.05</font></td>
+                                                    <td class=x37><font class="font5">0.33/3.23</font></td>
+                                                    <td class=x38><font class="font5">0.59/7.29</font></td>
+                                                    <td class=x36><font class="font5">1.06/15.87</font></td>
+                                                    <td class=x37><font class="font5">0.36/2.60</font></td>
+                                                    <td class=x38><font class="font5">0.64/4.54</font></td>
+                                                    <td class=x36><font class="font5">1.20/8.69</font></td>
+                                                    <td class=x37><font class="font5">0.25/3.36</font></td>
+                                                    <td class=x38><font class="font5">0.46/6.45</font></td>
+                                                    <td class=x36><font class="font5">0.80/12.33</font></td>
+                                                    <td class=x37><font class="font5">0.38/2.27</font></td>
+                                                    <td class=x38><font class="font5">0.64/5.17</font></td>
+                                                    <td class=x38><font class="font5">1.09/11.84</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r4'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">EDGE</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.65/6.82</font></td>
+                                                    <td class=x38><font class="font5">1.03/13.49</font></td>
+                                                    <td class=x36><font class="font5">2.11/25.90</font></td>
+                                                    <td class=x37><font class="font5">0.30/3.35</font></td>
+                                                    <td class=x38><font class="font5">0.56/8.50</font></td>
+                                                    <td class=x36><font class="font5">1.03/19.32</font></td>
+                                                    <td class=x37><font class="font5">0.31/2.90</font></td>
+                                                    <td class=x38><font class="font5">0.56/6.84</font></td>
+                                                    <td class=x36><font class="font5">1.05/17.97</font></td>
+                                                    <td class=x37><font class="font5">0.32/2.82</font></td>
+                                                    <td class=x38><font class="font5">0.54/5.46</font></td>
+                                                    <td class=x36><font class="font5">1.14/13.57</font></td>
+                                                    <td class=x37><font class="font5">0.29/3.72</font></td>
+                                                    <td class=x38><font class="font5">0.51/7.36</font></td>
+                                                    <td class=x36><font class="font5">1.10/14.05</font></td>
+                                                    <td class=x37><font class="font5">0.37/2.67</font></td>
+                                                    <td class=x38><font class="font5">0.63/6.22</font></td>
+                                                    <td class=x38><font class="font5">1.28/16.80</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r5'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">TGV</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.65/5.14</font></td>
+                                                    <td class=x38><font class="font5">1.17/10.51</font></td>
+                                                    <td class=x36><font class="font5">2.30/21.37</font></td>
+                                                    <td class=x37><font class="font5">0.27/2.48</font></td>
+                                                    <td class=x38><font class="font5">0.42/4.65</font></td>
+                                                    <td class=x36><font class="font5">0.82/11.20</font></td>
+                                                    <td class=x37><font class="font5">0.33/4.45</font></td>
+                                                    <td class=x38><font class="font5">0.70/11.12</font></td>
+                                                    <td class=x36><font class="font5">2.20/45.54</font></td>
+                                                    <td class=x37><font class="font5">0.55/6.99</font></td>
+                                                    <td class=x38><font class="font5">1.22/16.32</font></td>
+                                                    <td class=x36><font class="font5">3.37/53.61</font></td>
+                                                    <td class=x37><font class="font5">0.29/3.68</font></td>
+                                                    <td class=x38><font class="font5">0.49/6.84</font></td>
+                                                    <td class=x36><font class="font5">0.90/14.09</font></td>
+                                                    <td class=x37><font class="font5">0.49/4.67</font></td>
+                                                    <td class=x38><font class="font5">1.03/11.22</font></td>
+                                                    <td class=x38><font class="font5">3.05/43.48</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r6'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">KSVD</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.64/3.46</font></td>
+                                                    <td class=x38><font class="font5">0.81/5.18</font></td>
+                                                    <td class=x36><font class="font5">1.47/8.39</font></td>
+                                                    <td class=x37><font class="font5">0.23/2.13</font></td>
+                                                    <td class=x38><font class="font5">0.52/3.97</font></td>
+                                                    <td class=x36><font class="font5">0.76/8.76</font></td>
+                                                    <td class=x37><font class="font5">0.34/4.53</font></td>
+                                                    <td class=x38><font class="font5">0.56/6.18</font></td>
+                                                    <td class=x36><font class="font5">0.82/12.98</font></td>
+                                                    <td class=x37><font class="font5">0.35/2.19</font></td>
+                                                    <td class=x38><font class="font5">0.52/3.89</font></td>
+                                                    <td class=x36><font class="font5">1.08/8.79</font></td>
+                                                    <td class=x37><font class="font5">0.28/2.08</font></td>
+                                                    <td class=x38><font class="font5">0.48/4.86</font></td>
+                                                    <td class=x36><font class="font5">0.81/8.97</font></td>
+                                                    <td class=x37><font class="font5">0.47/2.19</font></td>
+                                                    <td class=x38><font class="font5">0.57/5.76</font></td>
+                                                    <td class=x38><font class="font5">0.99/12.67</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r7'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">CDLLC</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.53/2.86</font></td>
+                                                    <td class=x38><font class="font5">0.76/4.59</font></td>
+                                                    <td class=x36><font class="font5">1.41/7.53</font></td>
+                                                    <td class=x37><font class="font5">0.19/1.34</font></td>
+                                                    <td class=x38><font class="font5">0.46/3.67</font></td>
+                                                    <td class=x36><font class="font5">0.75/8.12</font></td>
+                                                    <td class=x37><font class="font5">0.31/4.61</font></td>
+                                                    <td class=x38><font class="font5">0.53/5.94</font></td>
+                                                    <td class=x36><font class="font5">0.79/12.64</font></td>
+                                                    <td class=x37><font class="font5">0.30/2.08</font></td>
+                                                    <td class=x38><font class="font5">0.48/3.77</font></td>
+                                                    <td class=x36><font class="font5">0.96/8.25</font></td>
+                                                    <td class=x37><font class="font5">0.27/1.98</font></td>
+                                                    <td class=x38><font class="font5">0.46/4.59</font></td>
+                                                    <td class=x36><font class="font5">0.79/7.89</font></td>
+                                                    <td class=x37><font class="font5">0.43/2.09</font></td>
+                                                    <td class=x38><font class="font5">0.55/5.39</font></td>
+                                                    <td class=x38><font class="font5">0.98/11.49</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r8'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">PB</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.79/3.12</font></td>
+                                                    <td class=x38><font class="font5">0.93/6.18</font></td>
+                                                    <td class=x36><font class="font5">1.98/12.34</font></td>
+                                                    <td class=x37><font class="font5">0.16/1.39</font></td>
+                                                    <td class=x38><font class="font5">0.43/3.34</font></td>
+                                                    <td class=x36><font class="font5">0.79/8.12</font></td>
+                                                    <td class=x37><font class="font5">0.53/3.99</font></td>
+                                                    <td class=x38><font class="font5">0.83/6.22</font></td>
+                                                    <td class=x36><font class="font5">0.99/12.86</font></td>
+                                                    <td class=x37><font class="font5">1.13/2.68</font></td>
+                                                    <td class=x38><font class="font5">1.89/5.62</font></td>
+                                                    <td class=x36><font class="font5">2.87/11.76</font></td>
+                                                    <td class=x37><font class="font5">0.17/1.95</font></td>
+                                                    <td class=x38><font class="font5">0.47/4.12</font></td>
+                                                    <td class=x36><font class="font5">0.82/8.32</font></td>
+                                                    <td class=x37><font class="font5">0.56/6.04</font></td>
+                                                    <td class=x38><font class="font5">0.97/12.17</font></td>
+                                                    <td class=x38><font class="font5">1.89/21.35</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r9'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">EG</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.48/2.48</font></td>
+                                                    <td class=x39><font class="font6">0.71/3.31</font></td>
+                                                    <td class=x40><font class="font6">1.35/5.88</font></td>
+                                                    <td class=x37><font class="font5">0.15/1.23</font></td>
+                                                    <td class=x38><font class="font5">0.36/3.09</font></td>
+                                                    <td class=x36><font class="font5">0.70/7.58</font></td>
+                                                    <td class=x37><font class="font5">0.27/2.72</font></td>
+                                                    <td class=x38><font class="font5">0.49/5.59</font></td>
+                                                    <td class=x36><font class="font5">0.74/12.06</font></td>
+                                                    <td class=x37><font class="font5">0.28/1.62</font></td>
+                                                    <td class=x38><font class="font5">0.45/2.86</font></td>
+                                                    <td class=x36><font class="font5">0.92/7.87</font></td>
+                                                    <td class=x37><font class="font5">0.23/1.88</font></td>
+                                                    <td class=x38><font class="font5">0.42/4.29</font></td>
+                                                    <td class=x36><font class="font5">0.75/7.63</font></td>
+                                                    <td class=x37><font class="font5">0.36/1.97</font></td>
+                                                    <td class=x38><font class="font5">0.51/4.31</font></td>
+                                                    <td class=x38><font class="font5">0.95/9.27</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r10'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">SRCNN</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.63/7.61</font></td>
+                                                    <td class=x38><font class="font5">1.21/14.54</font></td>
+                                                    <td class=x36><font class="font5">2.34/23.65</font></td>
+                                                    <td class=x37><font class="font5">0.25/2.88</font></td>
+                                                    <td class=x38><font class="font5">0.52/7.98</font></td>
+                                                    <td class=x36><font class="font5">0.97/15.24</font></td>
+                                                    <td class=x37><font class="font5">0.29/3.93</font></td>
+                                                    <td class=x38><font class="font5">0.58/8.34</font></td>
+                                                    <td class=x36><font class="font5">1.03/16.13</font></td>
+                                                    <td class=x37><font class="font5">0.40/6.25</font></td>
+                                                    <td class=x38><font class="font5">0.87/13.63</font></td>
+                                                    <td class=x36><font class="font5">1.74/24.84</font></td>
+                                                    <td class=x37><font class="font5">0.25/3.63</font></td>
+                                                    <td class=x38><font class="font5">0.43/7.28</font></td>
+                                                    <td class=x36><font class="font5">0.87/14.53</font></td>
+                                                    <td class=x37><font class="font5">0.35/3.84</font></td>
+                                                    <td class=x38><font class="font5">0.75/7.98</font></td>
+                                                    <td class=x38><font class="font5">1.47/14.78</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r11'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">DSP</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.73/7.83</font></td>
+                                                    <td class=x38><font class="font5">1.56/15.21</font></td>
+                                                    <td class=x36><font class="font5">3.03/31.32</font></td>
+                                                    <td class=x37><font class="font5">0.28/3.19</font></td>
+                                                    <td class=x38><font class="font5">0.61/8.52</font></td>
+                                                    <td class=x36><font class="font5">1.31/16.73</font></td>
+                                                    <td class=x37><font class="font5">0.32/4.74</font></td>
+                                                    <td class=x38><font class="font5">0.65/9.53</font></td>
+                                                    <td class=x36><font class="font5">1.45/19.37</font></td>
+                                                    <td class=x37><font class="font5">0.45/6.19</font></td>
+                                                    <td class=x38><font class="font5">0.98/12.86</font></td>
+                                                    <td class=x36><font class="font5">2.01/22.96</font></td>
+                                                    <td class=x37><font class="font5">0.31/3.89</font></td>
+                                                    <td class=x38><font class="font5">0.59/8.23</font></td>
+                                                    <td class=x36><font class="font5">1.26/16.58</font></td>
+                                                    <td class=x37><font class="font5">0.42/3.59</font></td>
+                                                    <td class=x38><font class="font5">0.84/7.23</font></td>
+                                                    <td class=x38><font class="font5">1.73/14.12</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r12'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">ATGVNet</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.65/3.78</font></td>
+                                                    <td class=x38><font class="font5">0.81/3.78</font></td>
+                                                    <td class=x36><font class="font5">1.42/9.68</font></td>
+                                                    <td class=x37><font class="font5">0.43/5.48</font></td>
+                                                    <td class=x38><font class="font5">0.51/7.16</font></td>
+                                                    <td class=x36><font class="font5">0.79/10.32</font></td>
+                                                    <td class=x37><font class="font5">0.41/4.55</font></td>
+                                                    <td class=x38><font class="font5">0.52/6.27</font></td>
+                                                    <td class=x36><font class="font5">0.56/12.64</font></td>
+                                                    <td class=x37><font class="font5">0.37/2.07</font></td>
+                                                    <td class=x38><font class="font5">0.89/3.78</font></td>
+                                                    <td class=x36><font class="font5">0.94/8.69</font></td>
+                                                    <td class=x37><font class="font5">0.38/3.47</font></td>
+                                                    <td class=x38><font class="font5">0.45/4.81</font></td>
+                                                    <td class=x36><font class="font5">0.80/8.56</font></td>
+                                                    <td class=x37><font class="font5">0.41/3.82</font></td>
+                                                    <td class=x38><font class="font5">0.58/5.68</font></td>
+                                                    <td class=x38><font class="font5">1.01/12.63</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r13'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">MSG</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.46/2.31</font></td>
+                                                    <td class=x38><font class="font5">0.76/4.31</font></td>
+                                                    <td class=x36><font class="font5">1.53/8.78</font></td>
+                                                    <td class=x37><font class="font5">0.15/1.21</font></td>
+                                                    <td class=x38><font class="font5">0.41/3.24</font></td>
+                                                    <td class=x36><font class="font5">0.76/7.85</font></td>
+                                                    <td class=x37><font class="font5">0.25/2.39</font></td>
+                                                    <td class=x38><font class="font5">0.51/4.86</font></td>
+                                                    <td class=x36><font class="font5">0.87/9.94</font></td>
+                                                    <td class=x37><font class="font5">0.30/1.68</font></td>
+                                                    <td class=x38><font class="font5">0.46/2.78</font></td>
+                                                    <td class=x36><font class="font5">1.12/7.62</font></td>
+                                                    <td class=x37><font class="font5">0.21/1.79</font></td>
+                                                    <td class=x38><font class="font5">0.43/4.05</font></td>
+                                                    <td class=x36><font class="font5">0.76/7.48</font></td>
+                                                    <td class=x37><font class="font5">0.31/1.73</font></td>
+                                                    <td class=x38><font class="font5">0.52/2.93</font></td>
+                                                    <td class=x38><font class="font5">0.99/7.63</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r14'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">DGDIE</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.48/2.34</font></td>
+                                                    <td class=x38><font class="font5">1.20/13.18</font></td>
+                                                    <td class=x36><font class="font5">2.44/26.32</font></td>
+                                                    <td class=x37><font class="font5">0.30/3.21</font></td>
+                                                    <td class=x38><font class="font5">0.58/7.33</font></td>
+                                                    <td class=x36><font class="font5">1.02/14.25</font></td>
+                                                    <td class=x37><font class="font5">0.34/4.79</font></td>
+                                                    <td class=x38><font class="font5">0.63/9.44</font></td>
+                                                    <td class=x36><font class="font5">0.93/11.66</font></td>
+                                                    <td class=x37><font class="font5">0.35/2.03</font></td>
+                                                    <td class=x38><font class="font5">0.86/3.69</font></td>
+                                                    <td class=x36><font class="font5">1.56/16.72</font></td>
+                                                    <td class=x37><font class="font5">0.28/1.98</font></td>
+                                                    <td class=x38><font class="font5">0.58/8.11</font></td>
+                                                    <td class=x36><font class="font5">0.98/16.22</font></td>
+                                                    <td class=x37><font class="font5">0.35/1.76</font></td>
+                                                    <td class=x38><font class="font5">0.73/7.82</font></td>
+                                                    <td class=x38><font class="font5">1.29/15.83</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r15'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">DEIN</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.40/2.17</font></td>
+                                                    <td class=x38><font class="font5">0.64/3.62</font></td>
+                                                    <td class=x36><font class="font5">1.34/6.69</font></td>
+                                                    <td class=x37><font class="font5">0.22/1.68</font></td>
+                                                    <td class=x38><font class="font5">0.37/3.20</font></td>
+                                                    <td class=x36><font class="font5">0.78/8.05</font></td>
+                                                    <td class=x37><font class="font5">0.22/1.73</font></td>
+                                                    <td class=x38><font class="font5">0.38/3.38</font></td>
+                                                    <td class=x36><font class="font5">0.73/9.95</font></td>
+                                                    <td class=x37><font class="font5">0.23/1.70</font></td>
+                                                    <td class=x38><font class="font5">0.36/3.27</font></td>
+                                                    <td class=x36><font class="font5">0.81/7.71</font></td>
+                                                    <td class=x37><font class="font5">0.20/1.89</font></td>
+                                                    <td class=x38><font class="font5">0.35/3.02</font></td>
+                                                    <td class=x36><font class="font5">0.73/7.42</font></td>
+                                                    <td class=x37><font class="font5">0.26/1.40</font></td>
+                                                    <td class=x38><font class="font5">0.40/2.76</font></td>
+                                                    <td class=x38><font class="font5">0.80/5.88</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r16'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">CCFN</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.43/2.23</font></td>
+                                                    <td class=x38><font class="font5">0.72/3.59</font></td>
+                                                    <td class=x36><font class="font5">1.50/7.28</font></td>
+                                                    <td class=x37><font class="font5">0.17/1.19</font></td>
+                                                    <td class=x38><font class="font5">0.36/3.07</font></td>
+                                                    <td class=x36><font class="font5">0.69/7.32</font></td>
+                                                    <td class=x37><font class="font5">0.25/1.98</font></td>
+                                                    <td class=x38><font class="font5">0.46/4.49</font></td>
+                                                    <td class=x36><font class="font5">0.75/9.84</font></td>
+                                                    <td class=x37><font class="font5">0.24/1.39</font></td>
+                                                    <td class=x38><font class="font5">0.41/2.49</font></td>
+                                                    <td class=x40><font class="font6">0.71/7.35</font></td>
+                                                    <td class=x37><font class="font5">0.23/2.18</font></td>
+                                                    <td class=x38><font class="font5">0.39/3.91</font></td>
+                                                    <td class=x36><font class="font5">0.73/7.41</font></td>
+                                                    <td class=x37><font class="font5">0.29/1.51</font></td>
+                                                    <td class=x38><font class="font5">0.46/2.79</font></td>
+                                                    <td class=x38><font class="font5">0.95/6.58</font></td>
+                                                </tr>
+                                                <tr height=15 style='mso-height-source:userset;height:11.65pt' id='r17'>
+                                                    <td height=13 class=x36 style='height:10.15pt;'><font class="font5">GSRPT</font>
+                                                    </td>
+                                                    <td class=x37><font class="font5">0.48/2.53</font></td>
+                                                    <td class=x38><font class="font5">0.74/4.18</font></td>
+                                                    <td class=x36><font class="font5">1.48/7.83</font></td>
+                                                    <td class=x37><font class="font5">0.21/1.77</font></td>
+                                                    <td class=x38><font class="font5">0.38/4.23</font></td>
+                                                    <td class=x41><font class="font5">0.76/7.67</font></td>
+                                                    <td class=x37><font class="font5">0.28/2.84</font></td>
+                                                    <td class=x38><font class="font5">0.48/4.61</font></td>
+                                                    <td class=x36><font class="font5">0.79/10.12</font></td>
+                                                    <td class=x37><font class="font5">0.33/1.79</font></td>
+                                                    <td class=x38><font class="font5">0.56/4.55</font></td>
+                                                    <td class=x36><font class="font5">1.24/8.98</font></td>
+                                                    <td class=x37><font class="font5">0.24/2.02</font></td>
+                                                    <td class=x38><font class="font5">0.49/4.70</font></td>
+                                                    <td class=x36><font class="font5">0.80/8.38</font></td>
+                                                    <td class=x37><font class="font5">0.31/1.58</font></td>
+                                                    <td class=x38><font class="font5">0.61/5.90</font></td>
+                                                    <td class=x38><font class="font5">1.07/10.35</font></td>
+                                                </tr>
+                                                <tr height=16 style='mso-height-source:userset;height:12.15pt' id='r18'>
+                                                    <td height=13 class=x42 style='height:9.9pt;'><font class="font5">Ours</font>
+                                                    </td>
+                                                    <td class=x43><font class="font6">0.26/1.95</font></td>
+                                                    <td class=x44><font class="font6">0.51/3.45</font></td>
+                                                    <td class=x45><font class="font6">1.22/6.28</font></td>
+                                                    <td class=x43><font class="font6">0.15/1.13</font></td>
+                                                    <td class=x44><font class="font6">0.26/2.87</font></td>
+                                                    <td class=x45><font class="font6">0.59/6.79</font></td>
+                                                    <td class=x43><font class="font6">0.19/1.35</font></td>
+                                                    <td class=x44><font class="font6">0.32/3.22</font></td>
+                                                    <td class=x42><font class="font5">0.59/8.92</font></td>
+                                                    <td class=x43><font class="font6">0.17/1.27</font></td>
+                                                    <td class=x44><font class="font6">0.34/2.41</font></td>
+                                                    <td class=x45><font class="font6">0.71/6.88</font></td>
+                                                    <td class=x43><font class="font6">0.16/1.21</font></td>
+                                                    <td class=x44><font class="font6">0.26/2.87</font></td>
+                                                    <td class=x45><font class="font6">0.67/6.73</font></td>
+                                                    <td class=x43><font class="font6">0.17/1.28</font></td>
+                                                    <td class=x44><font class="font6">0.34/2.40</font></td>
+                                                    <td class=x44><font class="font6">0.74/5.66</font></td>
+                                                </tr>
+
+                                                <tr height=0 style='display:none'>
+                                                    <td width=86 style='width:64.5pt'></td>
+                                                    <td width=61 style='width:45.75pt'></td>
+                                                    <td width=63 style='width:47.25pt'></td>
+                                                    <td width=65 style='width:48.75pt'></td>
+                                                    <td width=60 style='width:45pt'></td>
+                                                    <td width=60 style='width:45pt'></td>
+                                                    <td width=65 style='width:48.75pt'></td>
+                                                    <td width=60 style='width:45pt'></td>
+                                                    <td width=63 style='width:47.25pt'></td>
+                                                    <td width=67 style='width:50.25pt'></td>
+                                                    <td width=60 style='width:45pt'></td>
+                                                    <td width=65 style='width:48.75pt'></td>
+                                                    <td width=65 style='width:48.75pt'></td>
+                                                    <td width=60 style='width:45pt'></td>
+                                                    <td width=60 style='width:45pt'></td>
+                                                    <td width=65 style='width:48.75pt'></td>
+                                                    <td width=61 style='width:45.75pt'></td>
+                                                    <td width=63 style='width:47.25pt'></td>
+                                                    <td width=65 style='width:48.75pt'></td>
+                                                </tr>
+                                                </tbody>
+
+                                            </table>
+
                                         </div>
 
-                                        <h3 id="syntax-highlighting">Syntax Highlighting</h3>
-                                        <p>If you need syntax highlighting for code, LaTeX.css provides a <a
-                                                href="https://prismjs.com/">PrismJS</a> theme
-                                            that immitates the <a href="https://github.com/gpoore/minted">minted</a>
-                                            package
-                                            for LaTeX. Add the following
-                                            stylesheet and script:</p>
-                                        <pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.now.sh/prism/prism.css"&gt;
-
-&lt;script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;</code></pre>
-                                        <p>And use it like this:</p>
-                                        <pre><code class="language-html">&lt;pre&gt;
-  &lt;code class="language-html"&gt;
-    &lt;!-- your HTML code snippet --&gt;
-  &lt;/code&gt;
-&lt;/pre&gt;</code></pre>
-                                        <p>Change which languages Prism highlights by customising the script <a
-                                                href="https://prismjs.com/download.html">here</a>.</p>
+                                        <figure style="margin-top: 2rem;margin-bottom: 2rem">
+                                            <img src="./img/experiments1.png"
+                                                 loading="lazy" alt="Mountain landscape"/>
+                                            <figcaption>
+                                                Fig. 2. Visual comparison of 8× upsampling results on two examples (Art,
+                                                Dolls). (a) GT depth maps and color images; (b) LR; (c) Bicubic; (d)
+                                                JGF; (e) DGDIE; (f) DEIN; (g) GSRPT; (h) PMBANet; (i)
+                                                GT. Depth patches are enlarged and colored to enhance the contrast for
+                                                clear visualization.
+                                            </figcaption>
+                                        </figure>
 
                                         <div class="footnotes">
                                             <p id="fn1">
-                                                1. From
-                                                <a
-                                                        href="https://www.math.brown.edu/~res/MFS/handout8.pdf">https://www.math.brown.edu/~res/MFS/handout8.pdf</a>.
+                                                1. A key point for these methods is to design any component in the
+                                                prior
+                                                term.
                                                 <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a>
-                                            </p>
-                                            <p id="fn2">
-                                                2. “Definition.” Merriam-Webster.com Dictionary, Merriam-Webster,
-                                                <a
-                                                        href="https://www.merriam-webster.com/dictionary/definition">https://www.merriam-webster.com/dictionary/definition</a>.
-                                                Accessed 18 May. 2020.
-                                                <a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a>
                                             </p>
                                         </div>
                                     </article>
@@ -562,7 +672,8 @@
                     alt="Q.Tang">
             </a>
                 <p style="text-align: center;margin-bottom: 4rem">
-                    本文以 <a style="color: #2962ff;" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND</a> 许可协议进行发布。
+                    本文以 <a style="color: #2962ff;" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"><b>CC
+                    BY-NC-ND</b></a> 许可协议进行发布
                 </p>
             </div>
 
