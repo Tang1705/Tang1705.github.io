@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../../resources/css/posts/prism.css">
     <script src="../../../resources/js/posts/prism.js"></script>
     <link rel="stylesheet" href="../../../resources/css/posts/all.css"/>
+    <link rel="stylesheet" href="../../../resources/css/posts/letter.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -61,27 +62,40 @@
                         <div class="paper_form">
                             <div id="top" style="width: 75%;margin-left: 1.8rem">
                                 <header style="margin-top: 5rem">
-                                    <h1><span class="latex">L<span>a</span>T<span>e</span>X</span>.css</h1>
+                                    <h1>PMBANet: Progressive Multi-Branch Aggregation Network for Scene Depth
+                                        Super-Resolution</h1>
+                                    <div class="post-letter">P</div>
                                     <p class="author">
-                                        Vincent Dörig <br/>
-                                        May 2020
+                                        Xinchen Ye , Baoli Sun, Zhihui Wang, Jingyu Yang, Rui Xu , Haojie Li, and Baopu Li <br/>
+
                                     </p>
                                 </header>
 
                                 <div class="abstract">
                                     <h2>Abstract</h2>
                                     <p>
-                                        This almost class-less CSS library turns your HTML document into a
-                                        website that looks like a
-                                        <span class="latex">L<span>a</span>T<span>e</span>X</span>
-                                        document. Write semantic HTML, add
-                                        <code class="language-html">&lt;link rel="stylesheet"
-                                            href="https://latex.now.sh/style.css"&gt;</code>
-                                        to the <code class="language-html">&lt;head&gt;</code> of your project and you
-                                        are
-                                        good to go.
-                                        The source code can be found on GitHub at
-                                        <a href="https://github.com/vincentdoerig/latex-css">https://github.com/vincentdoerig/latex-css</a>.
+                                        Depth map super-resolution is an ill-posed inverse problem with many challenges.
+                                        First, depth boundaries are generally hard to reconstruct particularly at large
+                                        magnification factors. Second, depth regions on fine structures and tiny objects
+                                        in the scene are destroyed seriously by downsampling degradation. To tackle
+                                        these difficulties, we propose a progressive multi-branch aggregation network
+                                        (PMBANet), which consists of stacked MBA blocks to fully address the above
+                                        problems and progressively recover the degraded depth map. Specifically, each
+                                        MBA block has multiple parallel branches: 1) The reconstruction branch is
+                                        proposed based on the designed attention-based error feed-forward/-back modules,
+                                        which iteratively exploits and compensates the downsampling errors to refine the
+                                        depth map by imposing the attention mechanism on the module to gradually
+                                        highlight the informative features at depth boundaries. 2) We formulate a
+                                        separate guidance branch as prior knowledge to help to recover the depth
+                                        details, in which the multi-scale branch is to learn a multi-scale
+                                        representation that pays close attention at objects of different scales, while
+                                        the color branch regularizes the depth map by using auxiliary color information.
+                                        Then, a fusion block is introduced to adaptively fuse and select the
+                                        discriminative features from all the branches. The design methodology of our
+                                        whole network is well-founded, and extensive experiments on benchmark datasets
+                                        demonstrate that our method achieves superior performance in comparison with the
+                                        state-of-the-art methods. Our code and models are available at <a
+                                            href="https://github.com/Sunbaoli/PMBANet_DSR/">https://github.com/Sunbaoli/PMBANet_DSR/</a>.
                                     </p>
                                 </div>
 
@@ -548,15 +562,19 @@
                 <div class="footer-content-wrapper">
                     <div class="vip-logo footer-content-column">
                         <img src="../../../resources/images/footer_logo.png" width="65%" alt="logo">
-                        </div>
+                    </div>
                     <div class="footer-content-column">
                         <h2 style="color: white">Copyright © 2019-2022 Q. Tang</h2>
                         <h2><a style="color:white" href="https://beian.miit.gov.cn/#/Integrated/index">
                             京ICP备19039590号-1</a></h2>
                     </div>
                     <div class="footer-content-column">
-                        <h2><a style="color: white" href="https://github.com/Tang1705/ama"><i class="fas fa-question" style="margin-right: 0.5rem"></i> Ask me anything</a></h2>
-                        <h2><a style="color: white" href="https://www.buymeacoffee.com/QTang"><i class="fab fa-gulp" style="margin-right: 1rem"></i>Buy me a coffee</a></h2>
+                        <h2><a style="color: white" href="https://github.com/Tang1705/ama"><i class="fas fa-question"
+                                                                                              style="margin-right: 0.5rem"></i>
+                            Ask me anything</a></h2>
+                        <h2><a style="color: white" href="https://www.buymeacoffee.com/QTang"><i class="fab fa-gulp"
+                                                                                                 style="margin-right: 1rem"></i>Buy
+                            me a coffee</a></h2>
                     </div>
                 </div>
             </div>

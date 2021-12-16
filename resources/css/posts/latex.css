@@ -88,6 +88,10 @@
     box-sizing: border-box
 }
 
+h1{
+    font-size: 18pt;
+}
+
 body, h1, h2, h3, h4, p, ul[class], ol[class], li, figure, figcaption, dl, dd {
     margin: 0
 }
@@ -239,7 +243,10 @@ caption::before {
 }
 
 h1:first-child {
-    text-align: center
+    /*text-align: justify;*/
+    font-size: 24pt;
+    /*min-width: 125%;*/
+    text-align: left
 }
 
 nav ol {
@@ -321,8 +328,8 @@ dl dd {
 
 .author {
     margin: .85rem 0;
-    font-variant-caps: small-caps;
-    text-align: center
+    /*font-variant-caps: small-caps;*/
+    text-align: left
 }
 
 .sidenote {
