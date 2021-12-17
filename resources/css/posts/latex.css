@@ -523,6 +523,6 @@ figure {
 
 figcaption {
     margin-top: 1.5rem;
-    text-align: center;
+    text-align: justify;
     color: rgba(0, 0, 0, .45);
 }
