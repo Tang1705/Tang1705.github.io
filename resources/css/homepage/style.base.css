@@ -26,6 +26,10 @@ body {
     .wrap {
         width: 1062px
     }
+
+    .intro h1:before{
+       left: 0;
+    }
 }
 
 a {
