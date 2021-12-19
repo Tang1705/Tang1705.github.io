@@ -1,7 +1,7 @@
 @charset "UTF-8";
 html {
     background-color: #fff;
-    -webkit-font-smoothing: antialiased;
+    /*-webkit-font-smoothing: antialiased;*/
 }
 
 body {
@@ -13,31 +13,10 @@ body {
     background-color: #fff;
 }
 
-@-ms-viewport {
-    width: device-width
-}
-
 p {
     line-height: 1.9em;
     font-weight: 400;
     font-size: 16px;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:link, a:visited {
-    opacity: 1;
-    -webkit-transition: all .15s linear;
-    -moz-transition: all .15s linear;
-    -o-transition: all .15s linear;
-    -ms-transition: all .15s linear;
-    transition: all .15s linear;
-}
-
-a:hover, a:active {
-    color: #4786D6;
 }
 
 /*basic styles ends*/
@@ -122,69 +101,6 @@ a:hover, a:active {
     /*margin-top: 60px;*/
 }
 
-.page-top {
-    width: 65%;
-    position: fixed;
-    right: 0;
-    z-index: 3;
-    background-color: #fff;
-    height: 60px;
-    border-bottom: 1px solid #f2f2f2;
-}
-
-.page-top .nav {
-    list-style: none;
-    padding: 18px 30px;
-    float: left;
-    font-size: 12px;
-}
-
-.page-top .nav li {
-    position: relative;
-    display: initial;
-    padding-right: 20px;
-}
-
-.page-top .nav a {
-    color: #5A5A5A;
-}
-
-.page-top .nav a:hover {
-    color: #4786D6;
-}
-
-.page-top .nav a.current {
-    color: #5A5A5A;
-    padding-bottom: 22px;
-    border-bottom: 1px solid #5A5A5A;
-}
-
-.page-top .information {
-    float: right;
-    padding-top: 12px;
-    padding-right: 20px;
-}
-
-.page-top .information .avatar {
-    float: right;
-}
-
-.page-top .information .avatar img {
-    width: 32px;
-    height: 32px;
-    border-radius: 300px;
-}
-
-.page-top .information .back_btn {
-    float: left;
-    padding-top: 5px;
-    margin-right: -10px;
-}
-
-.page-top .information .back_btn li {
-    display: initial;
-    padding-right: 40px;
-}
 
 .sidebar {
     width: 25%;
@@ -230,31 +146,6 @@ a:hover, a:active {
     font-weight: bold;
 }
 
-.sidebar .social-links {
-    list-style: none;
-    padding: 0;
-    font-size: 14px;
-    text-align: center;
-}
-
-.sidebar .social-links i {
-    margin-right: 3px;
-}
-
-.sidebar .social-links li {
-    display: inline;
-    padding: 0 4px;
-    line-height: 0;
-}
-
-.sidebar .social-links a {
-    color: #565654;
-}
-
-.sidebar .social-links a:hover {
-    color: #4786D6;
-}
-
 .post {
     background-color: #FFF;
     margin: 30px;
@@ -290,20 +181,6 @@ a:hover, a:active {
     text-decoration: none;
     letter-spacing: 1px;
     color: #5f5f5f;
-}
-
-.post .post-title a:hover {
-    text-decoration: underline;
-}
-
-.post .post-content a {
-    text-decoration: none;
-    letter-spacing: 1px;
-    color: #4786D6;
-}
-
-.post .post-content a:hover {
-    color: #2F69B3;
 }
 
 .post .post-content h3 {
@@ -343,9 +220,6 @@ a:hover, a:active {
     padding-right: 10px;
 }
 
-.post .post-footer .meta a:hover {
-    color: #4786D6;
-}
 
 .post .post-footer .meta i {
     margin-right: 6px;
@@ -380,60 +254,6 @@ a:hover, a:active {
     text-decoration: none;
 }
 
-.pagination {
-    margin: 30px;
-    padding: 0px 0 56px 0;
-    border-bottom: 1px solid #f2f2f2;
-}
-
-.pagination ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    height: 13px;
-}
-
-
-.pagination ul li {
-    margin: 0 2px 0 2px;
-    display: inline;
-    line-height: 1;
-}
-.pagination ul li a {
-    text-decoration: none;
-}
-.pagination .pre {
-    float: left;
-}
-.pagination .next {
-    float: right;
-}
-
-.like-reblog-buttons {
-    float: right;
-}
-
-.like-button {
-    float: right;
-    padding: 0 0 0 10px;
-}
-
-.reblog-button {
-    float: right;
-    padding: 0;
-}
-
-#install-btn {
-    position: fixed;
-    bottom: 0px;
-    right: 6px;
-}
-
-#disqus_thread {
-    margin: 30px;
-    border-bottom: 1px solid #f2f2f2;
-}
-
 .footer {
     clear: both;
     text-align: center;
@@ -445,147 +265,6 @@ a:hover, a:active {
     padding-bottom: 20px;
     background: #fff;
 }
-.footer a {
-    color: #A6A6A6;
-}
-.footer a:hover {
-    color: #4786D6;
-}
-
-/*for archive*/
-.archive {
-    width: 100%;
-}
-
-.list-with-title {
-    font-size: 14px;
-    margin: 30px;
-    padding: 0;
-}
-.list-with-title li {
-    list-style-type: none;
-    padding: 0;
-}
-.list-with-title .listing-title {
-    font-size: 24px;
-    color: #666666;
-    font-weight: 600;
-    line-height: 2.2em;
-}
-.list-with-title .listing {
-    padding: 0;
-}
-.list-with-title .listing .listing-post {
-    padding-bottom: 5px;
-}
-.list-with-title .listing .listing-post .post-time {
-    float: right;
-    color: #C5C5C5;
-}
-.list-with-title .listing .listing-post a {
-    color: #8F8F8F;
-}
-.list-with-title .listing .listing-post a:hover {
-    color: #4786D6;
-}
-
-/* share */
-.share {
-    margin: 0px 30px;
-    display: inline-flex;
-}
-
-.evernote {
-    width: 32px;
-    height: 32px;
-    border-radius: 300px;
-    background-color: #3E3E3E;
-    margin-right: 5px;
-}
-.evernote a {
-    color: #fff;
-    padding: 11px;
-    font-size: 12px;
-}
-.evernote a:hover {
-    color: #ED6243;
-    padding: 11px;
-}
-
-.weibo {
-    width: 32px;
-    height: 32px;
-    border-radius: 300px;
-    background-color: #ED6243;
-    margin-right: 5px;
-}
-.weibo a {
-    color: #fff;
-    padding: 9px;
-}
-.weibo a:hover {
-    color: #BD4226;
-}
-
-.twitter {
-    width: 32px;
-    height: 32px;
-    border-radius: 300px;
-    background-color: #59C0FD;
-    margin-right: 5px;
-}
-.twitter a {
-    color: #fff;
-    padding: 9px;
-}
-.twitter a:hover {
-    color: #4B9ECE;
-}
-
-/* about */
-.about {
-    margin: 30px;
-}
-.about h3 {
-    font-size: 22px;
-}
-
-/* links*/
-.links {
-    margin: 30px;
-}
-.links h3 {
-    font-size: 22px;
-}
-.links a {
-    cursor: pointer;
-}
-
-/* 评论样式 */
-.comment-count {
-    color: #666;
-}
-
-.tab-community {
-    color: #666;
-}
-
-.read_more {
-    font-size: 14px;
-}
-
-.back-button {
-    padding-top: 30px;
-    max-width: 100px;
-    padding-left: 40px;
-    float: left;
-}
-
-/* 默认评论样式 */
-#fb_comments_container {
-    margin: 30px;
-}
-
 
 @media screen and (max-width: 960px) {
     .sidebar {
@@ -600,11 +279,15 @@ a:hover, a:active {
     }
 
     .sidebar .logo-title .title img {
-        width: 100px;
+        width: 60px;
     }
 
     .sidebar .logo-title .title h3 {
         font-size: 20px;
+    }
+
+    .buttons{
+        padding-top: 3rem;
     }
 
     .page-top {
@@ -624,10 +307,6 @@ a:hover, a:active {
 
     .footer {
         display: none;
-    }
-
-    .share {
-        display: grid;
     }
 }
 
