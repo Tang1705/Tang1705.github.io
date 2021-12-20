@@ -3,6 +3,7 @@
  *  License: Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
  */
 
+
 h1, h2, h3, h4, h5, h6 {
     font-family: fantasy;
     color: #333
@@ -34,14 +35,12 @@ a:hover {
     /*.intro emoji{*/
     /*    display: grid;*/
     /*}*/
-
     /*.intro img {*/
     /*    display: block;*/
     /*    margin-left: auto;*/
     /*    margin-right: auto*/
     /*}*/
-
-    .contact{
+    .contact {
         width: 80%;
     }
 
@@ -214,7 +213,7 @@ a:hover {
     background-size: 100% 100%;
     padding: 20px 0px;
     margin-top: 90px;
-    min-width:1060px
+    min-width: 1060px
 }
 
 .quote h1 {
