@@ -298,7 +298,7 @@ a:visited, a:hover, a:active {
 .profile .portrait {
     position: relative;
     /*max-width: 10rem;*/
-    margin: 0.6em auto
+    /*margin: 0.6em auto*/
 }
 
 .profile .portrait .spinner {
