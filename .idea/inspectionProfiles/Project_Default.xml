@@ -19,8 +19,14 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="1">
+          <list size="7">
             <item index="0" class="java.lang.String" itemvalue="autocorrect" />
+            <item index="1" class="java.lang.String" itemvalue="page-transition:no-replace" />
+            <item index="2" class="java.lang.String" itemvalue="imagesrcset" />
+            <item index="3" class="java.lang.String" itemvalue="scroll-pointer" />
+            <item index="4" class="java.lang.String" itemvalue="scroll-behavior" />
+            <item index="5" class="java.lang.String" itemvalue="ie-style" />
+            <item index="6" class="java.lang.String" itemvalue="imagesizes" />
           </list>
         </value>
       </option>
