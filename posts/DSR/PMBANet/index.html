@@ -191,7 +191,7 @@
                                             <img src="./img/model.png"
                                                  loading="lazy" alt="Mountain landscape"/>
                                             <figcaption>
-                                                Figure 1. PMBANet 的网络架构。为了更好地呈现整个框架和实现细节，使用不同颜色的矩形来表示不同的阶段和每个阶段的不同操作。
+                                                Figure 2. PMBANet 的网络架构。为了更好地呈现整个框架和实现细节，使用不同颜色的矩形来表示不同的阶段和每个阶段的不同操作。
                                             </figcaption>
                                         </figure>
 
@@ -445,11 +445,11 @@
                                         </p>
 
                                         <h2>4. Experiments</h2>
-                                        <p>以 MIDDLEBURY 数据集为例，首先在四个常见倍率（$2\times$、$4\times$、$8\times$ 和 $16\times$）的超分辨率任务上对比了多个先进的算法，如表 \ref{tab:middlebury} 所示。传统的基于过滤或优化的方法比基于深度学习的方法获得了更高的 MAD 值（MAD 越低代表性能更好），在这些基于深度学习的方法中，PMBANet 几乎获得了最好的客观结果，特别是对于较难恢复的上采样倍率为 $8\times$ 和 $16\times$ 的情况。
+                                        <p>以 MIDDLEBURY 数据集为例，首先在四个常见倍率（$2\times$、$4\times$、$8\times$ 和 $16\times$）的超分辨率任务上对比了多个先进的算法，如表 <a href="#experiments-table">3</a> 所示。传统的基于过滤或优化的方法比基于深度学习的方法获得了更高的 MAD 值（MAD 越低代表性能更好），在这些基于深度学习的方法中，PMBANet 几乎获得了最好的客观结果，特别是对于较难恢复的上采样倍率为 $8\times$ 和 $16\times$ 的情况。
                                         </p>
 
 
-                                        <div class="scroll-wrapper">
+                                        <div id="experiments-table" class="scroll-wrapper">
                                             <table class=TableGrid border=0 cellspacing=0 cellpadding=0
                                                    style='border-collapse:collapse'>
                                                 <caption style="caption-side: top">在 Middlebury 2005 数据集上的性能对比
