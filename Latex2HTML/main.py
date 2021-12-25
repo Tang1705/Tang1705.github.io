@@ -1,10 +1,16 @@
 import re
 import warnings
 
-def parseTitle(title):
-    content = re.findall("\{(.*?)\}", title, re.I | re.M)[0]
-    return "<h1>"+content+"</h1>"
 
+def parseTitle(title):
+    content = re.findall("\{(.*)\}", title, re.I | re.M)[0]
+    while content:
+        try:
+            title = content
+            content = re.findall("\{(.*)\}", content, re.I | re.M)[0]
+        except:
+            break
+    return "<h1>" + title + "</h1>"
 
 
 def parseSection(section):
@@ -17,7 +23,17 @@ def parseSection(section):
     return "<h" + str(level) + ">" + content + "</h" + str(level) + ">"
 
 
+def parseText(text):
+    return "<p>" + text + "</p>"
+
+
 # def parseTable():
+
+# def parseFigure():
+
+def parseRef(ref, counter):
+    id = re.findall("\{(.*)\}", ref, re.I | re.M)[0]
+    return "<a href=\"#" + id.split(":")[1] + "\">" + str(counter) + "</a>"
 
 
 def latex2html(latex):
@@ -25,8 +41,10 @@ def latex2html(latex):
 
 
 parse_functions = {
-    "parseTitle": parseTitle,
+    # "parseTitle": parseTitle,
     # "parseSection": parseSection,
+    # "parseRef": parseRef,
+
 }
 
 
@@ -44,6 +62,7 @@ def test(tex: str):
 if __name__ == "__main__":
     debug = True
     if debug:
-        test("\title{\Huge{PMBANet: Progressive Multi-Branch Aggregation Network for Scene Depth Super-Resolution}}")
+        # test("\title{\Huge{PMBANet: Progressive Multi-Branch Aggregation Network for Scene Depth Super-Resolution}}")
+        # test("\ref{fig:fig3}")
     else:
         html = latex2html("\section{PMBANet}")

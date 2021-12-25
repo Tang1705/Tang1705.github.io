@@ -14,6 +14,19 @@
     <link rel="stylesheet" href="../../../resources/css/posts/all.css"/>
     <link rel="stylesheet" href="../../../resources/css/posts/letter.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"
+            integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous">
+    </script>
+<!--    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML'>-->
+<!--    </script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-chtml.js"-->
+<!--            integrity="sha256-3Fdoa5wQb+JYfEmTpQHx9sc/GuwpfC/0R9EpBki+mf8=" crossorigin>-->
+<!--    </script>-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js">
+    </script>
+
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -150,6 +163,36 @@
                                                 HR depth map from only LR depth map without the help of color image.
                                             </figcaption>
                                         </figure>
+
+                                        <pre id="algorithm">
+    % This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
+    \begin{algorithm}
+    \caption{Quicksort}
+    \begin{algorithmic}
+    \Require Training data {$D_{lr}$, $D_{hr}$, $I$,  $S_{gt}$} %three networks $W_{SR}$, $W_{DE}$ and $W_{GE}$ \\Initialise $W_{SR}$, $W_{DE}$ and $W_{GE}$
+    \STATE ---------------- Step 1 ----------------
+     \State Randomly initialize DSRNet and DENet
+        \FOR {i = 1; i $\le$ 100}
+        \STATE Train DSRNet and DENet with $\mathcal{L}_{DSR}$ and $\mathcal{L}_{DE}$, respectively
+		\EndFOR
+     \STATE ---------------- Step 2 ----------------
+        \STATE Randomly initialize SPNet
+		\FOR {i = 101; i $\le$ max epoch}
+        \STATE Compute the average error value $e_{dsr}$ and $e_{de}$ according to Eq.(1) and Eq.(2)
+        \IF {$e_{dsr} \le e_{de}$}
+        \STATE Fix DSRNet and update DENet with
+		\STATE $\mathcal{L} = \mathcal{L}_{DE} + \rho_1\mathcal{L}_{struc} + \rho_2\mathcal{L}_{distill}$
+        \ELSE
+        \STATE Fix  DENet and update DSRNet with
+        \STATE $\mathcal{L} = \mathcal{L}_{DSR} + \rho_1\mathcal{L}_{struc} + \rho_2\mathcal{L}_{distill}$
+        \EndIF
+		\EndFOR
+    \Ensure $D_{sr}$
+
+    \end{algorithmic}
+    \end{algorithm}
+</pre>
+
 
                                         <h2>3. Experiments</h2>
                                         <p>During training, we use 36 RGB-D images (6, 21, 9 images from 2001, 2006 and
@@ -2982,6 +3025,11 @@
 
 
 <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
+
+<script>
+    pseudocode.renderElement(document.getElementById("algorithm"),
+        { lineNumber: true });
+</script>
 
 </body>
 </html>

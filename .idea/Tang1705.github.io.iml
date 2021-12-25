@@ -22,5 +22,7 @@
     <orderEntry type="library" name="prismjs" level="application" />
     <orderEntry type="library" name="es" level="application" />
     <orderEntry type="library" name="plausible" level="application" />
+    <orderEntry type="library" name="KaTeX" level="application" />
+    <orderEntry type="library" name="pseudocode" level="application" />
   </component>
 </module>
