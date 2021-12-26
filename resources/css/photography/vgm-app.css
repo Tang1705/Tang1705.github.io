@@ -2813,13 +2813,13 @@ body.has-filter-overlay {
     height: 5rem;
     margin-bottom: -1.875rem;
     position: absolute;
-    top: 2.125rem;
+    top: 2.25rem;
     right: 2.125rem
 }
 
 .main-navigation-desktop-logo img {
-    width: 120%;
-    height: 120%
+    width: 110%;
+    height: 110%
 }
 
 .main-navigation-desktop-logo.logo-slide-enter-active, .main-navigation-desktop-logo.logo-slide-leave-active {
