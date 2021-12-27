@@ -130,11 +130,11 @@
         }, e.prototype.getBlock = function (t, e) {
             return t >= 0 && t < this.w && e >= 0 && e < this.h ? this.blocks[t][e] : null
         }, e.prototype.playerClick = function (t, e) {
-            if (this.cat.anims.isPlaying && this.cat.anims.stop(), this.state !== i.PLAYING) return this.setStatusText(f.default("游戏已经结束，重新开局")), this.reset(), !1;
+            if (this.cat.anims.isPlaying && this.cat.anims.stop(), this.state !== i.PLAYING) return this.setStatusText(f.default("The game is over, start again")), this.reset(), !1;
             var n = this.getBlock(t, e);
-            return n ? n.isWall ? (this.setStatusText(f.default("点击位置已经是墙了，禁止点击")), !1) : this.cat.i === t && this.cat.j === e ? (this.setStatusText(f.default("点击位置是猫当前位置，禁止点击")), !1) : (n.isWall = !0, this.cat.isCaught() ? (this.setStatusText(f.default("猫已经无路可走，你赢了")), this.state = i.WIN, !1) : (this.setStatusText(f.default("您点击了 ") + "(" + t + ", " + e + ")"), this.cat.step() || (this.setStatusText(f.default("猫认输，你赢了！")), this.state = i.WIN), !0)) : (this.setStatusText(f.default("代码错误，当前位置不存在")), !1)
+            return n ? n.isWall ? (this.setStatusText(f.default("Click location is already a wall. No clicking is allowed.")), !1) : this.cat.i === t && this.cat.j === e ? (this.setStatusText(f.default("Click position is the current position of the cat. Click is prohibited.")), !1) : (n.isWall = !0, this.cat.isCaught() ? (this.setStatusText(f.default("The cat has no way out. You won")), this.state = i.WIN, !1) : (this.setStatusText(f.default("You clicked ") + "(" + t + ", " + e + ")"), this.cat.step() || (this.setStatusText(f.default("The cat surrenders, you win!")), this.state = i.WIN), !0)) : (this.setStatusText(f.default("Error, current location does not exist.")), !1)
         }, e.prototype.reset = function () {
-            this.cat.reset(), this.resetBlocks(), this.randomWall(), this.state = i.PLAYING, this.setStatusText(f.default("点击小圆点，围住小猫"))
+            this.cat.reset(), this.resetBlocks(), this.randomWall(), this.state = i.PLAYING, this.setStatusText(f.default("Click on the small dots to surround the cat"))
         }, e.prototype.setStatusText = function (t) {
             this.statusBar.setText(t)
         }, e.prototype.createAnimations = function () {
