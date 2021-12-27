@@ -2876,7 +2876,7 @@ body.resumePage {
 article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figure, footer, form, h1, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, pre, section, td, textarea, th, ul {
     margin: 0;
     padding: 0;
-    /*font-weight: 400*/
+    font-weight: 400
 }
 
 ol, ul {
