@@ -49,6 +49,11 @@ body.has-filter-overlay {
     overflow: hidden
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+}
+
 .btn, .btn-icon, .btn-link, .btn-transparent {
     font-family: inherit;
     font-weight: 500;

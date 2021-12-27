@@ -81,7 +81,29 @@
         }
     </style>
 
-<!--    <link rel="stylesheet" type="text/css" href="../resources/css/photography/vgm-app.css">-->
+    <style>
+        .scrollPage{
+            position: absolute;
+            top:95.35%;
+            bottom: 0.8rem;
+            width: 14rem;
+            height: 0.2rem;
+            /*background: gainsboro;*/
+            border-radius: 40rem;
+            overflow: hidden;
+            left: 82.5%;
+            margin-left: -1rem;
+        }
+        .nowPage{
+            background: #000000;
+            height: 100%;
+            width: 0;
+            position: absolute;
+        }
+        </style>
+
+
+    <!--    <link rel="stylesheet" type="text/css" href="../resources/css/photography/vgm-app.css">-->
     <link rel="stylesheet" type="text/css" href="../resources/css/photography/vgm-app.css">
 
 
@@ -123,10 +145,15 @@
             <nav class="main-navigation">
                 <div>
                     <div role="menu" class="main-navigation-desktop grid-container">
+<!--                        <ul class="main-navigation-desktop-items">-->
+<!--                            <li role="none"><a href="../index.html"-->
+<!--                                               class="main-navigation-desktop-item btn-link  active"><span>Home</span></a></li>-->
+<!--                        </ul>-->
                         <div class="main-navigation-desktop-aside">
-                            <a href="https://www.tang5618.com" title="Back to homepage" class="main-navigation-desktop-logo"><img
-                                src="../resources/images/qt.png"
-                                alt="VIP Logo"></a></div>
+                            <a href="https://www.tang5618.com" title="Back to homepage"
+                               class="main-navigation-desktop-logo"><img
+                                    src="../resources/images/qt.png"
+                                    alt="VIP Logo"></a></div>
                     </div>
                 </div>
             </nav>
@@ -136,13 +163,15 @@
             <section>
                 <section class="card-overview grid-container">
                     <article scroll-pointer="" class="card-overview-content-start"><h1
-                            class="heading-2 card-overview-content-start-heading" style="text-align: justify;font-size: 40pt;font-family: fantasy">
+                            class="heading-2 card-overview-content-start-heading"
+                            style="text-align: justify;font-size: 40pt;font-family: fantasy">
                         Be clearly aware of the stars and infinity on high. Then life seems almost enchanted after all.
                     </h1>
-                        <h2 style="text-align: right;font-family:fantasy;margin-top: -2rem">——Vincent William van Gogh</h2>
-<!--                        <p class="card-overview-content-start-intro">The museum is temporarily closed due to nationwide-->
-<!--                            COVID-19 restrictions. Meanwhile, enjoy the museum from home. Dive into the online-->
-<!--                            collection, watch virtual tours or get creative.</p>-->
+                        <h2 style="text-align: right;font-family:fantasy;margin-top: -2rem">——Vincent William van
+                            Gogh</h2>
+                        <!--                        <p class="card-overview-content-start-intro">The museum is temporarily closed due to nationwide-->
+                        <!--                            COVID-19 restrictions. Meanwhile, enjoy the museum from home. Dive into the online-->
+                        <!--                            collection, watch virtual tours or get creative.</p>-->
                     </article>
 
 
@@ -152,7 +181,7 @@
                                  style="background-position: 54.33% 26%;">
                                 <picture>
                                     <img src="./photo/bjtu_cat.png" alt="cat">
-                                    </picture>
+                                </picture>
                             </div>
                         </div>
                         <a href="./photo/bjtu_cat.png"
@@ -227,14 +256,13 @@
                     <div class="card-overview-progress">
                         <div aria-hidden="true" class="scroll-indicator scroll-indicator-right"><p
                                 class="scroll-indicator-help visible">Scroll for more</p>
-                            <button tabindex="-1" type="button" class="scroll-indicator-button btn-icon"
-                                    disabled="disabled">
+                            <button tabindex="-1" type="button" class="scroll-indicator-button btn-icon left" disabled="disabled">
                                 <svg aria-hidden="true" focusable="false" class="icon-arrow-left-small">
                                     <use xlink:href="#icon-arrow-left-small" href="#icon-arrow-left-small"></use>
                                 </svg>
                             </button>
                             <progress class="scroll-indicator-progress progress" value="0"></progress>
-                            <button tabindex="-1" type="button" class="scroll-indicator-button btn-icon">
+                            <button tabindex="-1" type="button" class="scroll-indicator-button btn-icon right">
                                 <svg aria-hidden="true" focusable="false" class="icon-arrow-right-small">
                                     <use xlink:href="#icon-arrow-right-small" href="#icon-arrow-right-small"></use>
                                 </svg>
@@ -246,6 +274,39 @@
         </main>
     </div>
 </div>
-
+<div class="scrollPage">
+    <div class="nowPage"></div>
+</div>
 </body>
+<script>
+    window.onload = function(){
+        //给进度条一个宽度 根据滚动元素个数决定 百分比
+        var nowPageWidth = 100 / document.querySelector('.card-overview').children.length
+        document.querySelector('.nowPage').style.width = nowPageWidth + "%"
+        //获取进度条可滚动区域
+        var scrollPageRealScrollArea = 100
+        //获取可滚动距离
+        var scrollWidthSize = document.querySelector('.card-overview').scrollWidth - document.querySelector('.card-overview').clientWidth
+        //滚动事件
+        document.querySelector('.card-overview').onscroll = function(e){
+            //当前滚动盒子滚动的进度 百分比
+            var scrollLeftSize = 100 - parseInt(((scrollWidthSize - this.scrollLeft) / scrollWidthSize)*100)
+            //滚动 左间距
+            document.querySelector('.nowPage').style.width = scrollPageRealScrollArea*(scrollLeftSize/100) + "%"
+            if(scrollPageRealScrollArea*(scrollLeftSize/100)>0){
+                document.querySelector('.left').disabled=false;
+            }else{
+                document.querySelector('.left').disabled=true;
+            }
+
+            if(scrollPageRealScrollArea*(scrollLeftSize/100)===100){
+                document.querySelector('.right').disabled=true;
+            }else{
+                document.querySelector('.right').disabled=false;
+            }
+
+        }
+
+    }
+</script>
 </html>
