@@ -298,29 +298,21 @@
 <script>
     window.onload = function(){
         //给进度条一个宽度 根据滚动元素个数决定 百分比
-        var nowPageWidth = 100 / document.querySelector('.card-overview').children.length
-        document.querySelector('.nowPage').style.width = nowPageWidth + "%"
+        // let nowPageWidth = 100 / document.querySelector('.card-overview').children.length;
+        // console.log("nowpagewidth"+nowPageWidth)
+        document.querySelector('.nowPage').style.width = 0 + "%"
         //获取进度条可滚动区域
-        var scrollPageRealScrollArea = 100
+        let scrollPageRealScrollArea = 100
         //获取可滚动距离
-        var scrollWidthSize = document.querySelector('.card-overview').scrollWidth - document.querySelector('.card-overview').clientWidth
+        let scrollWidthSize = document.querySelector('.card-overview').scrollWidth - document.querySelector('.card-overview').clientWidth
         //滚动事件
         document.querySelector('.card-overview').onscroll = function(e){
             //当前滚动盒子滚动的进度 百分比
-            var scrollLeftSize = 100 - parseInt(((scrollWidthSize - this.scrollLeft) / scrollWidthSize)*100)
-            //滚动 左间距
+            let scrollLeftSize = 100 - parseInt(((scrollWidthSize - this.scrollLeft) / scrollWidthSize)*100)
+            //滚动
             document.querySelector('.nowPage').style.width = scrollPageRealScrollArea*(scrollLeftSize/100) + "%"
-            if(scrollPageRealScrollArea*(scrollLeftSize/100)>0){
-                document.querySelector('.left').disabled=false;
-            }else{
-                document.querySelector('.left').disabled=true;
-            }
-
-            if(scrollPageRealScrollArea*(scrollLeftSize/100)===100){
-                document.querySelector('.right').disabled=true;
-            }else{
-                document.querySelector('.right').disabled=false;
-            }
+            document.querySelector('.left').disabled = scrollPageRealScrollArea * (scrollLeftSize / 100) <= 0;
+            document.querySelector('.right').disabled = scrollPageRealScrollArea * (scrollLeftSize / 100) === 100;
 
         }
 
