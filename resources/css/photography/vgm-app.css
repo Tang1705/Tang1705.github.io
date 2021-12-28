@@ -1914,10 +1914,10 @@ ul {
 }
 
 .teaser-card-content {
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
     position: absolute;
-    top: 0;
+    top: 65%;
     left: 0;
     padding: 1.25rem;
     display: flex;
@@ -1952,7 +1952,7 @@ ul {
 }
 
 .teaser-card-image:after {
-    content: "";
+    /*content: "";*/
     width: 100%;
     height: 100%;
     position: absolute;
