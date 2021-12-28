@@ -84,7 +84,7 @@
     <style>
         .scrollPage{
             position: absolute;
-            top:95.35%;
+            top:63.5%;
             bottom: 0.8rem;
             width: 14rem;
             height: 0.2rem;
@@ -273,6 +273,9 @@
                     <div class="card-overview-progress">
                         <div aria-hidden="true" class="scroll-indicator scroll-indicator-right"><p
                                 class="scroll-indicator-help visible">Scroll for more</p>
+                            <div class="scrollPage">
+                                <div class="nowPage"></div>
+                            </div>
                             <button tabindex="-1" type="button" class="scroll-indicator-button btn-icon left" disabled="disabled">
                                 <svg aria-hidden="true" focusable="false" class="icon-arrow-left-small">
                                     <use xlink:href="#icon-arrow-left-small" href="#icon-arrow-left-small"></use>
@@ -291,9 +294,7 @@
         </main>
     </div>
 </div>
-<div class="scrollPage">
-    <div class="nowPage"></div>
-</div>
+
 </body>
 <script>
     window.onload = function(){
