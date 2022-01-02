@@ -101,22 +101,14 @@
 
                                         <figure>
                                             <img src="./img/model.pdf"
-                                                 loading="lazy" alt="Mountain landscape"/>
-                                            <figcaption style="margin-top: -0.8rem">
-                                                Figure 1. Left: Architecture overview. The input image is transformed
-                                                into tokens (orange) either by extracting non-overlapping patches
-                                                followed by a linear projection of their flattened representation
-                                                (DPT-Base and DPT-Large) or by applying a ResNet-50 feature extractor
-                                                (DPT-Hybrid). The image embedding is augmented with a positional
-                                                embedding and a patch-independent readout token (red) is added. The
-                                                tokens are passed through multiple transformer stages. We reassemble
-                                                tokens from different stages into an image-like representation at
-                                                multiple resolutions (green). Fusion modules (purple) progressively fuse
-                                                and upsample the representations to generate a fine-grained prediction.
-                                                Center: Overview of the Reassembles operation. Tokens are assembled into
-                                                feature maps with 1s the spatial resolution of the input image. Right:
-                                                Fusion blocks combine features using residual convolutional units [25]
-                                                and upsample the feature maps.
+                                                 loading="lazy" alt="Mountain landscape" width="100%"/>
+                                            <figcaption>
+                                                Figure 1. Overview of our proposed network architecture. Our
+                                                architecture consists of two major components: an encoder- decoder block
+                                                and our proposed adaptive bin-width estimator block called AdaBins. The
+                                                input to our network is an RGB image of spatial dimensions H and W , and
+                                                the output is a single channel $h \times w$ depth image (e.g., half the spatial
+                                                resolution).
                                             </figcaption>
                                         </figure>
 
@@ -2864,8 +2856,8 @@
                                         </div>
 
                                         <figure style="margin-top: 2rem;margin-bottom: 2rem">
-                                            <img src="./img/experiments1.png"
-                                                 loading="lazy" alt="Mountain landscape"/>
+                                            <img src="./img/experiment.png"
+                                                 loading="lazy" alt="Mountain landscape" width="100%"/>
                                             <figcaption>
                                                 Figure 2. Sample results for monocular depth estimation. Compared to the
                                                 fully-convolutional network used by MiDaS, DPT shows better global
