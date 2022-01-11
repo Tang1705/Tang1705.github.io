@@ -99,10 +99,10 @@
                     case i.PLAYING:
                         break;
                     case i.LOSE:
-                        this.setStatusText(f.default("猫已经跑到地图边缘了，你输了"));
+                        this.setStatusText(f.default("The cat reaches the edge of the map, you lost."));
                         break;
                     case i.WIN:
-                        this.setStatusText(f.default("猫已经无路可走，你赢了"));
+                        this.setStatusText(f.default("The cat has no way out. You won."));
                         break;
                     default:
                         return
@@ -132,7 +132,7 @@
         }, e.prototype.playerClick = function (t, e) {
             if (this.cat.anims.isPlaying && this.cat.anims.stop(), this.state !== i.PLAYING) return this.setStatusText(f.default("The game is over, start again")), this.reset(), !1;
             var n = this.getBlock(t, e);
-            return n ? n.isWall ? (this.setStatusText(f.default("Click location is already a wall. No clicking is allowed.")), !1) : this.cat.i === t && this.cat.j === e ? (this.setStatusText(f.default("Click position is the current position of the cat. Click is prohibited.")), !1) : (n.isWall = !0, this.cat.isCaught() ? (this.setStatusText(f.default("The cat has no way out. You won")), this.state = i.WIN, !1) : (this.setStatusText(f.default("You clicked ") + "(" + t + ", " + e + ")"), this.cat.step() || (this.setStatusText(f.default("The cat surrenders, you win!")), this.state = i.WIN), !0)) : (this.setStatusText(f.default("Error, current location does not exist.")), !1)
+            return n ? n.isWall ? (this.setStatusText(f.default("The location is a wall. No clicking is allowed.")), !1) : this.cat.i === t && this.cat.j === e ? (this.setStatusText(f.default("The cat is right here. Click is prohibited.")), !1) : (n.isWall = !0, this.cat.isCaught() ? (this.setStatusText(f.default("The cat has no way out. You won")), this.state = i.WIN, !1) : (this.setStatusText(f.default("You clicked ") + "(" + t + ", " + e + ")"), this.cat.step() || (this.setStatusText(f.default("The cat surrenders, you win!")), this.state = i.WIN), !0)) : (this.setStatusText(f.default("Error, current location does not exist.")), !1)
         }, e.prototype.reset = function () {
             this.cat.reset(), this.resetBlocks(), this.randomWall(), this.state = i.PLAYING, this.setStatusText(f.default("Click on the small dots to catch the cat"))
         }, e.prototype.setStatusText = function (t) {
