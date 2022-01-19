@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/private/Ultimate-Tic-Tac-Toe-Maven" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/qitang_CV" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vip" vcs="Git" />
   </component>
