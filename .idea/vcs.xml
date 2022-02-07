@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/private/Ultimate-Tic-Tac-Toe-Maven" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/private/基于编码结构光的高铁轮轨姿态三位重建/Happy-Reconstruction" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/qitang_CV" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vip" vcs="Git" />
   </component>

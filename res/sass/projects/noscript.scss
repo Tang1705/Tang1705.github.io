@@ -1,0 +1,28 @@
+@import 'projects/libs/vars';
+@import 'projects/libs/functions';
+@import 'projects/libs/mixins';
+@import 'projects/libs/vendor';
+@import 'projects/libs/breakpoints';
+@import 'projects/libs/html-grid';
+
+/*
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/* Header */
+
+	#header {
+		body.is-preload & {
+			&.alt {
+				> * {
+					opacity: 1;
+				}
+
+				.logo {
+					@include vendor('transform', 'none');
+				}
+			}
+		}
+	}
