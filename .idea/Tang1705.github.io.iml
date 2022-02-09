@@ -27,5 +27,7 @@
     <orderEntry type="library" name="style.base" level="application" />
     <orderEntry type="library" name="custom" level="application" />
     <orderEntry type="library" name="kube" level="application" />
+    <orderEntry type="library" name="typed" level="application" />
+    <orderEntry type="library" name="site" level="application" />
   </component>
 </module>
