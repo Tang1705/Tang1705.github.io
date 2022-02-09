@@ -24,5 +24,8 @@
     <orderEntry type="library" name="plausible" level="application" />
     <orderEntry type="library" name="KaTeX" level="application" />
     <orderEntry type="library" name="pseudocode" level="application" />
+    <orderEntry type="library" name="style.base" level="application" />
+    <orderEntry type="library" name="custom" level="application" />
+    <orderEntry type="library" name="kube" level="application" />
   </component>
 </module>
