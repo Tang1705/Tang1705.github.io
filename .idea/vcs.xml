@@ -3,7 +3,21 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/amusement-park" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/conten/amusement-park" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/conten/curriculum-vitae" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/conten/music" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/conten/photography" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/conten/post" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/conten/project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/conten/terminal" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/curriculum-vitae" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/meta/amusement-park" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/meta/curriculum-vitae" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/meta/music" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/meta/photography" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/meta/post" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/meta/project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/meta/terminal" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/photography" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/post" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/private/Ultimate-Tic-Tac-Toe-Maven" vcs="Git" />

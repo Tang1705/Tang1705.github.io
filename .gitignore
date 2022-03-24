@@ -6,16 +6,6 @@
 # User-specific files
 *.ppt
 # 忽略指定文件夹
+meta/
+util/
 private/
-curriculum-vitae/
-post/
-project/
-terminal/
-music/
-photography/
-amusement-park/
-
-qitang_CV/
-latex/
-Latex2HTML/
-ppt/

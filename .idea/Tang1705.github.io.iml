@@ -67,6 +67,16 @@
       <excludeFolder url="file://$MODULE_DIR$/private/基于编码结构光的高铁轮轨姿态三位重建/Happy-Reconstruction/x64/Release/uic" />
       <excludeFolder url="file://$MODULE_DIR$/private/基于编码结构光的高铁轮轨姿态三位重建/Happy-Reconstruction/.vs" />
       <excludeFolder url="file://$MODULE_DIR$/music" />
+      <excludeFolder url="file://$MODULE_DIR$/GNight" />
+      <excludeFolder url="file://$MODULE_DIR$/Latex2HTML" />
+      <excludeFolder url="file://$MODULE_DIR$/Lyric" />
+      <excludeFolder url="file://$MODULE_DIR$/util" />
+      <excludeFolder url="file://$MODULE_DIR$/util/GNight" />
+      <excludeFolder url="file://$MODULE_DIR$/util/Latex2HTML" />
+      <excludeFolder url="file://$MODULE_DIR$/util/Lyric" />
+      <excludeFolder url="file://$MODULE_DIR$/util/ppt" />
+      <excludeFolder url="file://$MODULE_DIR$/util/qitang_CV" />
+      <excludeFolder url="file://$MODULE_DIR$/meta" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
