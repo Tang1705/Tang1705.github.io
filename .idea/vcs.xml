@@ -2,31 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/amusement-park" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/conten/amusement-park" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/conten/curriculum-vitae" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/conten/music" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/conten/photography" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/conten/post" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/conten/project" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/conten/terminal" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/curriculum-vitae" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/meta/amusement-park" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/meta/curriculum-vitae" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/meta/music" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/meta/photography" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/meta/post" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/meta/project" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/meta/terminal" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/photography" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/post" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/private/Ultimate-Tic-Tac-Toe-Maven" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/private/XinCheck/3.0/duplicate-check" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/private/duplicate-check" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/private/基于编码结构光的高铁轮轨姿态三位重建/Happy-Reconstruction" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/project" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/qitang_CV" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/terminal" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/vip" vcs="Git" />
   </component>
 </project>
