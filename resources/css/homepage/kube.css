@@ -276,7 +276,7 @@ h6,
 .h6 {
   font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
   font-weight: bold;
-  color: #000000;
+  color: #161617;
   text-rendering: optimizeLegibility;
   margin: 0 0 .5em 0;
 }
@@ -385,7 +385,7 @@ blockquote p {
 }
 blockquote small,
 cite {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(22, 22, 23, 0.4);
   font-style: italic;
 }
 small,
@@ -448,7 +448,7 @@ u {
 }
 mark {
   background-color: #ffc800;
-  color: #0f0f0f;
+  color: #161617;
   text-decoration: none;
 }
 /* =Code
@@ -490,7 +490,7 @@ pre code {
   line-height: 1.65em;
 }
 var {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(22, 22, 23, 0.5);
 }
 samp {
   background: #d3e3fb;
@@ -559,7 +559,7 @@ input[type="color"],
 input[type="time"],
 input[type="search"],
 input[type="datetime-local"] {
-  background: #ffffff;
+  background: #fbfbfd;
   border: 1px solid #cccccc;
   position: relative;
   z-index: 2;
@@ -581,7 +581,7 @@ input[type="time"][disabled],
 input[type="search"][disabled],
 input[type="datetime-local"][disabled] {
   resize: none;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(22, 22, 23, 0.5);
 }
 select[disabled],
 input[type="checkbox"][disabled],
@@ -623,7 +623,7 @@ table {
 table caption {
   text-transform: uppercase;
   padding: 0 1.0999999999999999em;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(22, 22, 23, 0.4);
   font-size: 12.75px;
 }
 table th,
@@ -633,7 +633,7 @@ table td {
 }
 table tfoot th,
 table tfoot td {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(22, 22, 23, 0.4);
 }
 /* =Grid
 -----------------------------------------------------------------------------*/
@@ -1086,7 +1086,7 @@ table.table-hovered tbody tr:hover td {
 .table-container::-webkit-scrollbar-thumb {
   border-radius: 8px;
   border: 3px solid #fff;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(22, 22, 23, 0.3);
 }
 /* =Forms
 -----------------------------------------------------------------------------*/
@@ -1191,7 +1191,7 @@ table.table-hovered tbody tr:hover td {
 }
 .forms-desc {
   margin-top: 4px;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(22, 22, 23, 0.4);
   font-size: 12.75px;
   line-height: 1.4em;
 }
@@ -1328,7 +1328,7 @@ input.input-smaller {
   border: 1px solid #d4d4d4;
   margin: 0;
   padding: .45em .75em .15em .75em;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(22, 22, 23, 0.6);
   line-height: 1.65em;
   font-size: 12.75px;
   white-space: nowrap;
@@ -1404,7 +1404,7 @@ input.input-smaller {
 .navbar span {
   text-decoration: none;
   cursor: text;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(22, 22, 23, 0.4);
 }
 .navigation-toggle {
   display: none;
