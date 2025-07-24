@@ -77,7 +77,7 @@ function renderPublications(publications) {
  * @param {Array} projects - 项目数据数组
  */
 function renderProjects(projects) {
-    const container = document.getElementById('projects.json-container');
+    const container = document.getElementById('projects-container');
     container.innerHTML = ''; // 清空容器
 
     projects.forEach(project => {
