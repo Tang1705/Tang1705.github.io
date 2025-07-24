@@ -3,7 +3,8 @@
     "title": "A Review of Video Super-Resolution Algorithms based on Deep Learning",
     "category": "CCF-T1",
     "tags": [ "Video Super-Resolution", "Survey"],
-    "venue": "Acta Automatica Sinica (AAS), 2025.",
+    "venue": "Acta Automatica Sinica (AAS)",
+    "year": 2025,
     "authors": [
       {"name": "Qi Tang", "isFirstAuthor": true},
       {"name": "Yao Zhao", "isFirstAuthor": false},
@@ -20,7 +21,8 @@
     "title": "MambaVSR: Content-Aware Scanning State Space Model for Video Super-Resolution",
     "category": "arXiv",
     "tags": [ "Video Super-Resolution", "Mamba"],
-    "venue": "arXiv, 2025",
+    "venue": "arXiv",
+    "year": 2025,
     "authors": [
       {"name": "Linfeng He", "isFirstAuthor": false},
       {"name": "Meiqin Liu*", "isFirstAuthor": false},
@@ -38,7 +40,8 @@
     "title": "SeeClear: Semantic Distillation Enhances Pixel Condensation for Video Super-Resolution",
     "category": "CCF-A",
     "tags": [ "Video Super-Resolution", "Diffusion Model"],
-    "venue": "Advances in Neural Information Processing Systems (NeurIPS), 2024.",
+    "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+    "year": 2024,
     "authors": [
       {"name": "Qi Tang", "isFirstAuthor": true},
       {"name": "Yao Zhao", "isFirstAuthor": false},
@@ -55,7 +58,8 @@
     "title": "Semantic Lens: Instance-Centric Semantic Alignment for Video Super-Resolution",
     "category": "CCF-A",
     "tags": [ "Video Super-Resolution", "Video Instance Segmentation"],
-    "venue": "AAAI Conference on Artificial Intelligence (AAAI), 2024.",
+    "venue": "AAAI Conference on Artificial Intelligence (AAAI)",
+    "year": 2024,
     "authors": [
       {"name": "Qi Tang", "isFirstAuthor": true},
       {"name": "Yao Zhao", "isFirstAuthor": false},
@@ -73,7 +77,8 @@
     "title": "DATA-VSR: Dynamic Trajectory Attention and Texture Adaptive Rooter for Video Super-Resolution",
     "category": "CCF-B",
     "tags": [ "Video Super-Resolution", "Light Weight"],
-    "venue": "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2025.",
+    "venue": "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+    "year": 2025,
     "authors": [
       {"name": "Linfeng He", "isFirstAuthor": false},
       {"name": "Meiqin Liu*", "isFirstAuthor": false},
@@ -91,7 +96,8 @@
     "title": "ALIC: Adaptive Fusion Entropy Model for Learned Image Compression",
     "category": "CCF-B",
     "tags": [ "Image Compression", "Entropy Model"],
-    "venue": "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2025.",
+    "venue": "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+    "year": 2025,
     "authors": [
       {"name": "Lingxue Li", "isFirstAuthor": false},
       {"name": "Meiqin Liu*", "isFirstAuthor": false},
@@ -110,7 +116,8 @@
     "title": "Noisy-Residual Continuous Diffusion Models for Real Image Denoising <span style='color:gray'>(Oral)</span>",
     "category": "CCF-B",
     "tags": [ "Image Denoising", "Diffusion Model"],
-    "venue": "IEEE International Conference on Multimedia and Expo (ICME), 2024.",
+    "venue": "IEEE International Conference on Multimedia and Expo (ICME)",
+    "year": 2024,
     "authors": [
       {"name": "Xuan Long", "isFirstAuthor": false},
       {"name": "Meiqin Liu*", "isFirstAuthor": false},
@@ -129,7 +136,8 @@
     "title": "TLVC: Temporal Bit-Rate Allocation for Learned Video Compression <span style='color:gray'>(Oral)</span>",
     "category": "CCF-B",
     "tags": [ "Video Compression", "Bitrate Optimization"],
-    "venue": "IEEE International Conference on Multimedia and Expo (ICME), 2024.",
+    "venue": "IEEE International Conference on Multimedia and Expo (ICME)",
+    "year": 2024,
     "authors": [
       {"name": "Yifan Zhang", "isFirstAuthor": false},
       {"name": "Meiqin Liu*", "isFirstAuthor": false},
@@ -148,7 +156,8 @@
     "title": "BridgeNet: A Joint Learning Network of Depth Map Super-Resolution and Monocular Depth Estimation",
     "category": "CCF-A",
     "tags": [ "Depth Map Super-Resolution", "Monocular Depth Estimation"],
-    "venue": "ACM International Conference on Multimedia (ACM MM), 2021.",
+    "venue": "ACM International Conference on Multimedia (ACM MM)",
+    "year": 2021,
     "authors": [
       {"name": "Qi Tang", "isFirstAuthor": true},
       {"name": "Runmin Cong*", "isFirstAuthor": false},

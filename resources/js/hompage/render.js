@@ -25,40 +25,105 @@ function initPage() {
  * 渲染论文列表
  * @param {Array} publications - 论文数据数组
  */
-function renderPublications(publications) {
+    // 全局存储论文数据
+let publicationsData = [];
+
+// 修改后的renderPublications函数
+function renderPublications(filter = 'all') {
     const container = document.getElementById('publications-container');
     container.innerHTML = ''; // 清空容器
 
-    publications.forEach(pub => {
-        // 生成作者列表HTML
-        const authorsHtml = pub.authors.map(author => {
-            return author.isFirstAuthor
-                ? `<span style="color: #b6262c"><b> ${author.name} </b></span>`
-                : `<span> ${author.name} </span>`;
-        }).join('<span class="separator">,</span>');
+    // 根据筛选条件过滤论文
+    let filteredPublications = publicationsData;
+    if (filter !== 'all') {
+        // 特殊处理CCF-A类别（包含CCF-T1）
+        if (filter === 'CCF-A') {
+            filteredPublications = publicationsData.filter(pub =>
+                pub.category === 'CCF-A' || pub.category === 'CCF-T1'
+            );
+        } else {
+            filteredPublications = publicationsData.filter(pub => pub.category === filter);
+        }
 
-        const tagsHtml=pub.tags.map(tag => {
-            return `<span class="publication-tag" style="margin-right: -0.2em">${tag}</span>`}).join('');
+        // 添加紧凑模式类
+        container.classList.add('compact');
+    } else {
+        // 移出紧凑模式类
+        container.classList.remove('compact');
+    }
 
+    // 如果是ALL筛选，按年份分组显示
+    if (filter === 'all') {
+        // 按年份分组
+        const publicationsByYear = {};
+        filteredPublications.forEach(pub => {
+            if (!publicationsByYear[pub.year]) {
+                publicationsByYear[pub.year] = [];
+            }
+            publicationsByYear[pub.year].push(pub);
+        });
 
-        const pubHtml = `
+        // 获取年份并降序排序
+        const years = Object.keys(publicationsByYear).sort((a, b) => b - a);
+
+        // 遍历每个年份
+        // 修改年份组的渲染方式
+        years.forEach(year => {
+            // 创建年份组容器
+            const groupContainer = document.createElement('div');
+            groupContainer.className = 'publication-group';
+            groupContainer.setAttribute('data-year', year);
+
+            // 添加年份标题和分割线
+            const yearHeaderHtml = `
+    <div class="year-header">
+        <div class="year-divider"></div>
+        <div class="year-title">${year}</div>
+    </div>
+    `;
+            groupContainer.innerHTML = yearHeaderHtml;
+
+            // 添加该年份的所有论文
+            publicationsByYear[year].forEach(pub => {
+                groupContainer.innerHTML += createPublicationHtml(pub);
+            });
+
+            // 将年份组添加到主容器
+            container.appendChild(groupContainer);
+        });
+    }
+    // 其他筛选，直接显示
+    else {
+        filteredPublications.forEach(pub => {
+            container.innerHTML += createPublicationHtml(pub);
+        });
+    }
+}
+
+// 创建单篇论文HTML的函数
+function createPublicationHtml(pub) {
+    // 生成作者列表HTML
+    const authorsHtml = pub.authors.map(author => {
+        return author.isFirstAuthor
+            ? `<span style="color: #b6262c"><b> ${author.name} </b></span>`
+            : `<span> ${author.name} </span>`;
+    }).join('<span class="separator">,</span>');
+
+    const tagsHtml = pub.tags.map(tag => {
+        return `<span class="publication-tag" style="margin-right: 0.5em">${tag}</span>`;
+    }).join('');
+
+    return `
         <div class="publication-item show" data-category="${pub.category}" style="margin-left: -2em">
-            <div class="publication-header" style="margin-left: 2.5em">
+            <h3 class="publication-title" style="margin-left: 2.2em;"><i class="fas fa-file-pdf"></i>&nbsp;&nbsp;${pub.title}</h3>
+            <div class="publication-venue" style="margin-left: 2.5em">${pub.venue}, ${pub.year}.</div>
+            <div class="publication-authors" style="margin-left: 2.5em">${authorsHtml}</div>
+            <div class="publication-header" style="margin-left: 2.5em; margin-top: 0.8em">
                 <span class="badge-ccf badge-${pub.category}" style="margin-right: 0.5em">${pub.category}</span>
                 ${tagsHtml}                
             </div>
-            <h3 class="publication-title" style="margin-left: 2.2em"><i class="fas fa-file-pdf"></i>&nbsp&nbsp${pub.title}</h3>
-            <div class="publication-venue" style="margin-left: 2.5em">${pub.venue}</div>
-            <div class="publication-authors" style="margin-left: 2.5em">${authorsHtml}</div>
-<!--            <div class="publication-links" style="margin-left: 2.5em">-->
-<!--                <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>-->
-<!--                <a href="#"><i class="fab fa-github"></i> Code</a>-->
-<!--                <a href="#"><i class="fas fa-link"></i> Project Page</a>-->
-<!--            </div>-->
         </div>
         `;
-        container.innerHTML += pubHtml;
-    });
 }
 
 /**
@@ -96,20 +161,20 @@ function renderProjects(projects) {
                 ${linksHtml}
             </div>`;
 
-            container.innerHTML += projectHtml;
-            });
-            }
+        container.innerHTML += projectHtml;
+    });
+}
 
-            /**
-            * 渲染荣誉列表
-            * @param {Array} honors - 荣誉数据数组
-            */
-            function renderHonors(honors) {
-            const container = document.getElementById('honors-container');
-            container.innerHTML = ''; // 清空容器
+/**
+ * 渲染荣誉列表
+ * @param {Array} honors - 荣誉数据数组
+ */
+function renderHonors(honors) {
+    const container = document.getElementById('honors-container');
+    container.innerHTML = ''; // 清空容器
 
-            honors.forEach(honor => {
-            const honorHtml = `
+    honors.forEach(honor => {
+        const honorHtml = `
                 <div class="honor-item">
                     <div class="honor-icon">
                         <i class="fas fa-trophy"></i>
@@ -120,6 +185,6 @@ function renderProjects(projects) {
                 </div>
                 
         `;
-            container.innerHTML += honorHtml;
-        });
-        }
+        container.innerHTML += honorHtml;
+    });
+}

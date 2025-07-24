@@ -200,11 +200,11 @@
             <div class="section-title-container">
                 <h1 class="section-title main_color">Recent Publications</h1><div style="margin-top: 1.5em;margin-left: -5em"><span style="color: gray;">* Corresponding Author</span></div>
                 <div class="col-md-6 col-sm-12 d-flex flex-wrap justify-content-md-end gap-2">
-                    <button class="filter-btn active px-4 py-2 rounded" data-filter="all">ALL</button>
-                    <button class="filter-btn px-4 py-2 rounded" data-filter="CCF-A">CCF-A</button>
-                    <button class="filter-btn px-4 py-2 rounded" data-filter="CCF-B">CCF-B</button>
-                    <button class="filter-btn px-4 py-2 rounded" data-filter="CCF-C">CCF-C</button>
-                    <button class="filter-btn px-4 py-2 rounded" data-filter="arXiv">arXiv</button>
+                    <button class="filter-btn active px-4 py-2 rounded n" data-filter="all">ALL</button>
+                    <button class="filter-btn px-4 py-2 rounded a" data-filter="CCF-A">CCF-A</button>
+                    <button class="filter-btn px-4 py-2 rounded b" data-filter="CCF-B">CCF-B</button>
+                    <button class="filter-btn px-4 py-2 rounded c" data-filter="CCF-C">CCF-C</button>
+                    <button class="filter-btn px-4 py-2 rounded p" data-filter="arXiv">arXiv</button>
                 </div>
             </div>
 
@@ -298,32 +298,26 @@
             }
         });
 
+        fetch('./resources/data/publications.json')
+            .then(response => response.json())
+            .then(data => {
+                publicationsData = data;
+                renderPublications('all'); // 初始显示所有论文
+            })
+            .catch(error => console.error('Error loading publications:', error));
+
         // 论文筛选功能
         const filterButtons = document.querySelectorAll('.filter-btn');
 
-        // 筛选逻辑（确保在数据加载后执行）
-        function setupFilter() {
-            const publications = document.querySelectorAll('.publication-item');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-
-                    const filter = button.getAttribute('data-filter');
-
-                    publications.forEach(pub => {
-                        if (filter === 'all' || pub.getAttribute('data-category') === filter) {
-                            pub.classList.add('show');
-                        } else if (pub.getAttribute('data-category') === "CCF-T1" && filter === "CCF-A") {
-                            pub.classList.add('show');
-                        } else {
-                            pub.classList.remove('show');
-                        }
-                    });
-                });
+                const filter = button.getAttribute('data-filter');
+                renderPublications(filter);
             });
-        }
+        });
 
         // 等待数据加载后再初始化筛选
         setTimeout(setupFilter, 500); // 延迟确保数据已渲染
