@@ -94,6 +94,14 @@ a {
     margin-top: 1.5%;
 }
 
+.honors .honor {
+    margin-top: 1.5%;
+}
+
+.projects .project {
+    margin-top: 1.5%;
+}
+
 .publication .section-1 .publication-date {
     font-family: 'Ubuntu Mono', serif;
 }

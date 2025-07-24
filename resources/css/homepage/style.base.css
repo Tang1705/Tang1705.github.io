@@ -97,15 +97,46 @@ a:visited, a:hover, a:active {
 }
 
 .profile .portrait .spinner {
+    position: relative;
     width: 6rem;
     height: 6rem;
-    border: 0.5em solid #fbfbfd;
-    border-right-color: #b6262c;
-    border-bottom-color: #b6262c;
     border-radius: 50%;
-    -webkit-transition: transform 0.8s ease-in-out;
-    -moz-transition: transform 0.8s ease-in-out;
-    transition: transform 0.8s ease-in-out
+    /* 移除原边框，用伪元素替代 */
+    border: none;
+    /* 保留旋转动画 */
+    transition: transform 0.8s ease-in-out;
+}
+
+/* 使用伪元素创建渐变边框 */
+.profile .portrait .spinner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* 圆锥渐变：从红色到紫色再到白色 */
+    background: conic-gradient(
+            #fbfbfd 45deg,      /* 顶部 */
+            #b6262c 90deg,     /* 右侧 */
+            #4d0099 135deg,    /* 底部 */
+            #fbfbfd 215deg,    /* 左侧 */
+            #fbfbfd 360deg     /* 闭合 */
+    );
+}
+
+/* 内部遮罩（显示中心透明） */
+.profile .portrait .spinner::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 1em); /* 6rem - 0.5em×2 */
+    height: calc(100% - 1em);
+    top: 0.5em;
+    left: 0.5em;
+    background: white; /* 与页面背景色一致 */
+    border-radius: 50%;
+    z-index: 0;
 }
 
 .profile .portrait:hover .spinner {
@@ -271,63 +302,4 @@ a:visited, a:hover, a:active {
 
 .actions .action:hover {
     color: #666
-}
-
-/* 调整兴趣部分行间距 */
-.interest-item {
-    margin-bottom: 3px; /* 行间距大小 */
-    padding: 2px 0;
-}
-
-/* 图标相关样式 */
-.section-icon {
-    margin-right: 10px;
-    color: #4d0099;
-}
-
-.interest-item i, .institution-icon {
-    margin-right: 8px;
-    color: #666;
-}
-
-/* 论文筛选相关样式 */
-.filter-buttons {
-    margin-bottom: 1.5rem;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.filter-btn:hover {
-    background-color: #e0e0e0;
-}
-
-.filter-btn.active {
-    background-color: #4d0099;
-    color: white;
-}
-
-.publication {
-    width: 100%;
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
-    display: none; /* 默认隐藏所有论文 */
-}
-
-.publication.show {
-    display: block; /* 显示选中类别的论文 */
-}
-
-.publication:last-child {
-    border-bottom: none;
 }

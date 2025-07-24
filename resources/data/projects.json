@@ -1,51 +1,36 @@
 [
   {
-    "title": "Deep Learning Based Real-Time Video Enhancement System",
-    "venue": "Collaboration with Huawei Technologies, 2024-2025",
+    "title": "3D Reconstruction of High-Speed Rail-Wheel Based on Coded Structured Light",
+    "venue": "National Training Program of Innovation and Entrepreneurship for Undergraduates, 2020.",
     "members": [
       { "name": "Qi Tang", "isLeader": true },
-      { "name": "Prof. Yao Zhao", "isLeader": false },
-      { "name": "Dr. Meiqin Liu", "isLeader": false },
-      { "name": "Engineers from Huawei", "isLeader": false }
+      { "name": "Yao Luo", "isLeader": false },
+      { "name": "Yanyang Zhao", "isLeader": false }
     ],
     "links": {
-      "project": ".",
-      "poster": ".",
-      "code": ".",
+      "project": "https://project.tang5618.com/?t=happy-reconstruction",
+      "poster": "https://post.tang5618.com/viewer/web/viewer.html?file=https://project.tang5618.com/Happy-Reconstruction/resources/doc/基于编码结构光的高铁轮轨姿态三维重建.pdf",
+      "code": "https://github.com/Tang1705/Happy-Reconstruction",
       "pcDemo": ".",
       "sdkDemo": "."
     }
   },
   {
-    "title": "High-Resolution Medical Image Restoration Platform",
-    "venue": "National Natural Science Foundation of China Project, 2023-2025",
+    "title": "Duplicate Check Algorithm and Engine for Text and Image",
+    "venue": "First Prize of the Eleventh Venture Contest for Undergraduates of Beijing Jiaotong University, 2020.",
     "members": [
-      { "name": "Prof. Meiqin Liu", "isLeader": true },
-      { "name": "Qi Tang", "isLeader": false },
-      { "name": "Other Graduate Students", "isLeader": false }
+      { "name": "Huaqiu Liu", "isLeader": false },
+      { "name": "Guoliang Li", "isLeader": false },
+      { "name": "Jiangping You", "isLeader": false },
+      { "name": "Qi Tang", "isLeader": true },
+      { "name": "Yao Luo", "isLeader": false }
     ],
     "links": {
-      "project": ".",
+      "project": "https://project.tang5618.com/?t=xincheck",
       "poster": ".",
       "code": ".",
-      "pcDemo": ".",
-      "sdkDemo": "."
-    }
-  },
-  {
-    "title": "AI-Powered Image Compression and Enhancement for Mobile Devices",
-    "venue": "Beijing Jiaotong University - Xiaomi Joint Lab, 2022-2024",
-    "members": [
-      { "name": "Qi Tang", "isLeader": true },
-      { "name": "Prof. Yao Zhao", "isLeader": false },
-      { "name": "Dr. Chao Yao", "isLeader": false }
-    ],
-    "links": {
-      "project": ".",
-      "poster": ".",
-      "code": "https://github.com/Tang1705/AI-Image-Compression",
-      "pcDemo": ".",
-      "sdkDemo": "."
+      "pcDemo": "https://github.com/tianlian0/paper_checking_system",
+      "sdkDemo": "https://github.com/tianlian0/duplicate-check-sample"
     }
   }
 ]
