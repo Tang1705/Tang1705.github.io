@@ -131,7 +131,7 @@ function renderHonors(honors) {
                 <div class="publication row  w-100">
                     <div class="section-1 w-100">
                         <span>
-                            <span style="color: #6c757d!important">[${honor.date}]</span> <b>${honor.title}</b>
+                            <span style="color: #6c757d!important"> <i class="fas fa-trophy action"></i> [${honor.date}]</span> <b>${honor.title}</b>
                         </span>
                     </div>
                 </div>
