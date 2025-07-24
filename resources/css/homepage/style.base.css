@@ -272,3 +272,62 @@ a:visited, a:hover, a:active {
 .actions .action:hover {
     color: #666
 }
+
+/* 调整兴趣部分行间距 */
+.interest-item {
+    margin-bottom: 3px; /* 行间距大小 */
+    padding: 2px 0;
+}
+
+/* 图标相关样式 */
+.section-icon {
+    margin-right: 10px;
+    color: #4d0099;
+}
+
+.interest-item i, .institution-icon {
+    margin-right: 8px;
+    color: #666;
+}
+
+/* 论文筛选相关样式 */
+.filter-buttons {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-btn.active {
+    background-color: #4d0099;
+    color: white;
+}
+
+.publication {
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: none; /* 默认隐藏所有论文 */
+}
+
+.publication.show {
+    display: block; /* 显示选中类别的论文 */
+}
+
+.publication:last-child {
+    border-bottom: none;
+}

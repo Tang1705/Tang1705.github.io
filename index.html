@@ -32,17 +32,7 @@
         .intro h1:before {
             content: 'Q.Tang';
         }
-
-        /* 图标相关样式 */
-        .section-icon {
-            margin-right: 10px;
-            color: #4d0099;
-        }
-
-        .interest-item i, .institution-icon {
-            margin-right: 8px;
-            color: #666;
-        }
+        
     </style>
 </head>
 <body id="homepage">
@@ -195,6 +185,7 @@
         </div>
     </div>
 
+
     <!-- 论文部分容器 -->
     <div class="row w-100" style="margin-left:-1em ">
         <div class="col w-100">
@@ -203,6 +194,16 @@
                     <h1 class="row  w-100 section-title main_color"><i class="fas fa-file-alt section-icon" style="font-size: 22px"></i> Recent Publications </h1>
                 </div>
             </div>
+
+            <!-- 论文筛选按钮 -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">ALL</button>
+                <button class="filter-btn" data-filter="ccf-a">CCF-A</button>
+                <button class="filter-btn" data-filter="ccf-b">CCF-B</button>
+                <button class="filter-btn" data-filter="ccf-c">CCF-C</button>
+                <button class="filter-btn" data-filter="arxiv">arXiv</button>
+            </div>
+
             <div id="publications-container">
                 <!-- 论文内容将通过JS动态生成 -->
             </div>

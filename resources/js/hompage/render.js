@@ -90,11 +90,11 @@ function renderProjects(projects) {
 
         // 生成链接HTML
         let linksHtml = '';
-        if (project.links.project) linksHtml += `<a class="action" href="${project.links.project}">project page</a>`;
-        if (project.links.poster) linksHtml += `<a class="action" href="${project.links.poster}">Poster</a>`;
-        if (project.links.code) linksHtml += `<a class="action" href="${project.links.code}">Code</a>`;
-        if (project.links.pcDemo) linksHtml += `<a class="action" href="${project.links.pcDemo}">PC Demo</a>`;
-        if (project.links.sdkDemo) linksHtml += `<a class="action" href="${project.links.sdkDemo}">SDK Demo</a>`;
+        if (project.links.project && project.links.project !== ".") linksHtml += `<a class="action" href="${project.links.project}">project page</a>`;
+        if (project.links.poster && project.links.poster !== ".") linksHtml += `<a class="action" href="${project.links.poster}">Poster</a>`;
+        if (project.links.code && project.links.code !== ".") linksHtml += `<a class="action" href="${project.links.code}">Code</a>`;
+        if (project.links.pcDemo && project.links.pcDemo !== ".") linksHtml += `<a class="action" href="${project.links.pcDemo}">PC Demo</a>`;
+        if (project.links.sdkDemo && project.links.sdkDemo !== ".") linksHtml += `<a class="action" href="${project.links.sdkDemo}">SDK Demo</a>`;
 
         // 拼接项目HTML
         const projectHtml = `
