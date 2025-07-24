@@ -39,18 +39,18 @@ function renderPublications(publications) {
 
         // 生成链接HTML
         let linksHtml = '';
-        if (pub.links.project && pub.links.project !== ".") {
-            linksHtml += `<a class="action" href="${pub.links.project}">Project Page</a>`;
-        }
-        if (pub.links.paper && pub.links.paper !== ".") {
-            linksHtml += `<a class="action" href="${pub.links.paper}">Paper</a>`;
-        }
-        if (pub.links.code && pub.links.code !== ".") {
-            linksHtml += `<a class="action" href="${pub.links.code}">Code</a>`;
-        }
-        if (pub.links.honor && pub.links.honor !== ".") {
-            linksHtml += `<a class="action" href="${pub.links.honor}">Honor</a>`;
-        }
+        // if (pub.links.project && pub.links.project !== ".") {
+        //     linksHtml += `<a class="action" href="${pub.links.project}">Project Page</a>`;
+        // }
+        // if (pub.links.paper && pub.links.paper !== ".") {
+        //     linksHtml += `<a class="action" href="${pub.links.paper}">Paper</a>`;
+        // }
+        // if (pub.links.code && pub.links.code !== ".") {
+        //     linksHtml += `<a class="action" href="${pub.links.code}">Code</a>`;
+        // }
+        // if (pub.links.honor && pub.links.honor !== ".") {
+        //     linksHtml += `<a class="action" href="${pub.links.honor}">Honor</a>`;
+        // }
 
         // 拼接论文HTML
         const pubHtml = `
