@@ -73,7 +73,7 @@ a:visited, a:hover, a:active {
 
 @media only screen and (min-width: 960px) {
     .footer {
-        width: 1662px
+        /*width: 1662px*/
     }
 }
 
