@@ -47,7 +47,7 @@ function renderPublications(publications) {
                 <span class="badge-ccf badge-${pub.category}" style="margin-right: 0.5em">${pub.category}</span>
                 ${tagsHtml}                
             </div>
-            <h3 class="publication-title" style="margin-left: 2em">${pub.title} <i class="fas fa-file-pdf"></i></h3>
+            <h3 class="publication-title" style="margin-left: 2.2em"><i class="fas fa-file-pdf"></i>&nbsp&nbsp${pub.title}</h3>
             <div class="publication-venue" style="margin-left: 2.5em">${pub.venue}</div>
             <div class="publication-authors" style="margin-left: 2.5em">${authorsHtml}</div>
 <!--            <div class="publication-links" style="margin-left: 2.5em">-->
@@ -88,9 +88,9 @@ function renderProjects(projects) {
         <div class="project-card">
             <h3 class="project-title">${project.title}</h3>
             <div class="project-description">
-                ${project.venue}
+                <span>${project.venue}</span>
                 <br>
-                <p style="font-style: italic;">${membersHtml}</p>
+                ${membersHtml}
             </div>
             <div class="project-links">
                 ${linksHtml}
