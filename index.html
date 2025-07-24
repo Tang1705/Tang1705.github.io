@@ -48,6 +48,21 @@
         .action {
             margin-right: 10px;
         }
+
+        /* 图标相关样式 */
+        .section-icon {
+            margin-right: 10px;
+            color: #4d0099;
+        }
+
+        .interest-item i, .institution-icon {
+            margin-right: 8px;
+            color: #666;
+        }
+        .quote-icon {
+            margin: 0 15px;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body id="homepage">
@@ -146,22 +161,24 @@
 
     <div class="about row w-100">
         <div class="interests col ">
-            <h4 class="main_color">Interests</h4>
+            <h4 class="main_color"><i class="fas fa-heart section-icon"></i>Interests</h4>
             <ul>
-                <li>Deep Learning</li>
-                <li>Computer Vision</li>
-                <li>Image/Video Restoration, Segmentation & Generation</li>
-                <li>Photography</li>
-                <li>Music</li>
+                <li class="interest-item"><i class="fas fa-brain"></i>Deep Learning</li>
+                <li class="interest-item"><i class="fas fa-eye"></i>Computer Vision</li>
+                <li class="interest-item"><i class="fas fa-image"></i>Image/Video Restoration, Segmentation & Generation</li>
+                <li class="interest-item"><i class="fas fa-camera"></i>Photography</li>
+                <li class="interest-item"><i class="fas fa-music"></i>Music</li>
             </ul>
         </div>
 
         <div class="academia col">
-            <h4 class="main_color">Academia</h4>
+            <h4 class="main_color"><i class="fas fa-graduation-cap section-icon"></i>Academia</h4>
             <div class="row">
                 <div class="course col">
                     <div class="institution_dates row">
-                        <div class="institution col" id="institution_title">Nanjing University</div>
+                        <div class="institution col" id="institution_title">
+                            <i class="fas fa-university institution-icon"></i>Nanjing University
+                        </div>
                         <div class="main_color dates col-md-auto  justify-content-end">2025 - present</div>
                     </div>
                     <div class="degree_major row">
@@ -172,7 +189,9 @@
             <div class="row">
                 <div class="course col">
                     <div class="institution_dates row">
-                        <div class="institution col">Beijing Jiaotong University</div>
+                        <div class="institution col">
+                            <i class="fas fa-university institution-icon"></i>Beijing Jiaotong University
+                        </div>
                         <div class="main_color dates col-md-auto  justify-content-end">2022 - 2025</div>
                     </div>
                     <div class="degree_major row">
@@ -183,7 +202,9 @@
             <div class="row">
                 <div class="course col">
                     <div class="institution_dates row">
-                        <div class="institution col">Beijing Jiaotong University</div>
+                        <div class="institution col">
+                            <i class="fas fa-university institution-icon"></i>Beijing Jiaotong University
+                        </div>
                         <div class="main_color dates col-md-auto  justify-content-end">2017 - 2021</div>
                     </div>
                     <div class="degree_major row">
@@ -199,7 +220,7 @@
         <div class="col w-100">
             <div class="row w-100">
                 <div class="col w-100">
-                    <h1 class="row  w-100 section-title main_color"> Recent Publications </h1>
+                    <h1 class="row  w-100 section-title main_color"><i class="fas fa-file-alt section-icon" style="font-size: 22px"></i> Recent Publications </h1>
                 </div>
             </div>
             <div id="publications-container">

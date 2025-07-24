@@ -58,7 +58,7 @@ function renderPublications(publications) {
                 <div class="col w-100">
                     <div class="publication row  w-100">
                         <div class="section-1 w-100">
-                            <span>${pub.title}</span>
+                         <i class="ai ai-paperclip action"></i><span>${pub.title}</span>
                             <br>
                             <span class="text-muted publication-name">${pub.venue}</span>
                         </div>
@@ -126,8 +126,8 @@ function renderHonors(honors) {
 
     honors.forEach(honor => {
         const honorHtml = `
-            <div class="row w-100" style="margin-left:-1em ">
-            <div class="col w-100">
+<!--            <div class="row w-100" style="margin-left:-1em ">-->
+<!--            <div class="col w-100">-->
                 <div class="publication row  w-100">
                     <div class="section-1 w-100">
                         <span>
@@ -135,8 +135,8 @@ function renderHonors(honors) {
                         </span>
                     </div>
                 </div>
-            </div>
-            </div>
+<!--            </div>-->
+<!--            </div>-->
         `;
         container.innerHTML += honorHtml;
     });
