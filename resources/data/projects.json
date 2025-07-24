@@ -1,12 +1,51 @@
 [
-  {"date": "2025.06", "title": "Outstanding Master Graduate of Beijing"},
-  {"date": "2025.06", "title": "Excellent Master Thesis award of Beijing Jiaotong University"},
-  {"date": "2025.06", "title": "Outstanding Master Graduate of Beijing Jiaotong University"},
-  {"date": "2024.11", "title": "National Scholarship for Graduate Excellence"},
-  {"date": "2024.10", "title": "Xiaomi Special Scholarship"},
-  {"date": "2023.10", "title": "National Scholarship for Graduate Excellence (top 1/50)"},
-  {"date": "2022.12", "title": "First-class Scholarship of Beijing Jiaotong University"},
-  {"date": "2021.11", "title": "Excellent Undergraduate Graduation Design (Thesis) of Beijing Ordinary Colleges and Universities"},
-  {"date": "2021.06", "title": "Outstanding Graduate of Beijing Jiaotong University"},
-  {"date": "2020.06", "title": "National Training Program of Innovation and Entrepreneurship for Undergraduates"}
+  {
+    "title": "Deep Learning Based Real-Time Video Enhancement System",
+    "venue": "Collaboration with Huawei Technologies, 2024-2025",
+    "members": [
+      { "name": "Qi Tang", "isLeader": true },
+      { "name": "Prof. Yao Zhao", "isLeader": false },
+      { "name": "Dr. Meiqin Liu", "isLeader": false },
+      { "name": "Engineers from Huawei", "isLeader": false }
+    ],
+    "links": {
+      "project": ".",
+      "poster": ".",
+      "code": ".",
+      "pcDemo": ".",
+      "sdkDemo": "."
+    }
+  },
+  {
+    "title": "High-Resolution Medical Image Restoration Platform",
+    "venue": "National Natural Science Foundation of China Project, 2023-2025",
+    "members": [
+      { "name": "Prof. Meiqin Liu", "isLeader": true },
+      { "name": "Qi Tang", "isLeader": false },
+      { "name": "Other Graduate Students", "isLeader": false }
+    ],
+    "links": {
+      "project": ".",
+      "poster": ".",
+      "code": ".",
+      "pcDemo": ".",
+      "sdkDemo": "."
+    }
+  },
+  {
+    "title": "AI-Powered Image Compression and Enhancement for Mobile Devices",
+    "venue": "Beijing Jiaotong University - Xiaomi Joint Lab, 2022-2024",
+    "members": [
+      { "name": "Qi Tang", "isLeader": true },
+      { "name": "Prof. Yao Zhao", "isLeader": false },
+      { "name": "Dr. Chao Yao", "isLeader": false }
+    ],
+    "links": {
+      "project": ".",
+      "poster": ".",
+      "code": "https://github.com/Tang1705/AI-Image-Compression",
+      "pcDemo": ".",
+      "sdkDemo": "."
+    }
+  }
 ]
