@@ -1,6 +1,7 @@
 [
   {
     "title": "A Review of Video Super-Resolution Algorithms based on Deep Learning",
+    "category": "CCF-T1",
     "venue": "Acta Automatica Sinica (AAS), 2025. (CCF-T1)",
     "authors": [
       {"name": "Qi Tang", "isFirstAuthor": true},
@@ -16,6 +17,7 @@
   },
   {
     "title": "MambaVSR: Content-Aware Scanning State Space Model for Video Super-Resolution",
+    "category": "arXiv",
     "venue": "arXiv, 2025",
     "authors": [
       {"name": "Linfeng He", "isFirstAuthor": false},
@@ -32,6 +34,7 @@
   },
   {
     "title": "SeeClear: Semantic Distillation Enhances Pixel Condensation for Video Super-Resolution",
+    "category": "CCF-A",
     "venue": "Advances in Neural Information Processing Systems (NeurIPS), 2024. (CCF-A)",
     "authors": [
       {"name": "Qi Tang", "isFirstAuthor": true},
@@ -47,6 +50,7 @@
   },
   {
     "title": "Semantic Lens: Instance-Centric Semantic Alignment for Video Super-Resolution",
+    "category": "CCF-A",
     "venue": "AAAI Conference on Artificial Intelligence (AAAI), 2024. (CCF-A)",
     "authors": [
       {"name": "Qi Tang", "isFirstAuthor": true},
@@ -63,6 +67,7 @@
   },
   {
     "title": "DATA-VSR: Dynamic Trajectory Attention and Texture Adaptive Rooter for Video Super-Resolution",
+    "category": "CCF-B",
     "venue": "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2025. (CCF-B)",
     "authors": [
       {"name": "Linfeng He", "isFirstAuthor": false},
@@ -79,6 +84,7 @@
   },
   {
     "title": "ALIC: Adaptive Fusion Entropy Model for Learned Image Compression",
+    "category": "CCF-B",
     "venue": "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2025. (CCF-B)",
     "authors": [
       {"name": "Lingxue Li", "isFirstAuthor": false},
@@ -96,6 +102,7 @@
   },
   {
     "title": "Noisy-Residual Continuous Diffusion Models for Real Image Denoising <span style='color:gray'>(Oral)</span>",
+    "category": "CCF-B",
     "venue": "IEEE International Conference on Multimedia and Expo (ICME), 2024. (CCF-B)",
     "authors": [
       {"name": "Xuan Long", "isFirstAuthor": false},
@@ -113,6 +120,7 @@
   },
   {
     "title": "TLVC: Temporal Bit-Rate Allocation for Learned Video Compression <span style='color:gray'>(Oral)</span>",
+    "category": "CCF-B",
     "venue": "IEEE International Conference on Multimedia and Expo (ICME), 2024. (CCF-B)",
     "authors": [
       {"name": "Yifan Zhang", "isFirstAuthor": false},
@@ -130,6 +138,7 @@
   },
   {
     "title": "BridgeNet: A Joint Learning Network of Depth Map Super-Resolution and Monocular Depth Estimation",
+    "category": "CCF-A",
     "venue": "ACM International Conference on Multimedia (ACM MM), pp. 2148-2157, 2021. (CCF-A)",
     "authors": [
       {"name": "Qi Tang", "isFirstAuthor": true},

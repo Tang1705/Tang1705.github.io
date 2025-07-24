@@ -54,7 +54,7 @@ function renderPublications(publications) {
 
         // 拼接论文HTML
         const pubHtml = `
-            <div class="publications row w-100">
+            <div class="publications row w-100" data-category="${pub.category}">
                 <div class="col w-100">
                     <div class="publication row  w-100">
                         <div class="section-1 w-100">
