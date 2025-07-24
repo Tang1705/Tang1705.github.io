@@ -3,19 +3,19 @@
  */
 function initPage() {
     // 加载并渲染论文数据
-    fetch('https://tang5618.com.resources/data/publications.json')
+    fetch('https://tang5618.com/resources/data/publications.json')
         .then(response => response.json())
         .then(data => renderPublications(data))
         .catch(error => console.error('Error loading publications:', error));
 
     // 加载并渲染项目数据
-    fetch('https://tang5618.com.resources/data/projects.json')
+    fetch('https://tang5618.com/resources/data/projects.json')
         .then(response => response.json())
         .then(data => renderProjects(data))
         .catch(error => console.error('Error loading projects.json:', error));
 
     // 加载并渲染荣誉数据
-    fetch('https://tang5618.com.resources/data/honors.json')
+    fetch('https://tang5618.com/resources/data/honors.json')
         .then(response => response.json())
         .then(data => renderHonors(data))
         .catch(error => console.error('Error loading honors:', error));
