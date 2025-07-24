@@ -115,7 +115,7 @@ function createPublicationHtml(pub) {
 
     return `
         <div class="publication-item show" data-category="${pub.category}" style="margin-left: -2em">
-            <h3 class="publication-title" style="margin-left: 2.2em;"><i class="fas fa-file-pdf"></i>&nbsp;&nbsp;${pub.title}</h3>
+            <h3 class="publication-title" style="margin-left: 2.2em;"><a href="${pub.links.paper}"><i class="fas fa-file-pdf"></i></a>&nbsp;&nbsp;${pub.title}</h3>
             <div class="publication-venue" style="margin-left: 2.5em">${pub.venue}, ${pub.year}.</div>
             <div class="publication-authors" style="margin-left: 2.5em">${authorsHtml}</div>
             <div class="publication-header" style="margin-left: 2.5em; margin-top: 0.8em">
