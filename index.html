@@ -15,7 +15,6 @@
     <title>Tang's Homepage</title>
     <link rel="icon" href="./bit_favicon.ico">
 
-    <!--    <link rel="stylesheet" href="./resources/css/homepage/normalize.css">-->
     <link rel="stylesheet" href="resources/css/homepage/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura:400,700">
@@ -27,26 +26,29 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/homepage/style.css">
     <link rel="stylesheet" href="/resources/css/homepage/style.base.css">
     <link rel="stylesheet" href="/resources/css/homepage/kube.min.css"/>
-    <link rel="stylesheet" href="/resources/css/homepage/custom.min.css"/>
+    <link rel="stylesheet" href="/resources/css/homepage/custom.min.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <style>
         .intro h1:before {
-            /* Edit this with your name or anything else */
             content: 'Q.Tang';
         }
+
+        /* 确保内容块正确显示的样式 */
+        .publication {
+            width: 100%;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .action {
+            margin-right: 10px;
+        }
     </style>
-
-    <!--    <script>-->
-    <!--        var _hmt = _hmt || [];-->
-    <!--        (function () {-->
-    <!--            var hm = document.createElement("script");-->
-    <!--            hm.src = "https://hm.baidu.com/hm.js?217de636c0fae7938873b3189db7a42f";-->
-    <!--            var s = document.getElementsByTagName("script")[0];-->
-    <!--            s.parentNode.insertBefore(hm, s);-->
-    <!--        })();-->
-    <!--    </script>-->
-
 </head>
 <body id="homepage">
 <div class="wrap">
@@ -65,7 +67,6 @@
                             </a>
                         </div>
                     </section>
-                    <!--                    <img style="margin-left: 2em;margin-right: -10em" src="/images/avatar.jpeg" alt="Avatar">-->
                 </div>
                 <div class="unit-80">
                     <h1>Hi, I am<br><span id="typed">Living in Bei</span><span class="typed-cursor">|</span></h1>
@@ -103,7 +104,6 @@
         <a class="contact" href='https://www.xincheck.com'>
             <i class="fas fa-building" aria-hidden="true"></i>
         </a>
-        <!--        <a class="contact" href='CV/CV_EN.pdf'>-->
         <a class="contact" href='https://cv.tang5618.com'>
             <i class="ai ai-cv academic_icons_customize" aria-hidden="true"
                style="font-weight: bolder;font-size: 1.1em"></i>
@@ -118,34 +118,24 @@
             <i class="ai ai-google-scholar academic_icons_customize" aria-hidden="true"
                style="font-weight: bolder;font-size: 1.2em"></i>
         </a>
-        <!--        <a class="contact" href="https://linkedin.com/in/tang5618">-->
-        <!--        <a class="contact" href="https://www.linkedin.com/in/tang5618/">-->
-        <!--            <i class="fab fa-linkedin" aria-hidden="true"></i>-->
-        <!--        </a>-->
-        <!--        <span style="color: #8C1515;font-weight: 400;font-size: 30px;margin-left: 0.5rem;margin-right: 0.5rem">|</span>-->
         <a class="contact" href="https://post.tang5618.com">
             <i class="fas fa-file-signature" aria-hidden="true" style="padding-left: 0.5rem"></i>
         </a>
-
         <a class="contact" href="https://blog.tang5618.com">
             <i class="fas fa-blog" aria-hidden="true" style="padding-left: 0.5rem"></i>
         </a>
         <a class="contact" href="https://seminar.tang5618.com">
             <i class="fas fa-bookmark" aria-hidden="true"></i>
         </a>
-        <!--        <a class="contact" href='./terminal/index_gs.html'>-->
         <a class="contact" href='https://terminal.tang5618.com'>
             <i class="fas fa-terminal" aria-hidden="true"></i>
         </a>
-
         <a class="contact" href="https://music.tang5618.com">
             <i class="fas fa-music" aria-hidden="true"></i>
         </a>
-
         <a class="contact" href="https://photography.tang5618.com">
             <i class="fas fa-photo-video" aria-hidden="true"></i>
         </a>
-        <!--        <a class="contact" href='./playground/index_gs.html'>-->
         <a class="contact" href='https://amusement.tang5618.com'>
             <i class="fas fa-paw" aria-hidden="true"></i>
         </a>
@@ -158,27 +148,11 @@
         <div class="interests col ">
             <h4 class="main_color">Interests</h4>
             <ul>
-                <li>
-                    Deep Learning
-                </li>
-                <li>
-                    Computer Vision
-                </li>
-                <li>
-                    Image/Video Restoration, Segmentation & Generation
-                </li>
-                <!--<li>
-                    Image/Video Segmentation & Generation
-                </li>-->
-                <!--<li>
-                    Depth Map Processing(MDE & DSR, etc.)
-                </li>-->
-                <li>
-                    Photography
-                </li>
-                <li>
-                    Music
-                </li>
+                <li>Deep Learning</li>
+                <li>Computer Vision</li>
+                <li>Image/Video Restoration, Segmentation & Generation</li>
+                <li>Photography</li>
+                <li>Music</li>
             </ul>
         </div>
 
@@ -187,82 +161,40 @@
             <div class="row">
                 <div class="course col">
                     <div class="institution_dates row">
-                        <div class="institution col" id="institution_title">
-                            Nanjing University
-                        </div>
-                        <div class="main_color dates col-md-auto  justify-content-end">
-                            2025
-                            - present
-                        </div>
+                        <div class="institution col" id="institution_title">Nanjing University</div>
+                        <div class="main_color dates col-md-auto  justify-content-end">2025 - present</div>
                     </div>
                     <div class="degree_major row">
-                        <div class="text-muted col">
-                            Ph.D. Student Computer Science & Technology
-                        </div>
+                        <div class="text-muted col">Ph.D. Student Computer Science & Technology</div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="course col">
                     <div class="institution_dates row">
-                        <div class="institution col" id="institution_title">
-                            Beijing Jiaotong University
-                        </div>
-                        <div class="main_color dates col-md-auto  justify-content-end">
-                            2022
-                            - 2025
-                        </div>
+                        <div class="institution col">Beijing Jiaotong University</div>
+                        <div class="main_color dates col-md-auto  justify-content-end">2022 - 2025</div>
                     </div>
                     <div class="degree_major row">
-                        <div class="text-muted col">
-                            M.Sc. Information & Communication Engineering
-                        </div>
+                        <div class="text-muted col">M.Sc. Information & Communication Engineering</div>
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="course col">
                     <div class="institution_dates row">
-                        <div class="institution col" id="institution_title">
-                            Beijing Jiaotong University
-                        </div>
-                        <div class="main_color dates col-md-auto  justify-content-end">
-                            2017
-                            - 2021
-                        </div>
+                        <div class="institution col">Beijing Jiaotong University</div>
+                        <div class="main_color dates col-md-auto  justify-content-end">2017 - 2021</div>
                     </div>
                     <div class="degree_major row">
-                        <div class="text-muted col">
-                            B.Eng. Software Engineering & B.Ec. Finance (Dual Degree)
-                        </div>
+                        <div class="text-muted col">B.Eng. Software Engineering & B.Ec. Finance (Dual Degree)</div>
                     </div>
                 </div>
             </div>
-
-            <!--<div class="row">
-                <div class="course col">
-                    <div class="institution_dates row">
-                        <div class="institution col" id="institution_title">
-                            Beijing Jiaotong University
-                        </div>
-                        <div class="main_color dates col-md-auto  justify-content-end">
-                            2018
-                            - 2021
-                        </div>
-                    </div>
-                    <div class="degree_major row">
-                        <div class="text-muted col">
-                            B.Ec. Finance (Dual Degree)
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-
         </div>
     </div>
 
-
+    <!-- 论文部分容器 -->
     <div class="row w-100" style="margin-left:-1em ">
         <div class="col w-100">
             <div class="row w-100">
@@ -270,653 +202,27 @@
                     <h1 class="row  w-100 section-title main_color"> Recent Publications </h1>
                 </div>
             </div>
-
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     A Review of Video Super-Resolution Algorithms based on Deep Learning
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                    Acta Automatica Sinica (AAS), 2025. (CCF-T1)
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                <span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Zhao
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Meiqin Liu*
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Chao Yao
-                </span>
-                        </div>
-                        <div class="actions">
-
-                            <a class="action" href="">Project Page</a>
-
-                            <a class="action" href="http://www.aas.net.cn/cn/article/doi/10.16383/j.aas.c240235">Paper</a>
-
-                            <a class="action" href="">Code</a>
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     MambaVSR: Content-Aware Scanning State Space Model for Video Super-Resolution
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                                arXiv, 2025
-                                <!--                    International Conference on Computer Vision (ICCV), 2025. (CCF-A)-->
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-
-                     <span>
-                    Linfeng He
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Meiqin Liu*
-                </span>
-                            <span class="separator">
-                    ,
-                </span><span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-
-
-                            <span>
-                    Chao Yao
-                </span><span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Zhao
-                </span>
-
-                        </div>
-                        <div class="actions">
-
-                            <a class="action" href="">Project Page</a>
-
-                            <a class="action" href="https://arxiv.org/pdf/2506.11768">Paper</a>
-
-                            <a class="action" href="">Code</a>
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     SeeClear: Semantic Distillation Enhances Pixel Condensation for Video Super-Resolution
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                    Advances in Neural Information Processing Systems (NeurIPS), 2024. (CCF-A)
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                <span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Zhao
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Meiqin Liu*
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Chao Yao*
-                </span>
-                        </div>
-                        <div class="actions">
-
-                            <a class="action" href="">Project Page</a>
-
-                            <a class="action" href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/f358b2a880adf34939d2d6f926e54d2a-Abstract-Conference.html">Paper</a>
-
-                            <a class="action" href="">Code</a>
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     Semantic Lens: Instance-Centric Semantic Alignment for Video Super-Resolution
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                    AAAI Conference on Artificial Intelligence (AAAI), 2024. (CCF-A)
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                <span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Zhao
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Meiqin Liu*
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Jian Jin
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Chao Yao*
-                </span>
-                        </div>
-                        <div class="actions">
-
-                            <a class="action" href="https://tang5618.com/Semantic-Lens-AAAI24/">Project Page</a>
-
-                            <a class="action" href="https://ojs.aaai.org/index.php/AAAI/article/view/28321">Paper</a>
-
-                            <a class="action" href="https://github.com/Tang1705/Semantic-Lens-AAAI24">Code</a>
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     DATA-VSR: Dynamic Trajectory Attention and Texture Adaptive Rooter for Video Super-Resolution
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                    IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2025. (CCF-B)
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                            <span>
-                    Linfeng He
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Meiqin Liu*
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-
-                            <span>
-                    Chao Yao
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Zhao
-                </span>
-                        </div>
-                        <div class="actions">
-
-                            <a class="action" href=".">Project Page</a>
-
-                            <a class="action" href=".">Paper</a>
-
-                            <a class="action" href=".">Code</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     ALIC: Adaptive Fusion Entropy Model for Learned Image Compression
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                    IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2025. (CCF-B)
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                            <span>
-                    Lingxue Li
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Meiqin Liu*
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yifan Zhang
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-
-                            <span>
-                    Chao Yao
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Zhao
-                </span>
-                        </div>
-                        <div class="actions">
-
-                            <a class="action" href=".">Project Page</a>
-
-                            <a class="action" href=".">Paper</a>
-
-                            <a class="action" href=".">Code</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    Noisy-Residual Continuous Diffusion Models for Real Image Denoising <span
-                        style="color:gray">(Oral)</span>
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                    IEEE International Conference on Multimedia and Expo (ICME), 2024. (CCF-B)
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                            <span>
-                    Xuan Long
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Meiqin Liu*
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-
-                            <span>
-                    Chao Yao
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Jian Jin
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Zhao
-                </span>
-                        </div>
-                        <div class="actions">
-
-                            <a class="action" href=".">Project Page</a>
-
-                            <a class="action" href="https://ieeexplore.ieee.org/document/10687524">Paper</a>
-
-                            <a class="action" href=".">Code</a>
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     TLVC: Temporal Bit-Rate Allocation for Learned Video Compression <span
-                        style="color:gray">(Oral)</span>
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                    IEEE International Conference on Multimedia and Expo (ICME), 2024. (CCF-B)
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                            <span>
-                    Yifan Zhang
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Meiqin Liu*
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Chenming Xu
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-
-                            <span>
-                    Chao Yao
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Zhao
-                </span>
-                        </div>
-                        <div class="actions">
-
-                            <a class="action" href=".">Project Page</a>
-
-                            <a class="action" href="https://ieeexplore.ieee.org/document/10688317">Paper</a>
-
-                            <a class="action" href=".">Code</a>
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     BridgeNet: A Joint Learning Network of Depth Map Super-Resolution and Monocular Depth Estimation
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                    ACM International Conference on Multimedia (ACM MM), pp. 2148-2157, 2021. (CCF-A)
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                <span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Runmin Cong*
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Ronghui Sheng
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Lingzhi He
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Dan Zhang
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Zhao
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Sam Kwong
-                </span>
-                        </div>
-                        <div class="actions">
-
-                            <a class="action" href="https://rmcong.github.io/proj_BridgeNet.html">Project Page</a>
-
-                            <a class="action" href="https://dl.acm.org/doi/pdf/10.1145/3474085.3475373">Paper</a>
-
-                            <a class="action" href="http://jw.beijing.gov.cn/xxgk/zxxxgk/202111/t20211119_2540974.html">Honor</a>
-
-                        </div>
-
-                    </div>
-                </div>
+            <div id="publications-container">
+                <!-- 论文内容将通过JS动态生成 -->
             </div>
         </div>
     </div>
 
+    <!-- 项目部分容器 -->
     <div class="row w-100" style="margin-left:-1em ">
         <div class="col w-100">
-
             <div class="row w-100">
                 <div class="col w-100">
-
                     <h1 class="row  w-100 section-title main_color"> Projects</h1>
                 </div>
             </div>
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     3D Reconstruction of High-Speed Rail-Wheel Based on Coded Structured Light
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                    National Training Program of Innovation and Entrepreneurship for Undergraduates, 2020.
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                <span style="color: #b6262c">
-                    <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Luo
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yanyang Zhao
-                </span>
-                        </div>
-                        <div class="actions">
-                            <a class="action" href="https://project.tang5618.com/?t=happy-reconstruction">project
-                                page</a>
-
-                            <a class="action"
-                               href="https://post.tang5618.com/viewer/web/viewer.html?file=https://project.tang5618.com/Happy-Reconstruction/resources/doc/基于编码结构光的高铁轮轨姿态三维重建.pdf">Poster</a>
-
-                            <a class="action" href="https://github.com/Tang1705/Happy-Reconstruction">Code</a>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="publications row w-100">
-                <div class="col w-100">
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                     Development of Duplicate Checking Algorithm and Engine
-                </span>
-                            <br>
-                            <span class="text-muted publication-name">
-                                        First Prize of the Eleventh Venture Contest for Undergraduates of Beijing Jiaotong University, 2020.
-                </span>
-                        </div>
-                        <div class="section-2 text-muted w-100">
-                <span>
-                    Huaqiu Liu
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Guoliang Li
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Jiangping You
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span style="color: #b6262c">
-                                        <b>Qi Tang</b>
-                </span>
-                            <span class="separator">
-                    ,
-                </span>
-                            <span>
-                    Yao Luo
-                </span>
-                        </div>
-                        <div class="actions">
-                            <a class="action"
-                               href="https://project.tang5618.com/?t=xincheck">project
-                                page</a>
-
-                            <a class="action"
-                               href="https://github.com/tianlian0/paper_checking_system">PC Demo</a>
-
-                            <a class="action" href="https://github.com/tianlian0/duplicate-check-sample">SDK
-                                Demo</a>
-                        </div>
-
-                    </div>
-                </div>
-
+            <div class="publications row w-100" id="projects-container">
+                <!-- 项目内容将通过JS动态生成 -->
             </div>
         </div>
-
-
     </div>
 
+    <!-- 荣誉部分容器 -->
     <div class="row w-100" style="margin-left:-1em ">
         <div class="col w-100">
             <div class="row w-100">
@@ -924,96 +230,11 @@
                     <h1 class="row  w-100 section-title main_color"> Awards & Honors </h1>
                 </div>
             </div>
-
-
-            <div class="publications row w-100">
-                <div class="col w-100">
-
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2025.06]</span> <b>Outstanding Master Graduate of Beijing</b>
-                </span>
-                        </div>
-                    </div>
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2025.06]</span> <b>Excellent Master Thesis award of Beijing Jiaotong University</b>
-                </span>
-                        </div>
-                    </div>
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2025.06]</span> <b>Outstanding Master Graduate of Beijing Jiaotong University</b>
-                </span>
-                        </div>
-                    </div>
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2024.11]</span> <b>National Scholarship for Graduate Excellence</b>
-                </span>
-                        </div>
-                    </div>
-
-
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2024.10]</span> <b>Xiaomi Special Scholarship</b>
-                </span>
-                        </div>
-                    </div>
-
-
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2023.10]</span> <b>National Scholarship for Graduate Excellence</b> (top 1/50)
-                </span>
-                        </div>
-                    </div>
-
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2022.12]</span> <b>First-class Scholarship of Beijing Jiaotong University</b>
-                </span>
-                        </div>
-                    </div>
-
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2021.11]</span> <b>Excellent Undergraduate Graduation Design (Thesis) of Beijing Ordinary Colleges and Universities</b>
-                </span>
-                        </div>
-                    </div>
-
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2021.06]</span> <b>Outstanding Graduate of Beijing Jiaotong University</b>
-                </span>
-                        </div>
-                    </div>
-
-                    <div class="publication row  w-100">
-                        <div class="section-1 w-100">
-                <span>
-                    <span style="color: #6c757d!important">[2020.06]</span> <b>National Training Program of Innovation and Entrepreneurship for Undergraduates</b>
-                </span>
-                        </div>
-                    </div>
-                </div>
-
-
+            <div class="publications row w-100" id="honors-container">
+                <!-- 荣誉内容将通过JS动态生成 -->
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="quote">
@@ -1027,20 +248,18 @@
 
 <footer class="footer">
     <span>
-<!--        <a href="https://cs.nju.edu.cn/">-->
-<!--        <img-->
-<!--                    src="resources/images/nju_logo.png" alt="cs" width="420rem" style="margin-right: 2rem"></a>-->
-                <a href="https://cs.bjtu.edu.cn/">
-            <img
-                    src="resources/images/cs_logo.png" alt="cs" width="300rem" style="margin-right: 2rem"></a>
+        <a href="https://cs.nju.edu.cn/">
+        <img
+                src="resources/images/nju_logo.png" alt="cs" width="420rem" style="margin-right: 2rem"></a>
+        <a href="https://cs.bjtu.edu.cn/">
+            <img src="resources/images/cs_logo.png" alt="cs" width="300rem" style="margin-right: 2rem"></a>
         <a href="http://sse.bjtu.edu.cn/cms/"><img
                 src="resources/images/sse_logo.png" alt="sse" width="330rem" style="margin-right: 2rem"></a>
         <a href="http://sem.bjtu.edu.cn"> <img
                 src="resources/images/sem_logo.png" alt="sem" width="180rem"></a></span>
     <div style="margin-bottom: 1rem"></div>
     <p class="copyright">© 2019-2025 Qi Tang. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC
-        BY-NC-SA
-        4.0</a>.</p>
+        BY-NC-SA 4.0</a>.</p>
 </footer>
 
 <!-- Javascript -->
@@ -1048,22 +267,25 @@
 <script src="/resources/js/hompage/typed.min.js"></script>
 <script src="/resources/js/hompage/kube.min.js"></script>
 <script src="/resources/js/hompage/site.js"></script>
+<script src="/resources/js/render.js"></script>
 <script>
-    function newTyped() {
-    }
+    // 页面加载时执行初始化
+    window.onload = function() {
+        // 加载并渲染所有数据
+        initPage();
 
-    $(function () {
+        // 打字效果
         $("#typed").typed({
-            // Change to edit type effect
             strings: ["Qi Tang", "Ph.D. student @NJU", "Living in Nanjing"],
+            typeSpeed: 90,
+            backDelay: 700,
+            contentType: "html",
+            loop: true,
+            resetCallback: function () { newTyped() }
+        });
+    };
 
-            typeSpeed: 90, backDelay: 700, contentType: "html", loop: !0, resetCallback: function () {
-                newTyped()
-            }
-        }), $(".reset").click(function () {
-            $("#typed").typed("reset")
-        })
-    });
+    function newTyped() {}
 </script>
 </body>
 </html>

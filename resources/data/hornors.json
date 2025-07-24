@@ -1,12 +1,42 @@
 [
-  {"date": "2025.06", "title": "Outstanding Master Graduate of Beijing"},
-  {"date": "2025.06", "title": "Excellent Master Thesis award of Beijing Jiaotong University"},
-  {"date": "2025.06", "title": "Outstanding Master Graduate of Beijing Jiaotong University"},
-  {"date": "2024.11", "title": "National Scholarship for Graduate Excellence"},
-  {"date": "2024.10", "title": "Xiaomi Special Scholarship"},
-  {"date": "2023.10", "title": "National Scholarship for Graduate Excellence (top 1/50)"},
-  {"date": "2022.12", "title": "First-class Scholarship of Beijing Jiaotong University"},
-  {"date": "2021.11", "title": "Excellent Undergraduate Graduation Design (Thesis) of Beijing Ordinary Colleges and Universities"},
-  {"date": "2021.06", "title": "Outstanding Graduate of Beijing Jiaotong University"},
-  {"date": "2020.06", "title": "National Training Program of Innovation and Entrepreneurship for Undergraduates"}
+  {
+    "date": "2025.06",
+    "title": "Outstanding Master Graduate of Beijing"
+  },
+  {
+    "date": "2025.06",
+    "title": "Excellent Master Thesis award of Beijing Jiaotong University"
+  },
+  {
+    "date": "2025.06",
+    "title": "Outstanding Master Graduate of Beijing Jiaotong University"
+  },
+  {
+    "date": "2024.11",
+    "title": "National Scholarship for Graduate Excellence"
+  },
+  {
+    "date": "2024.10",
+    "title": "Xiaomi Special Scholarship"
+  },
+  {
+    "date": "2023.10",
+    "title": "National Scholarship for Graduate Excellence (top 1/50)"
+  },
+  {
+    "date": "2022.12",
+    "title": "First-class Scholarship of Beijing Jiaotong University"
+  },
+  {
+    "date": "2021.11",
+    "title": "Excellent Undergraduate Graduation Design (Thesis) of Beijing Ordinary Colleges and Universities"
+  },
+  {
+    "date": "2021.06",
+    "title": "Outstanding Graduate of Beijing Jiaotong University"
+  },
+  {
+    "date": "2020.06",
+    "title": "National Training Program of Innovation and Entrepreneurship for Undergraduates"
+  }
 ]
