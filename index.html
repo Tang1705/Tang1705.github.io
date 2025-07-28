@@ -265,8 +265,7 @@
         <a href="http://sem.bjtu.edu.cn"> <img
                 src="resources/images/sem_logo.png" alt="sem" width="180rem"></a></span>
     <div style="margin-bottom: 1rem"></div>
-    <p class="copyright">© 2019-2025 Qi Tang. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC
-        BY-NC-SA 4.0</a>.</p>
+    <p class="copyright">© 2019-<span id="currentYear"></span> Qi Tang. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</p>
 </footer>
 
 <!-- Javascript -->
@@ -292,6 +291,9 @@
                 newTyped()
             }
         });
+
+        // 自动获取当前年份并更新到版权信息中
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         fetch('./resources/data/publications.json')
             .then(response => response.json())
