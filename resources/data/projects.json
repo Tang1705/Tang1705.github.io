@@ -8,8 +8,8 @@
       { "name": "Yanyang Zhao", "isLeader": false }
     ],
     "links": {
-      "project": "https://project.tang5618.com/?t=happy-reconstruction",
-      "poster": "https://post.tang5618.com/viewer/web/viewer.html?file=https://project.tang5618.com/Happy-Reconstruction/resources/doc/基于编码结构光的高铁轮轨姿态三维重建.pdf",
+      "project": "https://project.vipixel.net/?t=happy-reconstruction",
+      "poster": "https://post.vipixel.net/viewer/web/viewer.html?file=https://project.vipixel.net/Happy-Reconstruction/resources/doc/基于编码结构光的高铁轮轨姿态三维重建.pdf",
       "code": "https://github.com/Tang1705/Happy-Reconstruction",
       "pcDemo": ".",
       "sdkDemo": "."
@@ -26,7 +26,7 @@
       { "name": "Yao Luo", "isLeader": false }
     ],
     "links": {
-      "project": "https://project.tang5618.com/?t=xincheck",
+      "project": "https://project.vipixel.net/?t=xincheck",
       "poster": ".",
       "code": ".",
       "pcDemo": "https://github.com/tianlian0/paper_checking_system",
