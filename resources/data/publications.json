@@ -12,7 +12,7 @@
       {"name": "Chao Yao", "isFirstAuthor": false}
     ],
     "links": {
-      "project": "",
+      "project": "https://project.vipixel.net/AceVSR/",
       "paper": "http://www.aas.net.cn/cn/article/doi/10.16383/j.aas.c240235",
       "code": ""
     }
@@ -68,7 +68,7 @@
       {"name": "Chao Yao*", "isFirstAuthor": false}
     ],
     "links": {
-      "project": "https://vipixel.net/Semantic-Lens-AAAI24/",
+      "project": "",
       "paper": "https://ojs.aaai.org/index.php/AAAI/article/view/28321",
       "code": "https://github.com/Tang1705/Semantic-Lens-AAAI24"
     }
@@ -87,9 +87,9 @@
       {"name": "Yao Zhao", "isFirstAuthor": false}
     ],
     "links": {
-      "project": ".",
+      "project": "",
       "paper": "https://ieeexplore.ieee.org/abstract/document/10890509",
-      "code": "."
+      "code": ""
     }
   },
   {
@@ -107,9 +107,9 @@
       {"name": "Yao Zhao", "isFirstAuthor": false}
     ],
     "links": {
-      "project": ".",
+      "project": "",
       "paper": "https://ieeexplore.ieee.org/abstract/document/10887975",
-      "code": "."
+      "code": ""
     }
   },
   {
@@ -127,9 +127,9 @@
       {"name": "Yao Zhao", "isFirstAuthor": false}
     ],
     "links": {
-      "project": ".",
+      "project": "",
       "paper": "https://ieeexplore.ieee.org/document/10687524",
-      "code": "."
+      "code": ""
     }
   },
   {
@@ -147,9 +147,9 @@
       {"name": "Yao Zhao", "isFirstAuthor": false}
     ],
     "links": {
-      "project": ".",
+      "project": "",
       "paper": "https://ieeexplore.ieee.org/document/10688317",
-      "code": "."
+      "code": ""
     }
   },
   {

@@ -303,3 +303,7 @@ a:visited, a:hover, a:active {
 .actions .action:hover {
     color: #666
 }
+
+.fas.fa-link:hover {
+    color: #b6262c;
+}
