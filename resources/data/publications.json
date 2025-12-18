@@ -18,6 +18,28 @@
     }
   },
   {
+    "title": "Symmetric Entropy-Constrained Video Coding for Machines",
+    "category": "arXiv",
+    "tags": [ "Video Compression", "Machine Vision"],
+    "venue": "arXiv",
+    "year": 2025,
+    "authors": [
+      {"name": "Yuxiao Sun", "isFirstAuthor": false},
+      {"name": "Meiqin Liu", "isFirstAuthor": false},
+      {"name": "Chao Yao", "isFirstAuthor": false},
+      {"name": "Qi Tang", "isFirstAuthor": true},
+      {"name": "Jian Jin", "isFirstAuthor": false},
+      {"name": "Weisi Lin", "isFirstAuthor": false},
+      {"name": "Frederic Dufaux", "isFirstAuthor": false},
+      {"name": "Yao Zhao*", "isFirstAuthor": false}
+    ],
+    "links": {
+      "project": "",
+      "paper": "https://arxiv.org/pdf/2510.15347",
+      "code": ""
+    }
+  },
+  {
     "title": "MambaVSR: Content-Aware Scanning State Space Model for Video Super-Resolution",
     "category": "arXiv",
     "tags": [ "Video Super-Resolution", "Mamba"],
