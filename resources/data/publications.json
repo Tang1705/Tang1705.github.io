@@ -6,12 +6,12 @@
     "venue": "Expert Systems with Applications",
     "year": 2026,
     "authors": [
-      {"name": "Meiqin Liu", "isFirstAuthor": true},
+      {"name": "Meiqin Liu", "isFirstAuthor": false},
       {"name": "Houguo Ji", "isFirstAuthor": false},
-      {"name": "Qi Tang", "isFirstAuthor": false},
+      {"name": "Qi Tang", "isFirstAuthor": true},
       {"name": "Chao Yao*", "isFirstAuthor": false},
       {"name": "Jian Jin", "isFirstAuthor": false},
-      {"name": "Yao Zhao", "isFirstAuthor": false},
+      {"name": "Yao Zhao", "isFirstAuthor": false}
     ],
     "links": {
       "project": "",
