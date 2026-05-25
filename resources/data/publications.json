@@ -1,5 +1,25 @@
 [
   {
+    "title": "Perceiving Degradation Prompts in Residual Diffusion Model for Real Image Denoising",
+    "category": "CCF-B",
+    "tags": [ "Image Denoising", "Diffusion Model"],
+    "venue": "Pattern Recognition",
+    "year": 2026,
+    "authors": [
+      {"name": "Meiqin Liu", "isFirstAuthor": false},
+      {"name": "Xuan Long", "isFirstAuthor": false},
+      {"name": "Qi Tang", "isFirstAuthor": true},
+      {"name": "Chao Yao*", "isFirstAuthor": false},
+      {"name": "Jian Jin", "isFirstAuthor": false},
+      {"name": "Yao Zhao", "isFirstAuthor": false}
+    ],
+    "links": {
+      "project": "",
+      "paper": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5518539",
+      "code": ""
+    }
+  },
+  {
     "title": "TCSAF: Learnable RefBank for Reference-based Video Super-Resolution",
     "category": "CCF-C",
     "tags": [ "Video Super-Resolution", "Reference-base Super-Resolution"],
