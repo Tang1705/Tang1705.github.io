@@ -1,5 +1,27 @@
 [
   {
+    "title": "Symmetric Entropy-Constrained Video Coding for Machines",
+    "category": "CCF-A",
+    "tags": [ "Video Compression", "Machine Vision"],
+    "venue": "IEEE Transactions on Image Processing (T-IP)",
+    "year": 2026,
+    "authors": [
+      {"name": "Yuxiao Sun", "isFirstAuthor": false},
+      {"name": "Meiqin Liu", "isFirstAuthor": false},
+      {"name": "Chao Yao", "isFirstAuthor": false},
+      {"name": "Qi Tang", "isFirstAuthor": true},
+      {"name": "Jian Jin", "isFirstAuthor": false},
+      {"name": "Weisi Lin", "isFirstAuthor": false},
+      {"name": "Frederic Dufaux", "isFirstAuthor": false},
+      {"name": "Yao Zhao*", "isFirstAuthor": false}
+    ],
+    "links": {
+      "project": "",
+      "paper": "https://arxiv.org/pdf/2510.15347",
+      "code": ""
+    }
+  },
+  {
     "title": "Perceiving Degradation Prompts in Residual Diffusion Model for Real Image Denoising",
     "category": "CCF-B",
     "tags": [ "Image Denoising", "Diffusion Model"],
@@ -54,28 +76,6 @@
     "links": {
       "project": "https://project.vipixel.net/AceVSR/",
       "paper": "http://www.aas.net.cn/cn/article/doi/10.16383/j.aas.c240235",
-      "code": ""
-    }
-  },
-  {
-    "title": "Symmetric Entropy-Constrained Video Coding for Machines",
-    "category": "arXiv",
-    "tags": [ "Video Compression", "Machine Vision"],
-    "venue": "arXiv",
-    "year": 2025,
-    "authors": [
-      {"name": "Yuxiao Sun", "isFirstAuthor": false},
-      {"name": "Meiqin Liu", "isFirstAuthor": false},
-      {"name": "Chao Yao", "isFirstAuthor": false},
-      {"name": "Qi Tang", "isFirstAuthor": true},
-      {"name": "Jian Jin", "isFirstAuthor": false},
-      {"name": "Weisi Lin", "isFirstAuthor": false},
-      {"name": "Frederic Dufaux", "isFirstAuthor": false},
-      {"name": "Yao Zhao*", "isFirstAuthor": false}
-    ],
-    "links": {
-      "project": "",
-      "paper": "https://arxiv.org/pdf/2510.15347",
       "code": ""
     }
   },
