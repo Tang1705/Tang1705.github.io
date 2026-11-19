@@ -1,10 +1,11 @@
 @font-face {
+    /* Academicons 1.9.1: font SIL OFL 1.1; see ../../fonts/homepage/academicons-OFL.txt. CSS: MIT. */
     font-family: 'Academicons';
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(../fonts/academicons.eot);
-    src: url(../fonts/academicons.eot) format('embedded-opentype'), url(../fonts/academicons.ttf) format('truetype'), url(../fonts/academicons.woff) format('woff'), url(../fonts/academicons.svg) format('svg')
+    src: url(../../fonts/homepage/academicons.eot);
+    src: url(../../fonts/homepage/academicons.woff) format('woff'), url(../../fonts/homepage/academicons.ttf) format('truetype')
 }
 
 .ai {

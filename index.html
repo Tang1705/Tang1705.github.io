@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="x-ua-compatible" content="IE=edge,Chrome=1">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta property="og:title" content="Tang's Homepage"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://Tang1705.github.io/"/>
@@ -14,24 +14,17 @@
     <link rel="icon" href="./icon.ico">
     <link rel="stylesheet" href="resources/css/homepage/all.css">
     <link rel="stylesheet" href="resources/css/homepage/card.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura:400,700">
-    <link rel="stylesheet" href="/resources/css/homepage/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.1/css/academicons.min.css">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Serif+JP&family=Cormorant+Garamond&family=Libre+Baskerville&family=Source+Serif+Pro&family=Crimson+Text&family=Inter&family=Crimson+Pro&family=Literata&family=Ubuntu+Mono&family=Inter&family=Roboto">
-    <link rel="stylesheet" type="text/css" href="/resources/css/homepage/style.css">
-    <link rel="stylesheet" href="/resources/css/homepage/style.base.css">
-    <link rel="stylesheet" href="/resources/css/homepage/kube.min.css"/>
-    <link rel="stylesheet" href="/resources/css/homepage/custom.min.css">
-
-    <style>
-        .intro h1:before {
-            content: 'Q.Tang';
-        }
-    </style>
+    <link rel="stylesheet" href="resources/css/homepage/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/homepage/academicons.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/homepage/style.css">
+    <link rel="stylesheet" href="resources/css/homepage/style.base.css">
+    <link rel="stylesheet" href="resources/css/homepage/kube.min.css"/>
+    <link rel="stylesheet" href="resources/css/homepage/custom.min.css">
+    <link rel="stylesheet" href="resources/css/homepage/interactions.css">
 </head>
 <body id="homepage">
+<div id="monument-wrap" aria-hidden="true"><span id="monument-name">Q.Tang</span></div>
+<div id="tennis-path" aria-hidden="true"></div>
 <div class="wrap">
     <div class="intro section" id="about" style="margin-bottom: -5em">
         <div class="container" style="margin-left:-1em">
@@ -42,9 +35,9 @@
                 <div class="unit-20">
                     <section class="profile" style="margin-top: -2em">
                         <div class="portrait">
-                            <a href="/">
+                            <a href="./">
                                 <div class="spinner"></div>
-                                <div class="img" style="background-image: url('/resources/images/avatar.jpeg')"></div>
+                                <div class="img" style="background-image: url('resources/images/avatar.jpeg')"></div>
                             </a>
                         </div>
                     </section>
@@ -87,9 +80,8 @@
     </div>
 
     <section class="contacts" style="margin-left:-2em ">
-        <a class="contact" href='https://www.xincheck.com'>
-            <i class="fas fa-building" aria-hidden="true"></i>
-        </a>
+        <button class="contact" id="tennis-launch" type="button" aria-label="网球选项" aria-controls="tennis-controls" aria-expanded="false">🎾</button>
+
         <a class="contact" href='https://cv.vipixel.net'>
             <i class="ai ai-cv academic_icons_customize" aria-hidden="true"
                style="font-weight: bolder;font-size: 1.1em"></i>
@@ -138,8 +130,8 @@
                 <li class="interest-item"><i class="fas fa-eye"></i>Computer Vision</li>
                 <li class="interest-item"><i class="fas fa-image"></i>Image/Video Restoration, Segmentation & Generation
                 </li>
-                <li class="interest-item"><i class="fas fa-camera"></i>Photography</li>
-                <li class="interest-item"><i class="fas fa-music"></i>Music</li>
+                <li class="interest-item world-interest"><i class="fas fa-globe-asia" aria-hidden="true"></i>World Models &amp; Embodied Intelligence</li>
+
             </ul>
         </div>
 
@@ -204,8 +196,17 @@
             </div>
 
 
-            <div class="publication-list" id="publications-container">
-                <!-- 论文内容将通过JS动态生成 -->
+            <div class="pub-reading-layout">
+                <div class="paper-photo-space" aria-hidden="true"></div>
+                <aside id="reading-preview" aria-label="绳上的论文首页">
+                    <button class="hanging-paper" type="button" data-slot="0" hidden><img alt=""></button>
+                    <button class="hanging-paper" type="button" data-slot="1" hidden><img alt=""></button>
+                    <button class="hanging-paper" type="button" data-slot="2" hidden><img alt=""></button>
+                    <span class="paper-hanger" data-slot="0" aria-hidden="true"></span>
+                    <span class="paper-hanger" data-slot="1" aria-hidden="true"></span>
+                    <span class="paper-hanger" data-slot="2" aria-hidden="true"></span>
+                </aside>
+                <div class="publication-list" id="publications-container" aria-busy="true"></div>
             </div>
         </div>
     </div>
@@ -265,63 +266,22 @@
         <a href="http://sem.bjtu.edu.cn"> <img
                 src="resources/images/sem_logo.png" alt="sem" width="180rem"></a></span>
     <div style="margin-bottom: 1rem"></div>
-    <p class="copyright">© 2019-<span id="currentYear"></span> Qi Tang. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</p>
+    <p class="copyright"><span class="footer-credit">© 2019-<span id="currentYear"></span> <span class="footer-signature" id="footer-signature">Qi Tang.</span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</span></p>
 </footer>
 
-<!-- Javascript -->
-<script src="/resources/js/homepage/jquery.min.js"></script>
-<script src="/resources/js/homepage/typed.min.js"></script>
-<script src="/resources/js/homepage/kube.min.js"></script>
-<script src="/resources/js/homepage/site.js"></script>
-<script src="/resources/js/homepage/render.js"></script>
-<script>
-    // 页面加载时执行初始化
-    window.onload = function () {
-        // 加载并渲染所有数据
-        initPage();
-
-        // 打字效果
-        $("#typed").typed({
-            strings: ["Qi Tang", "Ph.D. student @NJU", "Living in Nanjing"],
-            typeSpeed: 90,
-            backDelay: 700,
-            contentType: "html",
-            loop: true,
-            resetCallback: function () {
-                newTyped()
-            }
-        });
-
-        // 自动获取当前年份并更新到版权信息中
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        fetch('./resources/data/publications.json')
-            .then(response => response.json())
-            .then(data => {
-                publicationsData = data;
-                renderPublications('all'); // 初始显示所有论文
-            })
-            .catch(error => console.error('Error loading publications:', error));
-
-        // 论文筛选功能
-        const filterButtons = document.querySelectorAll('.filter-btn');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                const filter = button.getAttribute('data-filter');
-                renderPublications(filter);
-            });
-        });
-
-        // 等待数据加载后再初始化筛选
-        setTimeout(setupFilter, 500); // 延迟确保数据已渲染
-    };
-
-    function newTyped() {
-    }
-</script>
+<canvas id="tennis-rope-canvas" aria-hidden="true"></canvas>
+<canvas id="tennis-canvas" aria-hidden="true"></canvas>
+<button id="tennis-ball" type="button" aria-label="网球：首屏轻点向右上穿过 Q，归位可重播；论文区轻点翻篇，拖动后松手抛出" aria-describedby="tennis-status"></button>
+<div id="tennis-status" role="status" aria-live="polite">正在准备网球…</div>
+<div id="tennis-controls" role="group" aria-label="网球选项" hidden>
+    <button id="tennis-serve" type="button">发一球 ↗</button><button id="tennis-reset" type="button">归位</button>
+    <label><input id="tennis-trail" type="checkbox" checked> 轨迹（论文区挂绳）</label>
+    <button id="tennis-sound" type="button" aria-pressed="false">声音：关</button><button id="tennis-menu-close" type="button">收起</button>
+</div>
+<noscript><p>论文列表与交互需要启用 JavaScript。<a href="https://scholar.google.com/citations?user=TZQUv1MAAAAJ">查看 Google Scholar</a></p></noscript>
+<script defer src="resources/js/homepage/homepage-data.js"></script>
+<script defer src="resources/js/homepage/tennis-home-overlay.js"></script>
+<script defer src="resources/js/homepage/personal-viewer.js"></script>
+<script defer src="resources/js/homepage/interactions.js"></script>
 </body>
 </html>

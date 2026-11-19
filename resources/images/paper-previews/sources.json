@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Symmetric Entropy-Constrained Video Coding for Machines",
+    "sourcePdf": "https://arxiv.org/pdf/2510.15347",
+    "sourceKind": "arxiv",
+    "versionNote": "arXiv:2510.15347v4 (25 Jun 2026), all eight expected authors are present. The source arXiv version mark is retained.",
+    "thumbnail": "symmetric-entropy-first-page-thumb.jpg",
+    "full": "symmetric-entropy-first-page.png"
+  },
+  {
+    "title": "Perceiving Degradation Prompts in Residual Diffusion Model for Real Image Denoising",
+    "sourcePdf": "https://yaochao1986.github.io/assets/pdf/LiuPR2026.pdf",
+    "sourceKind": "author-public-copy",
+    "versionNote": "Coauthor-hosted published PDF: Pattern Recognition 180 (2026) 114090, DOI 10.1016/j.patcog.2026.114090; original title, author list and journal branding retained.",
+    "thumbnail": "perceiving-degradation-first-page-thumb.jpg",
+    "full": "perceiving-degradation-first-page.png"
+  },
+  {
+    "title": "A Review of Video Super-Resolution Algorithms based on Deep Learning",
+    "sourcePdf": "https://yaochao1986.github.io/assets/pdf/tangAAS2025.pdf",
+    "sourceKind": "author-public-copy",
+    "versionNote": "Coauthor-hosted accepted manuscript, 35 pages, DOI 10.16383/j.aas.c240235; original XX/202X issue placeholders retained. This is not the final 2025 journal typesetting. Official smart-PDF preview timed out.",
+    "thumbnail": "aas-vsr-review-first-page-thumb.jpg",
+    "full": "aas-vsr-review-first-page.png"
+  },
+  {
+    "title": "MambaVSR: Content-Aware Scanning State Space Model for Video Super-Resolution",
+    "sourcePdf": "https://arxiv.org/pdf/2506.11768",
+    "sourceKind": "arxiv",
+    "versionNote": "arXiv:2506.11768v1, as shown on the source first page.",
+    "thumbnail": "mambavsr-first-page-thumb.jpg",
+    "full": "mambavsr-first-page.png"
+  },
+  {
+    "title": "SeeClear: Semantic Distillation Enhances Pixel Condensation for Video Super-Resolution",
+    "sourcePdf": "https://proceedings.neurips.cc/paper_files/paper/2024/file/f358b2a880adf34939d2d6f926e54d2a-Paper-Conference.pdf",
+    "sourceKind": "publisher",
+    "versionNote": null,
+    "thumbnail": "seeclear-first-page-thumb.jpg",
+    "full": "seeclear-first-page.png"
+  },
+  {
+    "title": "Semantic Lens: Instance-Centric Semantic Alignment for Video Super-Resolution",
+    "sourcePdf": "https://arxiv.org/pdf/2312.07823",
+    "sourceKind": "arxiv",
+    "versionNote": "Public arXiv:2312.07823v4 (19 Jan 2024), marked accepted to AAAI 2024; original AAAI copyright and arXiv version mark retained. The publisher article page returned BotStopper access denied, so this is not claimed to be the publisher-hosted final PDF.",
+    "thumbnail": "semantic-lens-first-page-thumb.jpg",
+    "full": "semantic-lens-first-page.png"
+  },
+  {
+    "title": "DATA-VSR: Dynamic Trajectory Attention and Texture Adaptive Rooter for Video Super-Resolution",
+    "sourcePdf": "https://yaochao1986.github.io/assets/pdf/ICASSP2025_DATA-VSR.pdf",
+    "sourceKind": "author-public-copy",
+    "versionNote": null,
+    "thumbnail": "data-vsr-first-page-thumb.jpg",
+    "full": "data-vsr-first-page.png"
+  },
+  {
+    "title": "ALIC: Adaptive Fusion Entropy Model for Learned Image Compression",
+    "sourcePdf": "https://yaochao1986.github.io/assets/pdf/ICASSP2025-ALIC.pdf",
+    "sourceKind": "author-public-copy",
+    "versionNote": null,
+    "thumbnail": "alic-first-page-thumb.jpg",
+    "full": "alic-first-page.png"
+  },
+  {
+    "title": "Noisy-Residual Continuous Diffusion Models for Real Image Denoising (Oral)",
+    "sourcePdf": "https://yaochao1986.github.io/assets/pdf/ICME2024lx.pdf",
+    "sourceKind": "author-public-copy",
+    "versionNote": null,
+    "thumbnail": "noisy-residual-first-page-thumb.jpg",
+    "full": "noisy-residual-first-page.png"
+  },
+  {
+    "title": "TLVC: Temporal Bit-Rate Allocation for Learned Video Compression (Oral)",
+    "sourcePdf": "https://yaochao1986.github.io/assets/pdf/ICME2024zyf.pdf",
+    "sourceKind": "author-public-copy",
+    "versionNote": null,
+    "thumbnail": "tlvc-first-page-thumb.jpg",
+    "full": "tlvc-first-page.png"
+  },
+  {
+    "title": "BridgeNet: A Joint Learning Network of Depth Map Super-Resolution and Monocular Depth Estimation",
+    "sourcePdf": "https://arxiv.org/pdf/2107.12541",
+    "sourceKind": "arxiv",
+    "versionNote": "Author-linked public arXiv:2107.12541v1, accepted to ACM MM 2021; arXiv mark is retained.",
+    "thumbnail": "bridgenet-first-page-thumb.jpg",
+    "full": "bridgenet-first-page.png"
+  }
+]

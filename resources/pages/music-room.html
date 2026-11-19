@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="https://music.vipixel.net/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tang's Music</title>
+    <link rel="icon" href="./bit_favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./resources/css/avater.css">
+    <!--    <link rel="stylesheet" type="text/css" href="https://open.lujiawei.com/web/msgsk/1/messages.css">-->
+    <script type="text/javascript" src="https://unpkg.com/wavesurfer.js@8.1.0/dist/wavesurfer.min.js"></script>
+    <script type="text/javascript" src="https://repo.bfw.wiki/bfwrepo/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div id="right-top"></div>
+<div id="left-top"></div>
+<div id="left-bottom"></div>
+<div id="right-bottom"></div>
+
+<div><a href="https://tang5618.com"><img src="resources/img/qt.png"
+                                         style="position: absolute;right:5%;top:5%;width: 5%" alt="qt"></a></div>
+
+<div class="tang"></div>
+<div class="circle" style="position: absolute;bottom: 8%;right: 11.8%;"></div>
+<iframe src="./tang.html" frameborder=0
+        style="position: absolute;right: 11.6%;bottom: 5%;z-index: 99;height: 200rem"></iframe>
+<!--<div><img src="resources/img/tang-ps.gif" style="position: absolute;right:12%;bottom:8%;width: 5%;border-radius:25%;"-->
+<!--          alt="">-->
+<!--</div>-->
+<div style="position: absolute;right:13.3%;bottom:1.8%;font-weight: bolder"><p style="color: black">Tang</p></div>
+
+<div class="yolk"></div>
+<div class="circle" style="position: absolute;bottom: 7%;right: 4.8%;"></div>
+<iframe src="./yolk.html" frameborder=0
+        style="position: absolute;right: 4%;bottom: 5%;z-index: 99;height: 200rem"></iframe>
+<!--<div><img src="resources/img/yolk-ps.gif" style="position: absolute;right:5%;bottom:7.5%;width: 5%;border-radius:25%;" alt="">-->
+<!--</div>-->
+<div style="position: absolute;right:6.5%;bottom:1.8%;font-weight: bolder"><p style="color: black">Yolk</p></div>
+
+<div class="music-player-container is-pausing">
+    <!--    <img src="./resources/assets/vip.svg"-->
+    <!--         style="position: absolute;width: 2.5rem;z-index: 55;margin-top: 2.5rem;margin-left: 3rem">-->
+    <!--    <div style="position: absolute; z-index: 55;font-weight: bolder;font-size: 24px;margin-top: 1.7rem;right:35%">-->
+    <!--        <p style="color: #515044">青春未散场</p>-->
+    <!--    </div>-->
+
+    <!--    <div class="scene"><img src="./resources/video/scene.mp4" alt=""></div>-->
+    <!--    <div class="scene"><img src="https://5618.oss-cn-beijing.aliyuncs.com/VIP/scene.mp4" alt=""></div>-->
+    <div id="scene" class="scene">
+        <video id="videoID" loop="loop">
+<!--                        <source src="/resources/video/scene.mp4" type="video/mp4"/>-->
+            <source src="https://5618.oss-cn-beijing.aliyuncs.com/VIP/scene.mp4" type="video/mp4"/>
+        </video>
+    </div>
+    <div class="mask"></div>
+
+    <div id="top"></div>
+    <div id="bottom"></div>
+    <div id="circle"></div>
+    <div id="disk"></div>
+    <div id="manner"></div>
+    <div id="corner"></div>
+    <div id="corner-right"></div>
+    <div id="high"></div>
+    <div id="low"></div>
+
+
+    <div class="progress-bar">
+        <div class="music">
+            <div class="info">
+                <div class="controls">
+                    <img src="./resources/assets/play.svg" id="playBtn" alt="">
+                    <img src="./resources/assets/stop.svg" id="stopBtn" alt="">
+                    <img src="./resources/assets/volume.svg" id="volumeBtn" alt="">
+                </div>
+                <div id="waveform"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lyric" style="float:left;position:absolute;width:auto;margin-left:0;z-index: 60">
+        <div id="timestamp" class="timestamp"
+             style="z-index: 20;font-weight: bolder;position: absolute;left: 50%;top:10%"></div>
+        <ul id="lrclist" style="transform: translateY(0px);width:500px"></ul>
+        <div id="stump"></div>
+    </div>
+
+    <div id="current-time"></div>
+
+    <div class="music-player">
+        <div class="player-content-container">
+
+        </div>
+    </div>
+
+    <div class="album">
+        <div class="vinyl"></div>
+    </div>
+
+
+</div>
+
+<script>
+    // var explorer = window.navigator.userAgent;
+
+    // var scene = document.getElementById("scene");
+    var bgvideo = document.getElementById("videoID");
+
+    // if (explorer.indexOf("Safari") >= 0) {
+    //     scene.innerHTML = "<video id=\"videoID\" loop=\"loop\">\n" +
+    //         "            <source src=\"/resources/video/scene.mp4\" type=\"video/mp4\"/>\n" +
+    //         "        </video>";
+    //     bgvideo = document.getElementById('videoID');  //获取，函数执行完成后local内存释放
+    // }else {
+    //     scene.innerHTML = "<div class=\"scene\"><img src=\"./resources/video/scene.mp4\" alt=\"\"></div>";
+    // }
+
+    var playBtn = document.getElementById('playBtn');
+    var stopBtn = document.getElementById('stopBtn');
+    var volumeBtn = document.getElementById('volumeBtn');
+    var timestamp = document.getElementById("timestamp")
+
+    var myDate = new Date();
+    var hour = myDate.getHours();       //获取当前小时数(0-23)
+    var minute = myDate.getMinutes();     //获取当前分钟数(0-59)
+    var morning = "";
+    if (hour < 12) morning = "上午";
+    else {
+        morning = "下午";
+        if (hour > 12)
+            hour -= 12;
+    }
+
+    if (minute < 10) minute = "0" + minute;
+    var time = morning + " " + hour + ":" + minute;
+
+
+    var wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        // waveColor: 'aqua',
+        progressColor: '#4D59F5',
+        barWidth: 3,
+        height: 50,
+        responsive: true,
+        hideScrollbar: true,
+        cursorColor: '#fff',
+        barRadius: 5,
+    });
+    wavesurfer.load('https://music.vipixel.net/resources/music/music.flac').catch(function(error) { window.__vipixelMusicLoadError = error; window.dispatchEvent(new CustomEvent('vipixel-music-error', { detail: error })); });
+
+    playBtn.onclick = function () {
+        timestamp.innerHTML = "<p style=\"color: white;\">" + time + "</p>"
+        wavesurfer.playPause();
+        if (playBtn.src.includes("play.svg")) {
+            playBtn.src = "./resources/assets/pause.svg";
+            $('.music-player-container').toggleClass('is-playing');
+            $('.music-player-container').toggleClass('is-pausing');
+
+            // if (explorer.indexOf("safari") < 0) {
+                bgvideo.play();
+            // }
+        } else {
+            playBtn.src = "./resources/assets/play.svg";
+            $('.music-player-container').toggleClass('is-pausing');
+            $('.music-player-container').toggleClass('is-playing');
+
+            // if (explorer.indexOf("safari") < 0) {
+                bgvideo.pause();
+            // }
+        }
+
+        stump.innerHTML = "<div id=\"msg5\" class=\"bubble\">\n" +
+            "            <div class=\"bubble-1\"></div>\n" +
+            "            <div class=\"dot-1\"></div>\n" +
+            "            <div class=\"dot-2\"></div>\n" +
+            "            <div class=\"dot-3\"></div>\n" +
+            "            <div class=\"bubble-2\"></div>\n" +
+            "            <div class=\"bubble-3\"></div>\n" +
+            "        </div>";
+    }
+
+    stopBtn.onclick = function () {
+        wavesurfer.stop();
+        if (!playBtn.src.includes("play.svg")) {
+            $('.music-player-container').toggleClass('is-pausing');
+            $('.music-player-container').toggleClass('is-playing');
+            playBtn.src = "./resources/assets/play.svg";
+        }
+    }
+
+    volumeBtn.onclick = function () {
+        wavesurfer.setMuted(!wavesurfer.getMuted());
+        if (volumeBtn.src.includes("volume.svg")) {
+            volumeBtn.src = "./resources/assets/mute.svg";
+        } else {
+            volumeBtn.src = "./resources/assets/volume.svg";
+        }
+    }
+
+    wavesurfer.on('finish', function () {
+        playBtn.src = "./resources/assets/play.svg";
+        wavesurfer.stop();
+        $('.music-player-container').toggleClass('is-pausing');
+        $('.music-player-container').toggleClass('is-playing');
+    });
+
+
+
+    // Lyrics remain on their existing public source. No lyric text is stored in this preview.
+    var vipixelLyricEntries = [];
+    var vipixelLyricNodes = [];
+    var vipixelLyricLine = -1;
+    var vipixelLyricList = document.getElementById('lrclist');
+    function vipixelRenderLyrics(at) {
+        if (!vipixelLyricEntries.length) return;
+        var next = -1;
+        for (var i = 0; i < vipixelLyricEntries.length; i++) {
+            if (vipixelLyricEntries[i].time <= at) next = i;
+            else break;
+        }
+        if (next < 0 || next === vipixelLyricLine) return;
+        vipixelLyricLine = next;
+        vipixelLyricNodes.forEach(function(li) { li.className = ''; li.style.animation = ''; });
+        var until = vipixelLyricEntries[next + 1] ? vipixelLyricEntries[next + 1].time : at + 4;
+        var duration = Math.max(.1, until - vipixelLyricEntries[next].time - .5);
+        vipixelLyricList.style.transform = 'translateY(' + (85 - next * 45.8) + 'px)';
+        if (next > 0) {
+            vipixelLyricNodes[next - 1].className = 'on greymsg-last';
+            vipixelLyricNodes[next - 1].style.animation = 'lfold-in .5s ease-in-out, lfold-out .5s ease-in-out ' + duration + 's';
+        }
+        vipixelLyricNodes[next].className = 'on bluemsg-last';
+        vipixelLyricNodes[next].style.animation = 'fold-in .5s ease-in-out, fold-out .5s ease-in-out ' + duration + 's';
+    }
+    if (typeof wavesurfer !== 'undefined' && wavesurfer) {
+        wavesurfer.on('timeupdate', vipixelRenderLyrics);
+        wavesurfer.on('seeking', function() { vipixelLyricLine = -1; vipixelRenderLyrics(wavesurfer.getCurrentTime()); });
+    }
+    (async function() {
+        var controller = new AbortController();
+        var timeout = setTimeout(function() { controller.abort(); }, 20000);
+        try {
+            var response = await fetch('https://music.vipixel.net/', { mode: 'cors', credentials: 'omit', cache: 'force-cache', signal: controller.signal });
+            if (!response.ok) throw new Error('Music text source unavailable (' + response.status + ')');
+            var source = await response.text();
+            var block = source.match(/\bvar\s+lrcJSON\s*=\s*\{([\s\S]*?)\}\s*;/);
+            if (!block) throw new Error('Music text source format changed');
+            var expression = /"(\[\d{2}:\d{2}\.\d{2}\])"\s*:\s*("(?:\\.|[^"\\])*")/g;
+            var match;
+            while ((match = expression.exec(block[1]))) {
+                var parts = match[1].slice(1, -1).split(':');
+                vipixelLyricEntries.push({ time: Number(parts[0]) * 60 + Number(parts[1]), text: JSON.parse(match[2]) });
+            }
+            if (!vipixelLyricEntries.length) throw new Error('Music text could not be read');
+            vipixelLyricEntries.sort(function(a, b) { return a.time - b.time; });
+            vipixelLyricList.textContent = '';
+            vipixelLyricEntries.forEach(function(entry) {
+                var li = document.createElement('li'), p = document.createElement('p');
+                p.textContent = entry.text; li.appendChild(p); vipixelLyricList.appendChild(li); vipixelLyricNodes.push(li);
+            });
+            if (typeof wavesurfer !== 'undefined' && wavesurfer) vipixelRenderLyrics(wavesurfer.getCurrentTime());
+        } catch (error) {
+            window.__vipixelMusicLyricsError = error;
+            window.dispatchEvent(new CustomEvent('vipixel-music-error', { detail: error }));
+        } finally { clearTimeout(timeout); }
+    })();
+</script>
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        window.requestAnimationFrame(getDate)
+    }
+
+    function getDate() {
+        window.setTimeout(function () {
+            window.requestAnimationFrame(getDate)
+        }, 1000 / 2)
+        var d = new Date();
+        var year = d.getFullYear()  //获取年
+        var month = d.getMonth() + 1;  //获取月，从 Date 对象返回月份 (0 ~ 11)，故在此处+1
+        var days = d.getDate() //获取日期
+        if (month < 10) month = "0" + month
+        if (days < 10) days = "0" + days
+
+        var months = new Array("Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun", "Jul", "Aug", "Sept.", "Oct.", "Nov.", "Dec.")
+        var Tools = document.getElementById("corner-right")
+        var da = months[month - 1] + " " + days + " " + year
+        // var da = year + " 年 " + month + " 月 " + days + " 日 "
+        Tools.innerHTML = "<p style='color: black;font-size: 8.5pt;position: absolute;margin-top: 2rem;margin-left:0.3rem;font-weight: bolder;'>" + da + "</p>"
+    }
+</script>
+
+
+<script>
+(function() {
+    'use strict';
+    var expectedOrigin = location.origin;
+    var player = typeof wavesurfer !== 'undefined' ? wavesurfer : null;
+    var ready = false, refresh = 0, lastSent = 0, disposed = false;
+    var background = document.getElementById('videoID');
+    var play = document.getElementById('playBtn');
+    var stop = document.getElementById('stopBtn');
+    var volume = document.getElementById('volumeBtn');
+    var container = document.querySelector('.music-player-container');
+    function shortError(error) {
+        return String(error && error.message ? error.message : error || 'Music room error').replace(/\s+/g, ' ').slice(0, 160);
+    }
+    function finite(value) { return Number.isFinite(value) && value >= 0 ? value : 0; }
+    function postState(error, force) {
+        if (disposed || window.parent === window || expectedOrigin === 'null') return;
+        var now = performance.now();
+        if (!force && !error && now - lastSent < 180) return;
+        lastSent = now;
+        var state = { type: 'vipixel-music-state', ready: ready, currentTime: 0, duration: 0, playing: false };
+        try {
+            if (player) {
+                state.currentTime = finite(player.getCurrentTime());
+                state.duration = finite(player.getDuration());
+                state.playing = player.isPlaying();
+            }
+            if (error) state.error = shortError(error);
+            window.parent.postMessage(state, expectedOrigin);
+        } catch (_) {}
+    }
+    function synchronizeOriginalUI() {
+        if (!player) return;
+        var playing = player.isPlaying();
+        if (play) play.src = playing ? 'https://music.vipixel.net/resources/assets/pause.svg' : 'https://music.vipixel.net/resources/assets/play.svg';
+        if (container) { container.classList.toggle('is-playing', playing); container.classList.toggle('is-pausing', !playing); }
+        if (background) {
+            background.muted = true;
+            if (playing) { var promise = background.play(); if (promise && promise.catch) promise.catch(function() {}); }
+            else background.pause();
+        }
+        if (playing && !refresh) refresh = setInterval(function() { postState(null, true); }, 500);
+        if (!playing && refresh) { clearInterval(refresh); refresh = 0; }
+    }
+    async function toggleFromUserAction() {
+        if (!player || !ready) { postState(new Error('Audio is still loading; click play again when ready.'), true); return; }
+        try {
+            if (player.isPlaying()) player.pause();
+            else await player.play();
+            synchronizeOriginalUI(); postState(null, true);
+        } catch (error) { postState(error, true); }
+    }
+    window.addEventListener('message', function(event) {
+        if (event.source !== window.parent || event.origin !== expectedOrigin) return;
+        var data = event.data;
+        if (!data || data.type !== 'vipixel-music-command' || typeof data.action !== 'string') return;
+        if (!player) { postState(new Error('Player library unavailable.'), true); return; }
+        if (data.action === 'toggle') { toggleFromUserAction(); return; }
+        if (data.action === 'pause') {
+            player.pause(); synchronizeOriginalUI(); postState(null, true); return;
+        }
+        if (data.action === 'seek') {
+            if (!ready) { postState(new Error('Audio is still loading.'), true); return; }
+            if (typeof data.ratio !== 'number' || !Number.isFinite(data.ratio)) { postState(new Error('Invalid seek position.'), true); return; }
+            try {
+                player.seekTo(Math.max(0, Math.min(1, data.ratio)));
+                if (typeof vipixelRenderLyrics === 'function') { vipixelLyricLine = -1; vipixelRenderLyrics(player.getCurrentTime()); }
+                postState(null, true);
+            } catch (error) { postState(error, true); }
+        }
+    });
+    window.addEventListener('vipixel-music-error', function(event) { postState(event.detail, true); });
+    if (!player) { postState(new Error('Player library unavailable.'), true); return; }
+    try { ready = !!player.getDecodedData(); } catch (_) {}
+    player.on('ready', function() { ready = true; synchronizeOriginalUI(); postState(null, true); });
+    player.on('timeupdate', function() { postState(null, false); });
+    player.on('seeking', function() { postState(null, true); });
+    player.on('play', function() { synchronizeOriginalUI(); postState(null, true); });
+    player.on('pause', function() { synchronizeOriginalUI(); postState(null, true); });
+    player.on('finish', function() { synchronizeOriginalUI(); postState(null, true); });
+    player.on('error', function(error) { postState(error, true); });
+    if (play) play.onclick = toggleFromUserAction;
+    if (stop) stop.onclick = function() { player.pause(); if (ready) player.seekTo(0); synchronizeOriginalUI(); postState(null, true); };
+    if (volume) volume.onclick = function() {
+        player.setMuted(!player.getMuted());
+        volume.src = player.getMuted() ? 'https://music.vipixel.net/resources/assets/mute.svg' : 'https://music.vipixel.net/resources/assets/volume.svg';
+    };
+    if (window.__vipixelMusicLoadError) postState(window.__vipixelMusicLoadError, true);
+    else if (window.__vipixelMusicLyricsError) postState(window.__vipixelMusicLyricsError, true);
+    else postState(null, true);
+    window.addEventListener('pagehide', function() {
+        player.pause(); if (refresh) clearInterval(refresh); refresh = 0;
+        if (background) background.pause(); disposed = true;
+    }, { once: true });
+    window.vipixelMusicBridge = { getState: function() { return { ready: ready, currentTime: finite(player.getCurrentTime()), duration: finite(player.getDuration()), playing: player.isPlaying(), origin: expectedOrigin }; } };
+})();
+</script>
+
+</body>
+</html>
