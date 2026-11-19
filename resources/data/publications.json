@@ -19,6 +19,10 @@
       "project": "",
       "paper": "https://ieeexplore.ieee.org/document/11578184",
       "code": ""
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/symmetric-entropy-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/symmetric-entropy-first-page.png"
     }
   },
   {
@@ -39,6 +43,10 @@
       "project": "",
       "paper": "https://www.sciencedirect.com/science/article/pii/S0031320326010551",
       "code": ""
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/perceiving-degradation-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/perceiving-degradation-first-page.png"
     }
   },
   {
@@ -77,6 +85,10 @@
       "project": "https://project.vipixel.net/AceVSR/",
       "paper": "http://www.aas.net.cn/cn/article/doi/10.16383/j.aas.c240235",
       "code": ""
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/aas-vsr-review-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/aas-vsr-review-first-page.png"
     }
   },
   {
@@ -96,6 +108,10 @@
       "project": "",
       "paper": "https://arxiv.org/pdf/2506.11768",
       "code": ""
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/mambavsr-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/mambavsr-first-page.png"
     }
   },
   {
@@ -114,6 +130,10 @@
       "project": "",
       "paper": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/f358b2a880adf34939d2d6f926e54d2a-Abstract-Conference.html",
       "code": ""
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/seeclear-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/seeclear-first-page.png"
     }
   },
   {
@@ -133,6 +153,10 @@
       "project": "",
       "paper": "https://ojs.aaai.org/index.php/AAAI/article/view/28321",
       "code": "https://github.com/Tang1705/Semantic-Lens-AAAI24"
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/semantic-lens-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/semantic-lens-first-page.png"
     }
   },
   {
@@ -152,6 +176,10 @@
       "project": "",
       "paper": "https://ieeexplore.ieee.org/abstract/document/10890509",
       "code": ""
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/data-vsr-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/data-vsr-first-page.png"
     }
   },
   {
@@ -172,6 +200,10 @@
       "project": "",
       "paper": "https://ieeexplore.ieee.org/abstract/document/10887975",
       "code": ""
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/alic-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/alic-first-page.png"
     }
   },
   {
@@ -192,6 +224,10 @@
       "project": "",
       "paper": "https://ieeexplore.ieee.org/document/10687524",
       "code": ""
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/noisy-residual-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/noisy-residual-first-page.png"
     }
   },
   {
@@ -212,6 +248,10 @@
       "project": "",
       "paper": "https://ieeexplore.ieee.org/document/10688317",
       "code": ""
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/tlvc-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/tlvc-first-page.png"
     }
   },
   {
@@ -233,6 +273,10 @@
       "project": "",
       "paper": "https://dl.acm.org/doi/pdf/10.1145/3474085.3475373",
       "honor": "https://jw.beijing.gov.cn/xxgk/zxxxgk/202111/t20211119_2540974.html"
+    },
+    "preview": {
+      "thumbnail": "resources/images/paper-previews/bridgenet-first-page-thumb.jpg",
+      "full": "resources/images/paper-previews/bridgenet-first-page.png"
     }
   }
 ]
