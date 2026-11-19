@@ -142,3 +142,37 @@ html{scrollbar-gutter:stable;}
 @media(max-width:1000px){.footer>span{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);justify-items:center;gap:20px 32px;}.footer>span>a{max-width:100%;}.footer .copyright{margin-top:18px!important;}.footer img[src*="nju_logo"]{width:310px;}.footer img[src*="cs_logo"]{width:240px;}.footer img[src*="sse_logo"]{width:260px;}.footer img[src*="sem_logo"]{width:145px;}}
 @media(max-width:600px){.footer{width:calc(100% - 40px);padding-top:22px!important;padding-bottom:10px!important;}.footer>span{gap:18px 16px;}.footer>span>a:nth-child(4){justify-self:center;max-width:115px;}.footer .copyright{margin-top:18px!important;font-size:11px;white-space:normal;}.footer img{min-height:0;}.footer-signature{white-space:nowrap;}}
 @media(max-width:600px){.quote{background-size:cover!important;}}
+
+/* Center the shortcuts independently of their font baselines. */
+.contacts{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:.5rem;
+    margin-inline:0;
+}
+.contacts .contact{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 2.2em;
+    width:2.2em;
+    height:2.2em;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    border-radius:50%;
+    font-size:inherit;
+    line-height:1;
+}
+.contacts .contact>i,.contacts .contact-emoji{
+    display:block;
+    width:1.25em;
+    height:1em;
+    margin:0;
+    padding:0;
+    font-size:1em;
+    line-height:1;
+    text-align:center;
+}
