@@ -116,10 +116,10 @@ a:visited, a:hover, a:active {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    /* 圆锥渐变：从红色到紫色再到白色 */
+    /* 圆锥渐变：从深蓝色到紫色再到白色 */
     background: conic-gradient(
             #fbfbfd 45deg,      /* 顶部 */
-            #b6262c 90deg,     /* 右侧 */
+            #003B6F 90deg,     /* 右侧 */
             #4d0099 135deg,    /* 底部 */
             #fbfbfd 215deg,    /* 左侧 */
             #fbfbfd 360deg     /* 闭合 */
